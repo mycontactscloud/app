@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang=es-ES>
+<head>
+<meta charset=utf-8>
+<style>body{margin:20px 10px;padding:0;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-size:14px}#calendar{max-width:1100px;margin:0 auto;background:#fff}@media (max-width:767px){.fc-toolbar.fc-header-toolbar{display:flex;flex-direction:column}.fc-toolbar.fc-header-toolbar .fc-toolbar-chunk:first-child{order:3}.fc-toolbar.fc-header-toolbar .fc-toolbar-chunk:nth-child(2){order:2}.fc-toolbar.fc-header-toolbar .fc-toolbar-chunk:nth-child(3){order:1}}@media print{.fc-toolbar.fc-header-toolbar .fc-toolbar-chunk:first-child,.fc-toolbar.fc-header-toolbar .fc-toolbar-chunk:nth-child(3),.print-hide{display:none!important}}.success2{background:#d0e8f9;font-weight:700}</style>
+</head>
+<body>
+<div class="container-fluid bg-white">
+<div id=calendario_eventos data-bs-toggle=tooltip class=mt-2></div>
+<div class="row gx-2 gy-2 mt-2 print-hide">
+<div class="col-auto align-self-center">
+<ul>
+<li><mark><span>Añade un evento, reunión o tarea con el botón del signo + que está arriba. También puedes añadirlo haciendo un clic o manteniendo presionado el dedo durante un segundo.</span></mark></li>
+<li><mark><span>En la vista del mes, si haces clic o presionas el número del día, accederás a la vista diaria.</span></mark></li>
+<li><mark><span>Arrastra y suelta un evento con el ratón o presionando previamente el dedo durante un segundo. Además de moverlo, podrás cambiar su tamaño.</span></mark></li>
+</ul>
+</div>
+</div>
+<div id=msjEventos></div>
+</div>
+</body>
+<div class="modal fade" id=modalEvento tabindex=-1 data-bs-backdrop=false data-bs-keyboard=false aria-labelledby=staticBackdropLabel aria-hidden=true aria-label="Aria Name">
+<div class="modal-dialog modal-xl modal-ajustada">
+<div class=modal-content>
+<form id=formEvento>
+<div class="modal-header bg-dark bg-gradient sticky-top">
+<div class=col-auto>
+<a class="navbar-brand text-warning" id=exampleModalLabel_eventos><span>Evento</span></a>
+</div>
+<div class=col-auto style=text-align:right>
+<div class=btn-group role=group>
+<button type=button class="btn btn-danger text-white btn-sm me-4" id=eliminar_eventos value=eliminar title="Eliminar evento" data-bs-toggle=tooltip onClick="mostrarModal(tExp('¿Eliminar evento?', ''), confirmacionEliminar)"><i class="bi bi-trash3-fill"></i> </button>
+</div>
+<div class=btn-group role=group>
+<button type=submit class="btn btn-success me-2" id=aceptar_eventos value=Aceptar title="Guardar cambios" data-bs-toggle=tooltip onclick="salirFormEventoSubmit=!1,salirModalEvento=!1"><i class="bi bi-check-circle"></i> </button>
+</div>
+<div class=btn-group role=group>
+<button type=reset class="btn btn-warning btn-sm" id=cancelar_eventos value=Cancelar title="Cancelar cambios" data-bs-toggle=tooltip><i class="bi bi-x-circle"></i> </button>
+</div>
+<div class="btn-group ms-2" role=group>
+<button type=button class="btn-close btn-close-white btn-lg" data-bs-dismiss=modal aria-label=Close onclick="salidaModalEvento=0"></button>
+</div>
+</div>
+</div>
+<div class="modal-body bg-primary bg-opacity-25">
+<div class=container-fluid>
+<div class="row justify-content-start align-content-center gx-3 gy-2">
+<div class="col-auto align-self-center">
+<div class="form-check form-switch">
+<input class=form-check-input type=checkbox role=switch id=todoeldia_eventos>
+<label class=form-check-label for=todoeldia_eventos id=etTodoElDia_eventos><span>Todo el día</span></label>
+</div>
+</div>
+<div class="col-auto form-floating">
+<input type=datetime-local name=fechaini id=fechaini_eventos title="Fecha/hora de inicio del evento" data-bs-toggle=tooltip class=form-control><label for=fechaini_eventos>Inicio</label>
+</div>
+<div class="col-auto form-floating">
+<input type=datetime-local name=fechafin id=fechafin_eventos title="Fecha/hora del fin del evento" data-bs-toggle=tooltip class=form-control><label for=fechafin_eventos>Fin</label>
+</div>
+<div class="col-auto align-self-center">
+<label class="radio-inline control-label">Color &nbsp;</label>
+<input type=radio class=btn-check name=color id=color1_eventos value=1>
+<label class="btn btn-outline-primary border-3 focus-ring" for=color1_eventos autocomplete=off></label>
+<input type=radio class=btn-check name=color id=color2_eventos value=2>
+<label class="btn btn-outline-success border-3 focus-ring" for=color2_eventos autocomplete=off></label>
+<input type=radio class=btn-check name=color id=color3_eventos value=3>
+<label class="btn btn-outline-danger border-3 focus-ring" for=color3_eventos autocomplete=off></label>
+<input type=radio class=btn-check name=color id=color4_eventos value=4>
+<label class="btn btn-outline-warning border-3 focus-ring" for=color4_eventos autocomplete=off></label>
+<input type=radio class=btn-check name=color id=color5_eventos value=5>
+<label class="btn btn-outline-dark border-3 focus-ring" for=color5_eventos autocomplete=off></label>
+</div>
+</div>
+<div class="row justify-content-between align-content-center gx-3 gy-2 mt-2 mfil">
+<div class=col-12>
+<input name=titulo id=titulo_eventos required placeholder=Título maxlength=50 size=50 class=form-control title=Título data-bs-toggle=tooltip>
+</div>
+</div>
+<div class="row justify-content-between gx-3 gy-2 mt-2 mfil">
+<div class=col-12>
+<textarea name=descripcion id=descripcion_eventos placeholder=Descripción maxlength=255 size=255 class="form-control editor" title="Descripción (opcional)" data-bs-toggle=tooltip></textarea>
+</div>
+</div>
+<div class="row justify-content-between gx-3 gy-2 mt-2 mfil">
+<div class="col-md-6 col-12">
+<div class=input-group>
+<input name=lugar id=lugar_eventos placeholder=Lugar maxlength=255 size=255 class=form-control title="Lugar (opcional)" data-bs-toggle=tooltip>
+<div class=input-group-append>
+<button type=button class="btn btn-primary" id=abrirGM_eventos title="Abrir Google Maps" data-bs-toggle=tooltip onclick='abrirGoogleMaps(lugar_eventos.value,"","","","")'><i class="bi bi-geo-alt-fill" style=font-size:1rem;color:currentColor></i></button>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-12">
+<div class=input-group>
+<input type=url name=www id=www_eventos placeholder="Dirección web" maxlength=255 size=255 class=form-control title="Dirección web (opcional)" data-bs-toggle=tooltip>
+<div class=input-group-append>
+<button type=button class="btn btn-primary ml-auto" id=abrirWeb_eventos title="Visitar web" data-bs-toggle=tooltip onclick=hiperenlace(www_eventos.value,4)><i class="bi bi-globe2" style=font-size:1rem;color:currentColor></i></button>
+</div>
+</div>
+</div>
+</div>
+<div class="row justify-content-start gx-3 gy-2 mt-2 mb-1 mfil">
+<div class="col-md-6 col-12">
+<div class="row gx-2 gy-2">
+<div class=col-auto>
+<select name=appReunion id=appReunion_eventos class=form-select title="App reunión online" data-bs-toggle=tooltip>
+<option value=0>Ninguna app</option>
+<option value=1>Google Meet</option>
+<option value=2>Microsoft Teams</option>
+<option value=3>Zoom</option>
+</select>
+</div>
+<div class="col-auto flex-grow-1" id=idReunionB_eventos>
+<div class=input-group>
+<input name=idReunion id=idReunion_eventos placeholder="Id. reunión" class=form-control title="Id. de reunión (opcional)" data-bs-toggle=tooltip>
+<div class=input-group-append>
+<button type=button class="btn btn-primary ml-auto" id=abrirReunion_eventos title="Unirme a la reunión" data-bs-toggle=tooltip onclick=abrirWebReunion()><i class="bi bi-person-workspace" style=font-size:1rem;color:currentColor></i></button>
+</div>
+</div>
+</div>
+<div class=col-auto id=passReunionB_eventos>
+<input name=passReunion id=passReunion_eventos placeholder="Código de acceso" class=form-control title="Código de acceso a la reunión (opcional)" data-bs-toggle=tooltip>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-12" id=adjuntar1_eventos>
+<div class="row gx-2 gy-2">
+<div class=col-6>
+<button type=button class="btn btn-primary ml-auto" id=adjuntar_eventos title="Adjuntar ficheros" data-bs-toggle=tooltip onClick="salidaModalEvento = 1; localStorage.setItem('tfGesDoc', 84); localStorage.setItem('numGesDoc', window.idEvento); nombrePersonaContacto = ''; cambioDiv('eventos', 'documentos', 1, 0);"><i class="bi bi-folder-symlink" style=font-size:1rem;color:currentColor></i>&nbsp;<span>Adjuntar ficheros</span></button>
+</div>
+<div class=col-6>
+</div>
+</div>
+</div>
+</div>
+</div></div></form>
+<div class="row justify-content-between align-content-center gx-0 gy-2 mt-3" id=fila1>
+<div class="col-auto align-self-center d-md-block d-lg-none mt-1 mb-1">
+<button class="btn btn-dark dropdown-toggle" type=button id=MenuMovil1_eventos data-bs-toggle=dropdown aria-expanded=false>
+<i class="bi bi-list" style=font-size:1rem;color:currentColor></i> </button>
+<ul class=dropdown-menu aria-labelledby=MenuMovilDD>
+<li id=nuevoParticipante_eventos>
+<button class="btn btn-link dropdown-item" onclick='if(!dEstSuscrip(msjModEvento))return!1;salirFormEventoSubmit=!0,salidaModalEvento=1,salirModalEvento=!0,""==localStorage.getItem("codContactoNlistadoEventos")&&cambioDiv("eventos","contactos",1,0)'>
+<i class="bi bi-person-plus-fill" style=font-size:1rem;color:currentColor></i> <span>Nuevo participante</span>
+</button>
+</li>
+<li id=eliminarParticipante_eventos>
+<button class="btn btn-link dropdown-item" onclick='if(!dEstSuscrip(msjModEvento))return!1;salirModalEvento=!0,eliReg("tabParticipantes","success2","ccn",msjModEvento)'>
+<i class="bi bi-person-dash-fill" style=font-size:1rem;color:currentColor></i> <span>Eliminar participante</span>
+</button>
+</li>
+<li><hr class=dropdown-divider></li>
+<li class=dropend>
+<button class="btn btn-link dropdown-item dropdown-toggle" type=button data-bs-toggle=dropdown aria-expanded=false id=opcionesTablaSubmenuCl_eventos>
+<i class="bi bi-table" style=font-size:1rem;color:currentColor></i> <span>Tabla</span>
+</button>
+<ul class="submenu dropdown-menu" aria-labelledby=opcionesTablaSubmenuCl_eventos id=opcion1_eventos>
+<li class=dropend>
+<button class="btn btn-link dropdown-item dropdown-toggle" type=button data-bs-toggle=dropdown aria-expanded=false id=opcionesExportarSubmenuCl_eventos>
+<i class=bi-cloud-download style=font-size:1rem;color:currentColor></i> <span>Exportar a</span>
+</button>
+<ul class="submenu submenu1 dropdown-menu" aria-labelledby=opcionesExportarSubmenuCl_eventos>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","pdf",msjModEvento)'>PDF</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","xlsx",msjModEvento)'>Excel</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","ods",msjModEvento)'>ODS</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","csv",msjModEvento)'>CSV</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","txt",msjModEvento)'>TXT</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","json",msjModEvento)'>JSON</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","xml",msjModEvento)'>XML</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","html",msjModEvento)'>HTML</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","sql",msjModEvento)'>SQL</button>
+</li>
+</ul>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='salirModalEvento=!0,salirFormEventoSubmit=!0,modalColTab("modalColTabParticipantes","colTabParticipantes","tabParticipantes")'>
+<i class="bi bi-layout-three-columns" style=font-size:1rem;color:currentColor></i> <span>Mostrar columnas</span>
+</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='valorTarjeta("tabParticipantes")'>
+<i class="bi bi-card-list" style=font-size:1rem;color:currentColor></i> <span>Tarjeta/Tabla</span>
+</button>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="col-auto align-self-center d-none d-lg-block mt-1 mb-1">
+<div class=btn-group role=group>
+<button class="btn btn-sm" id=nuevoParticipante1_eventos title="Nuevo participante" data-bs-toggle=tooltip onclick='if(!dEstSuscrip())return!1;salirFormEventoSubmit=!0,salidaModalEvento=1,salirModalEvento=!0,""==localStorage.getItem("codContactoNlistadoEventos")&&cambioDiv("eventos","contactos",1,0)'>
+<i class="bi bi-person-plus-fill" style=font-size:1.4rem;color:currentColor></i>
+</button>
+<button class="btn btn-sm" id=eliminarParticipante1_eventos title="Eliminar participante" data-bs-toggle=tooltip onclick='if(!dEstSuscrip())return!1;salirModalEvento=!0,eliReg("tabParticipantes","success2","ccn",msjModEvento)'>
+<i class="bi bi-person-dash-fill" style=font-size:1.4rem;color:currentColor></i>
+</button>
+</div>
+<div class=btn-group role=group>
+<button type=button class="btn btn-sm dropdown-toggle" data-bs-toggle=dropdown title="Exportar tabla" data-bs-toggle=tooltip><i class=bi-cloud-download style=font-size:1rem;color:currentColor></i></button>
+<ul class=dropdown-menu>
+<li>
+<h5 class=dropdown-header><span>Exportar a</span>:</h5>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","pdf")'>PDF</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","xlsx")'>Excel</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","ods")'>ODS</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","csv")'>CSV</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","txt")'>TXT</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","json")'>JSON</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","xml")'>XML</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","html")'>HTML</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabParticipantes","Participantes","Participantes","landscape","sql")'>SQL</button>
+</li>
+</ul>
+<button class="btn btn-sm" title="Mostrar columnas" data-bs-toggle=tooltip onclick='salirModalEvento=!0,salirFormEventoSubmit=!0,modalColTab("modalColTabParticipantes","colTabParticipantes","tabParticipantes")'>
+<i class="bi bi-layout-three-columns" style=font-size:1.4rem;color:currentColor></i>
+</button>
+</div>
+</div>
+<div class="col-auto align-self-center d-none d-lg-block mt-1 mb-1">
+<a class=navbar-brand style=font-weight:700 id=tituloTabla_eventos><span>Participantes</span></a>
+</div>
+<div class="col-auto align-self-center mt-1 mb-1">
+<input type=search id=buscar_eventos class=form-control placeholder=Buscar onchange='buscarAhora("tabParticipantes","buscar1")' title="Buscar en la tabla" data-bs-toggle=tooltip>
+</div>
+<div class="col-auto align-self-center mt-1 mb-1">
+<div class="form-check form-switch btn-sm d-none d-lg-block">
+<input class=form-check-input type=checkbox id=vistaTarjeta_eventos title="Vista de tarjeta" data-bs-toggle=tooltip onchange='valorTarjeta("tabParticipantes")'>
+<label class=form-check-label for=vistaTarjeta_eventos><span>Tarjeta</span></label>
+</div>
+</div>
+</div>
+<table class="table table-striped table-hover table-responsive bg-white" data-page-number=1 id=tabParticipantes data-url="" data-method=post data-locale=es-sp data-toggle=table data-id-field=ccn data-undefined-text="" data-unique-id=ccn data-search=true data-show-search-button=false data-search-selector=#buscar_eventos data-search-highlight=true data-search-on-enter-key=false data-side-pagination=client data-pagination=false data-show-pagination-switch=false data-id-table=tabParticipantes data-click-to-select=true data-single-select=true data-virtual-scroll=false data-icons-prefix=bi data-icons=icons data-export-data-type=all data-sort-name=per data-sort-order=asc data-auto-refresh=false data-show-auto-refresh=false data-detail-view=true data-detail-formatter=detailFormatter1participantes>
+<thead class="bg-dark text-light">
+<tr>
+<th data-field=ccn data-sortable=false data-visible=false data-searchable=false data-switchable=false data-print-ignore=true data-force-hide=true data-card-visible=false>CodContactoN</th>
+<th data-field=map data-sortable=false data-searchable=false data-visible=true data-print-ignore=true data-force-hide=true data-card-visible=false data-align=center data-formatter=mapFormato><i class="bi bi-geo-alt-fill"></i></th>
+<th data-field=cod data-sortable=true data-visible=false>Código</th>
+<th data-field=per data-sortable=true>Nombre</th>
+<th data-field=te1 data-sortable=true>Teléfono 1</th>
+<th data-field=te2 data-sortable=true>Teléfono 2</th>
+<th data-field=cor data-sortable=true>E-mail</th>
+<th data-field=www data-sortable=true>Web</th>
+<th data-field=dom data-sortable=true data-visible=false>Dirección</th>
+<th data-field=cpo data-sortable=true data-visible=false>C. P.</th>
+<th data-field=pob data-sortable=true data-visible=false>Población</th>
+<th data-field=pro data-sortable=true data-visible=false>Provincia</th>
+<th data-field=pai data-sortable=true data-visible=false>País</th>
+<th data-field=car data-sortable=true>Cargo</th>
+<th data-field=dep data-sortable=true>Departamento</th>
+<th data-field=nom data-sortable=true>Empresa</th>
+<th data-field=nif data-sortable=true data-visible=false>NIF</th>
+<th data-field=rol data-sortable=true data-visible=false>Rol</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<div id=colTabParticipantes></div>
+<div id=msjModEvento></div>
+</div>
+</div>
+</div>
+
+</html>

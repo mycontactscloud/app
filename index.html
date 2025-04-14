@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang=es-ES>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=language content=Spanish>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=manifest href=manifest.json>
+<link href=https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css rel=stylesheet integrity=sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3 crossorigin=anonymous>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css integrity="sha256-9kPW/n5nn53j4WMRYAxe9c1rCY96Oogo/MKSVdKzPmI=" crossorigin=anonymous>
+<link rel="shortcut icon" href=https://cdn.jsdelivr.net/gh/mycontactscloud/app/im/icon192.png>
+<title>My Contacts Cloud</title>
+<style>body,html{height:100%;margin:0;padding:0}.modal-backdrop{background:radial-gradient(circle at center,#ffe9a8 0,#f8f9fa 50%,#c8ecd7 100%)!important;opacity:1!important}#loginButton{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;font-size:15px;font-weight:600;color:#fff;background-color:#2f2f2f;display:flex;height:41px;padding-left:12px;padding-right:12px;align-items:center;cursor:pointer}#loginButton img{margin-right:12px}</style>
+</head>
+<body>
+<script>let deferredPrompt=null;function getCountryCodeAndLanguage(){return fetch("https://ipapi.co/json/").then((e=>e.json())).then((e=>e&&e.country_code?`${navigator.language.substring(0,2)}-${e.country_code}`:navigator.language||navigator.userLanguage)).catch((e=>navigator.language||navigator.userLanguage))}function handleCredentialResponse(e){let o=jwtDecode(e.credential);validarIniSesion(1,o.sub,o.given_name,o.email,"")}function abrirWeb(){var e=localStorage.getItem("idiomaPais"),o=e?e.substring(0,2).toLowerCase():"";"en"==o&&(o=""),""!=o&&(o="/"+o);var n=".."+o+"/index.html#install";location.replace(n)}window.addEventListener("beforeinstallprompt",(e=>{console.log("Evento beforeinstallprompt detectado."),e.preventDefault(),deferredPrompt=e,document.getElementById("instalarApp").style.display="block",document.getElementById("credenciales").style.display="none",document.getElementById("piePagIndex").style.display="none",btnInstalarApp.addEventListener("click",(()=>{deferredPrompt&&(console.log("Mostrando el prompt de instalación."),deferredPrompt.prompt(),deferredPrompt.userChoice.then((e=>{console.log("Usuario eligió:",e.outcome),"accepted"===e.outcome&&(console.log("PWA instalada. Intentando abrir..."),setTimeout((()=>{window.location.href=window.location.origin}),500))})),deferredPrompt=null)}))})),"serviceWorker"in navigator&&window.addEventListener("load",(function(){navigator.serviceWorker.register("sw.js").then((e=>{console.log("Service Worker registrado con éxito con alcance:",e.scope)})).catch((e=>{console.log("Registro de Service Worker fallido:",e)}))})),document.addEventListener("DOMContentLoaded",(function(e){pantallaCompletaIOS();var o=localStorage.getItem("idiomaPais");null==o||""==o?getCountryCodeAndLanguage().then((e=>{o=seleccionarIdioma(e,!1),localStorage.setItem("idiomaPais",o),window.idIdioGoogle=o,"ca-ES"===o&&(window.idIdioGoogle="ca"),libIdioma(o,2)})):(window.idIdioGoogle=o,"ca-ES"===o&&(window.idIdioGoogle="ca"),libIdioma(o,2))})),window.onload=function(){google.accounts.id.initialize({client_id:"968670907013-pn8b7vp24u7093h9t62tnj05aqi8aqq3.apps.googleusercontent.com",callback:handleCredentialResponse,auto_select:!0});const e=document.getElementById("accesoGoogle");google.accounts.id.renderButton(e,{theme:"filled_black",text:"signin_with",shape:"square",locale:window.idIdioGoogle}),google.accounts.id.prompt()}</script>
+<div class=container-fluid>
+<div class="modal fade" id=accesoUsuario tabindex=-1 data-bs-backdrop=static data-bs-keyboard=false aria-labelledby=staticBackdropLabel aria-label="Aria Name" aria-hidden=true>
+<div class="modal-dialog modal-fullscreen-sm-down">
+<div class=modal-content>
+<div class="modal-header bg-dark bg-gradient">
+<img src=https://cdn.jsdelivr.net/gh/mycontactscloud/app/im/icon192.png alt="icon My Contacts Cloud" width=32 height=32 class="d-inline-block align-text-top">
+<h5 class="modal-title text-white">&nbsp;<strong> My Contacts Cloud</strong></h5>
+<button type=button class="btn-close btn-close-white btn-lg" data-bs-dismiss=modal aria-label=Close onclick=abrirWeb()></button>
+</div>
+<div class="modal-body bg-success bg-opacity-50 bg-gradient">
+<section id=instalarApp style=display:none>
+<div class="row justify-content-center align-items-center mt-3 mb-3">
+<div class="col-auto text-center">
+<p class="fs-5 fw-semibold" id=txtInvitacionInstalar>
+Instala nuestra app y accede más rápido a todas sus funciones.
+</p>
+<div class="d-flex justify-content-center">
+<button type=button class="btn btn-dark bg-gradient d-flex align-items-center" id=btnInstalarApp>
+<i class="bi bi-window-plus" style=font-size:2rem;color:orange></i>
+<span class="fs-6 ms-2" id=txtbtnInstalarApp>Instalar App</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<section id=credenciales>
+<figure class=text-center>
+<blockquote class=blockquote>
+<span class="text-success fw-bold">Inicio de sesión</span>
+</blockquote>
+</figure>
+<div id=bloqSesiones>
+<div class="row justify-content-center align-items-center mb-3">
+<div class=col-auto>
+<small><span>Recomendamos el inicio de sesión con una cuenta de Google, Microsoft o Apple por su rapidez y comodidad. También garantiza una recepción más segura de los mensajes de correo.</span></small>
+</div>
+</div>
+<div class="row justify-content-center align-items-center mt-2 mb-2">
+<div class=col-auto>
+<div id=accesoGoogle></div>
+</div>
+</div>
+<div class="row justify-content-center align-items-center mt-3 mb-2">
+<div class=col-auto>
+<div id=loginButton onclick=iniciarSesionMicrosoft()>
+<img src=im/logomicrosoft.svg alt="Microsoft Logo"><span>Iniciar sesión en Microsoft</span>
+</div>
+</div>
+</div>
+<div class="row justify-content-center align-items-center mt-3 mb-2">
+<div class=col-auto>
+<div id=appleid-signin class=signin-button data-color=black data-type="sign in" data-border=false data-border-radius=0 data-height=41 data-width=230></div>
+<script>function getBrowserLanguage(){return navigator.language||navigator.userLanguage||navigator.browserLanguage||"en_US"}const languageMap={en:"en_US",es:"es_ES",de:"de_DE",it:"it_IT",fr:"fr_FR",pt:"pt_PT",ca:"ca_ES",gl:"es_ES"},browserLanguage=getBrowserLanguage().toLowerCase().substring(0,2),appleIdLanguage=languageMap[browserLanguage]||"en_US",scriptUrl=`https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/${appleIdLanguage}/appleid.auth.js`,scriptElement=document.createElement("script");scriptElement.type="text/javascript",scriptElement.src=scriptUrl,scriptElement.defer=!0,scriptElement.onload=function(){console.log("Apple Sign-in script loaded successfully")},scriptElement.onerror=function(){console.error("Error loading Apple Sign-in script")},document.head.appendChild(scriptElement),setTimeout((function(){AppleID.auth.init({clientId:"cloud.mycontacts",scope:"email name",redirectURI:"https://mycontacts.cloud/app/index.html",usePopup:!0})}),1e3),document.addEventListener("AppleIDSignInOnSuccess",(e=>{let t=e.detail.authorization.id_token;localStorage.setItem("appleAccessToken",t);let a=jwtDecode(t),n="";e.detail.user&&(n=e.detail.user.name.firstName),validarIniSesion(3,a.sub,n,a.email,"")})),document.addEventListener("AppleIDSignInOnFailure",(e=>{let t=e.detail.error;"user_cancelled_authorize"!==t&&"popup_closed_by_user"!==t&&alert(t)}))</script>
+</div>
+</div>
+</div>
+<form id=formAcceso>
+<div id=bloqCorreo>
+<div class="row justify-content-center align-items-center mt-2 mb-2">
+<div class=col-auto>
+<span>--- o ---</span>
+</div>
+</div>
+<div class="input-group mt-3">
+<input type=email name=cor id=cor placeholder="Correo electrónico" maxlength=120 size=120 required class="form-control focus-ring focus-ring-success" tabindex=0>
+<button type=button class="btn btn-success bg-gradient" id=continuar value=Continuar><i class="bi bi-box-arrow-in-right" style=color:#fff></i></button>
+</div>
+<div class="row justify-content-start mt-1">
+<div class=col-auto>
+<a href=# id=soyNuevo class="link-success fw-bold" style=text-decoration:none onclick=soyNuevoUsuario()><small><span>Soy nuevo</span></small></a>
+</div>
+</div>
+</div>
+<div id=bloqInforSoyNuevo style=display:none>
+<small><span>Introduce arriba tu dirección de correo electrónico o, si lo prefieres, inicia sesión con tu cuenta de Google, Microsoft o Apple</span></small>
+</div>
+<div id=bloqContrasena style=display:none>
+<div class="input-group mt-3">
+<input type=password name=contrasena id=contrasena placeholder=Contraseña maxlength=32 required class="form-control focus-ring focus-ring-success" tabindex=0>
+<button type=submit class="btn btn-success bg-gradient" id=Aceptar value=Aceptar><i class="bi bi-box-arrow-in-right" style=color:#fff></i></button>
+</div>
+<div class="row justify-content-first mt-1">
+<div class=col-auto>
+<a href=# id=contrasenaOlvidada class="link-success fw-bold" style=text-decoration:none onclick=nueContra()><small><span>He olvidado mi contraseña</span></small></a>
+</div>
+</div>
+</div>
+</form>
+<script>function conectar(o){let e=new FormData;e.append("corElec",o),async function(){const o=await fetch("https://"+window.location.host+"/compDirCorElec",{method:"POST",body:e});return await o.json()}().then((e=>{e.success?(localStorage.setItem("prefijo",e.data.value1),localStorage.setItem("nombre",e.data.value2),localStorage.setItem("usuarios",e.data.value3),localStorage.setItem("idiomaPais",e.data.value4),localStorage.setItem("plan",e.data.value5),localStorage.setItem("correoElec",o),libIdioma(e.data.value4,3),bloqContrasena.style.display="",bloqCorreo.style.display="none",bloqInforSoyNuevo.style.display="none",bloqSesiones.style.display="none",contrasena.focus()):"dirCorElecFormatoDesconocido"==e.message||"dirCorElecDominioDesconocido"==e.message?modal1("My Contacts Cloud",tExp("Correo electrónico no válido",""),msjIndex):"dirCorElecDesconocido"==e.message?new bootstrap.Modal(formNueCor).show():modal1("My Contacts Cloud",tExp(e.message,""),msjIndex)})).catch((o=>{modal1("My Contacts Cloud",o.message,msjIndex)}))}function soyNuevoUsuario(){bloqInforSoyNuevo.style.display="",cor.focus(),cor.scrollIntoView({behavior:"smooth",block:"center"})}continuar.addEventListener("click",(o=>{if(0==cor.value.length)return!1;isValidEmail(cor.value)?conectar(cor.value):modal1("My Contacts Cloud",tExp("Correo electrónico no válido",""),msjIndex)}))</script>
+<div id=bloqNuevoRegistro style=display:none>
+<form id=formRegistro>
+<div class="input-group mb-3 mt-1">
+<div class=input-group-prepend>
+<div class="input-group-text bg-success bg-gradient text-white border-success"><i class="bi bi-person-fill"></i></div>
+</div>
+<input name=nom id=nom placeholder="Tu nombre" maxlength=50 size=50 required class=form-control>
+</div>
+<div class="input-group mb-2">
+<span class="input-group-text bg-success text-white border-success"><i class="bi bi-unlock-fill"></i></span>
+<input type=password name=contrasena1 id=contrasena1 placeholder="Nueva contraseña" maxlength=32 required class=form-control aria-describedby=togglePassword1>
+<button class="btn btn-outline-success border-0" type=button id=togglePassword1 tabindex=-1><i class="bi bi-eye"></i></button>
+</div>
+<div class="input-group mb-1">
+<span class="input-group-text bg-success text-white border-success"><i class="bi bi-unlock-fill"></i></span>
+<input type=password name=contrasena2 id=contrasena2 placeholder="Repita contraseña" maxlength=32 required class=form-control aria-describedby=togglePassword2>
+<button class="btn btn-outline-success border-0" type=button id=togglePassword2 tabindex=-1><i class="bi bi-eye"></i></button>
+</div>
+<div class="row mt-1">
+<div class=col-auto>
+<ul><small>
+<li><span>Ocho caracteres como mínimo</span></li>
+<li><span>Un número al menos</span></li>
+<li><span>Una letra minúscula al menos</span></li>
+<li><span>Una letra mayúscula al menos</span></li>
+<li><span>Uno de estos caracteres especiales al menos !@#$%_-+=?</span></li>
+</small></ul>
+</div>
+</div>
+<div class="form-check form-switch mb-2">
+<div class=col-auto>
+<label class=form-check-label id=etPolPriv>
+<input type=checkbox name=politica id=politica class=form-check-input value=0><span>He leído y acepto la</span>&nbsp;</label><a href=politicaprivacidad.html target=_blank class="fw-bold text-decoration-none text-success"><span>Política de Privacidad</span></a>
+</div>
+</div>
+<div class="row justify-content-end align-items-center gx-2 gy-2 mt-1">
+<div class=col-auto>
+<button type=submit class="btn btn-success bg-gradient" id=aceptar1 value=Cancelar1><i class="bi bi-check-lg" style=font-size:1.2rem;color:orange></i>&nbsp;<span>Registrarme</span></button>
+</div>
+<div class=col-auto>
+<button type=reset class="btn btn-sm btn-warning bg-gradient text-dark" id=cancelar1 value=Cancelar1><i class="bi bi-x-circle" style=font-size:1rem;color:#000></i>&nbsp;<span>Cancelar</span></button>
+</div>
+</div>
+</form>
+</div>
+<div id=msjIndex></div>
+</section></div>
+
+<div class="modal-footer bg-dark bg-gradient" id=piePagIndex>
+<div class="row justify-content-between gy-1 mt-0 mb-0">
+<div class=col-auto>
+<a href=consulta.html target=_blank class="text-decoration-none link-warning"><small><span>Escribe tu consulta</span></small></a>
+</div>
+<div class=col-auto>
+<a href="mailto:?subject=Recomendación%20App%20My%20Contacts%20Cloud&body=Hola%2C%0D%0A%0D%0ATe%20recomiendo%20que%20pruebes%20la%20App%20My%20Contacts%20Cloud.%20Es%20gratis%20y%20para%20siempre.%0D%0A%0D%0AAl%20hacer%20clic%20en%20https://mycontacts.cloud%20acceder%C3%A1s%20a%20la%20web%20de%20My%20Contacts%20y%20podr%C3%A1s%20suscribirte%20si%20te%20interesa.%0D%0A%0D%0ASaludos%20" target=_blank class="text-decoration-none link-warning text-center" id=recomendarAmigo><small><span>Recomendar a un amigo</span></small></a>
+</div>
+<div class=col-auto>
+<a href=https://mycontacts.cloud target=_blank class="text-decoration-none link-warning"><small>mycontacts.cloud</small></a>
+</div>
+<div class=col-auto>
+<a href=politicaprivacidad.html target=_blank class="text-decoration-none link-warning"><small><span>Política de Privacidad</span></small></a>
+</div>
+<div class=col-auto>
+<a href=condicionesuso.html target=_blank class="text-decoration-none link-warning"><small><span>Condiciones de Uso</span></small></a>
+</div>
+<div class=col-auto>
+<a href=desuscribirse.html target=_blank class="text-decoration-none link-warning"><small><span>Desuscribirme</span></small></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>function isTokenValid(e){const a=parseJWT(e);if(!a)return!1;const o=Math.floor(Date.now()/1e3);return a.exp>o}function parseJWT(e){try{return JSON.parse(atob(e.split(".")[1]))}catch(e){return console.error("Error al parsear token JWT:",e),null}}togglePassword1.addEventListener("click",(function(){const e="password"===contrasena1.getAttribute("type")?"text":"password";contrasena1.setAttribute("type",e)})),togglePassword2.addEventListener("click",(function(){const e="password"===contrasena2.getAttribute("type")?"text":"password";contrasena2.setAttribute("type",e)})),formRegistro.onsubmit=async e=>{if(e.preventDefault(),contrasena1.value!=contrasena2.value)return modal1("My Contacts Cloud",tExp("La contraseña no coincide",""),msjIndex),!1;if(contrasena1.value.length<8)return modal1("My Contacts Cloud",tExp("La longitud de la contraseña debe ser de ocho caracteres como mínimo",""),msjIndex),!1;if(noIncluidoEnContrasena(contrasena1.value,1))return modal1("My Contacts Cloud",tExp("La contraseña debe contener al menos un número",""),msjIndex),!1;if(noIncluidoEnContrasena(contrasena1.value,2))return modal1("My Contacts Cloud",tExp("La contraseña debe contener al menos una letra minúscula",""),msjIndex),!1;if(noIncluidoEnContrasena(contrasena1.value,3))return modal1("My Contacts Cloud",tExp("La contraseña debe contener al menos una letra mayúscula",""),msjIndex),!1;if(noIncluidoEnContrasena(contrasena1.value,4))return modal1("My Contacts Cloud",tExp("La contraseña debe contener al menos uno de estos caracteres especiales !@#$%_-+=?",""),msjIndex),!1;if(!politica.checked)return modal1("My Contacts Cloud",tExp("Debes aceptar la Política de Privacidad",""),msjIndex),!1;var a=!1;let o=new FormData;o.append("cor",cor.value),async function(){const e=await fetch("https://"+window.location.host+"/compVeri",{method:"POST",body:o});return await e.json()}().then((e=>{e.success?"OK"==e.data.value1?a=!0:modal1("My Contacts Cloud",tExp("Dirección de correo electrónico no verificada. Revisa la bandeja de entrada de tu correo",""),msjIndex):"noEncontrado"==e.message?modal1("My Contacts Cloud",tExp("Dirección de correo electrónico no registrada para verificar",""),msjIndex):modal1("My Contacts Cloud",tExp(e.message,""),msjIndex)})).catch((e=>{modal1("My Contacts Cloud",e.message,msjIndex)})).finally((()=>{a&&validarIniSesion(0,"",nom.value,cor.value,contrasena1.value)}))},formAcceso.onsubmit=async e=>{e.preventDefault(),validarIniSesion(0,"","",cor.value,contrasena.value)},accesoUsuario.addEventListener("shown.bs.modal",(function(e){var a=localStorage.getItem("cerrarSesion");if(null!=a&&0==a){var o=localStorage.getItem("tipoSesion");if(null!=o)if(0==o){if(null!=(n=localStorage.getItem("correoElec")))return cor.value=n,validarIniSesion(0,"","",n,"***SesionAbierta***"),!1}else if(3==o){var n;if(null!=(n=localStorage.getItem("correoElec"))){const e=localStorage.getItem("appleAccessToken");e&&isTokenValid(e)&&validarIniSesion(3,"","",n,"")}}}cor.focus(),cor.scrollIntoView({behavior:"smooth",block:"center"})}))</script>
+</div>
+<div class="modal fade" id=formNueCor tabindex=-1 data-bs-backdrop=static data-bs-keyboard=false aria-hidden=false aria-label="Aria Name 1">
+<div class=modal-dialog>
+<div class=modal-content>
+<div class="modal-header bg-light">
+<h5 class=modal-title>My Contacts Cloud</h5>
+<button type=button class=btn-close data-bs-dismiss=modal aria-label=Close data-bs-toggle=tooltip title="Cerrar ventana"></button>
+</div>
+<div class=modal-body>
+<div class=container-fluid>
+<div id=nueCor1>
+<div class="row justify-content-around align-items-center">
+<div class=col-auto>
+<h4><span class="text-success fw-bold">Nuevo correo electrónico</span></h4>
+</div>
+</div>
+<div class="row justify-content-start align-items-center mt-3">
+<div class=col-auto>
+<h5><strong><span>¿Quieres registrarte?</span></strong></h5>
+<h6><span>Recibirás un mensaje para verificar que esta dirección de correo electrónico es tuya</span></h6>
+</div>
+</div>
+<div class="row justify-content-end align-items-center mt-3">
+<div class=col-auto>
+<h6><strong><span>Es GRATIS y sencillo</span></strong> <i class="bi bi-emoji-sunglasses" style=font-size:1.2rem></i></h6>
+</div>
+<div class=col-auto>
+<button type=button class="btn btn-success btn-lg me-2" id=respSi><span>Sí</span></button>
+<button type=button class="btn btn-warning btn-sm" id=respNo data-bs-dismiss=modal><span>No</span></button>
+</div>
+</div>
+</div>
+<div id=nueCor2 style=display:none>
+<div class="row justify-content-around align-items-center">
+<div class=col-auto>
+<h4><span class="text-success fw-bold">Mensaje enviado</span></h4>
+</div>
+</div>
+<div class="row justify-content-start align-items-center mt-3">
+<div class=col-auto>
+<ul>
+<li><span>Abre el mensaje y haz un clic sobre el enlace 'Sí, soy yo'</span></li>
+<li><span>Si tu cuenta es gmail, es posible que lo recibas en</span> <span style=color:#000;background-color:#9fe2bf>Promociones</span></li>
+<li><span>Si no encuentras el correo, revisa la</span> <span style=color:#000;background-color:#9fe2bf>carpeta Spam</span></li>
+</ul>
+</div>
+</div>
+<div class="row justify-content-end align-items-center mt-3">
+<div class=col-auto>
+<button type=button class="btn btn-outline-success" id=nueCorContinuar data-bs-dismiss=modal><span>Continuar</span> <i class="bi bi-box-arrow-in-right"></i></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>respSi.addEventListener("click",(o=>{let e=new FormData;e.append("cor",cor.value),e.append("idiomaPais",localStorage.getItem("idiomaPais")),async function(){const o=await fetch("https://"+window.location.host+"/msjVeri",{method:"POST",body:e});return await o.json()}().then((o=>{if(o.success)if("OK"==o.data.value1)window.EntraEnNueCor2=1,nueCor1.style.display="none",nueCor2.style.display="";else{var e=document.getElementById("formNueCor"),n=bootstrap.Modal.getInstance(e);n&&n.hide(),modal1("My Contacts Cloud","Correo electrónico no válido",msjIndex)}else modal1("My Contacts Cloud",tExp(o.message,""),msjIndex)})).catch((o=>{modal1("My Contacts Cloud",o.message,msjIndex)}))})),formNueCor.addEventListener("shown.bs.modal",(function(o){window.EntraEnNueCor2=0})),formNueCor.addEventListener("hidden.bs.modal",(function(o){1==window.EntraEnNueCor2?(window.EntraEnNueCor2=0,bloqCorreo.style.display="none",bloqInforSoyNuevo.style.display="none",bloqSesiones.style.display="none",bloqNuevoRegistro.style.display=""):cor.focus()}))</script>
+</div>
+<link rel=prefetch href=https://cdn.jsdelivr.net/gh/mycontactscloud/app/principal.html>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js integrity=sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/gh/mycontactscloud/app/lib/libgp3.4.4b.js defer></script>
+<script src=https://accounts.google.com/gsi/client defer></script>
+<script src=https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/cjs/index.min.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/@azure/msal-browser@2.39.0/lib/msal-browser.min.js integrity="sha256-yTMJJVWlLU3tAZbRZXhAbctdJd/fmHvz4nYGZT6Z8dY=" crossorigin=anonymous></script>
+</body>
+</html>

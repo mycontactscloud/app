@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang=es-ES>
+<head>
+<style>.success1{background:#d0e8f9;font-weight:700}#fileTypeDropdown.form-select{appearance:none;-webkit-appearance:none;background-image:none!important}</style>
+</head>
+<body class=bg-light>
+<div class="container-fluid sticky-top bg-light">
+<div class="row justify-content-between align-content-center gx-0 gy-2" id=filaDocumentos>
+<div class="col-auto d-none d-md-block mt-1 mb-1">
+<div class=btn-group role=group>
+<a href=#modalDocumento class="btn btn-success btn-sm" role=button id=NuevoDocumento title="Nuevo documento" data-bs-toggle=tooltip onClick="regTabla('modalDocumento', 'opcionDocumento', 1)"><i class="bi bi-file-earmark-plus" style=font-size:1.4rem;color:currentColor></i></a>
+<a href=#modalDocumento class="btn btn-success btn-sm" role=button id=EditarDocumento title="Editar documento" data-bs-toggle=tooltip onClick="regTabla('modalDocumento', 'opcionDocumento', 2)"><i class="bi bi-file-earmark-text" style=font-size:1.4rem;color:currentColor></i></a>
+<a href=#formEliminarDocumento class="btn btn-success btn-sm" role=button id=EliminarDocumento title="Eliminar documento" data-bs-toggle=tooltip onClick=eliminarDocumento()><i class="bi bi-file-earmark-minus" style=font-size:1.4rem;color:currentColor></i></a>
+<a href=#modalDocumento class="btn btn-success btn-sm" role=button id=VerDocumento title="Ver documento" data-bs-toggle=tooltip onClick="regTabla('modalDocumento', 'opcionDocumento', 4)"><i class="bi bi-file-earmark" style=font-size:1.4rem;color:currentColor></i></a>
+</div>
+<div class=btn-group role=group>
+<button class="btn btn-success btn-sm dropdown-toggle d-none d-md-block" type=button id=exportarDocumentos data-bs-toggle=dropdown data-bs-auto-close=true aria-expanded=false data-bs-toggle=tooltip title="Exportar tabla">
+<i class=bi-cloud-download style=font-size:1.4rem;color:currentColor></i>
+</button>
+<ul class=dropdown-menu aria-labelledby=exportarDocumentos>
+<li>
+<button class="btn btn-link dropdown-item" onClick="imprimirTabla('tabDocumentos', 'Gestión documental', 'portrait')"><i class="bi bi-printer" style=font-size:1rem;color:currentColor></i>&nbsp;<span>Imprimir</span></button>
+</li>
+<li><h5 id=lisExp class=dropdown-header><span>Exportar a</span>:</h5></li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","pdf")'>&nbsp;&nbsp;<i class="bi bi-filetype-pdf" style=font-size:1rem;color:currentColor></i>&nbsp;PDF</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","xlsx")'>&nbsp;&nbsp;<i class="bi bi-filetype-xlsx" style=font-size:1rem;color:currentColor></i>&nbsp;Excel</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","ods")'>&nbsp;&nbsp;<i class="bi bi-file-earmark" style=font-size:1rem;color:currentColor></i>&nbsp;ODS</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","csv")'>&nbsp;&nbsp;<i class="bi bi-filetype-csv" style=font-size:1rem;color:currentColor></i>&nbsp;CSV</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","txt")'>&nbsp;&nbsp;<i class="bi bi-filetype-txt" style=font-size:1rem;color:currentColor></i>&nbsp;TXT</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","json")'>&nbsp;&nbsp;<i class="bi bi-filetype-json" style=font-size:1rem;color:currentColor></i>&nbsp;JSON</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","xml")'>&nbsp;&nbsp;<i class="bi bi-filetype-xml" style=font-size:1rem;color:currentColor></i>&nbsp;XML</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","html")'>&nbsp;&nbsp;<i class="bi bi-filetype-html" style=font-size:1rem;color:currentColor></i>&nbsp;HTML</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","sql")'>&nbsp;&nbsp;<i class="bi bi-filetype-sql" style=font-size:1rem;color:currentColor></i>&nbsp;SQL</button>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-auto align-self-center d-none d-lg-block mt-1 mb-1">
+<a class="navbar-brand text-success h3" style=font-weight:700 id=titulo><span>Gestión documental</span></a>
+</div>
+<div class="col-auto align-self-center d-sm-block d-md-none mt-1 mb-1">
+<button class="btn btn-success dropdown-toggle" type=button id=MenuMovil data-bs-toggle=dropdown aria-expanded=false>
+<i class="bi bi-list" style=font-size:1rem;color:currentColor></i> </button>
+<ul class=dropdown-menu aria-labelledby=MenuMovil>
+<li><a class=dropdown-item onClick="regTabla('modalDocumento', 'opcionDocumento', 1)" href=#modalDocumento><i class="bi bi-file-earmark-plus" style=font-size:1rem;color:currentColor></i> <span>Nuevo documento</span></a></li>
+<li><a class=dropdown-item onClick="regTabla('modalDocumento', 'opcionDocumento', 2)" href=#modalDocumento><i class="bi bi-file-earmark-text" style=font-size:1rem;color:currentColor></i> <span>Editar documento</span></a></li>
+<li><a class=dropdown-item onClick=eliminarDocumento() href=#><i class="bi bi-file-earmark-minus" style=font-size:1rem;color:currentColor></i> <span>Eliminar documento</span></a></li>
+<li><a class=dropdown-item onClick="regTabla('modalDocumento', 'opcionDocumento', 4)" href=#modalDocumento><i class="bi bi-file-earmark" style=font-size:1rem;color:currentColor></i> <span>Ver documento</span></a></li>
+<li><hr class=dropdown-divider></li>
+<li class=dropend><a class="dropdown-item dropdown-toggle" type=button data-bs-toggle=dropdown aria-expanded=false href=# id=opcionesTablaSubmenu_documentos><i class="bi bi-table" style=font-size:1rem;color:currentColor></i> <span>Tabla</span> </a>
+<ul class="submenu dropdown-menu" aria-labelledby=opcionesTablaSubmenu_documentos id=opcion1>
+<li><a class=dropdown-item onClick="valorTarjeta('tabDocumentos')" href=#><i class="bi bi-card-list" style=font-size:1rem;color:currentColor></i> <span>Tarjeta/Tabla</span></a></li>
+<li>
+<button class="btn btn-link dropdown-item" onClick="imprimirTabla('tabDocumentos', 'Gestión documental', 'portrait')"><i class="bi bi-printer" style=font-size:1rem;color:currentColor></i>&nbsp;<span>Imprimir</span></button>
+</li>
+<li class=dropstart><a class="dropdown-item dropdown-toggle" type=button data-bs-toggle=dropdown aria-expanded=false href=# id=opcionesExportarSubmenu_documentos><i class=bi-cloud-download style=font-size:1rem;color:currentColor></i> <span>Exportar a</span> </a>
+<ul class="submenu submenu1 dropdown-menu" aria-labelledby=opcionesExportarSubmenu_documentos>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","pdf")'><i class="bi bi-filetype-pdf" style=font-size:1rem;color:currentColor></i>&nbsp;PDF</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","xlsx")'><i class="bi bi-filetype-xlsx" style=font-size:1rem;color:currentColor></i>&nbsp;Excel</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","ods")'><i class="bi bi-file-earmark" style=font-size:1rem;color:currentColor></i>&nbsp;ODS</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","csv")'><i class="bi bi-filetype-csv" style=font-size:1rem;color:currentColor></i>&nbsp;CSV</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","txt")'><i class="bi bi-filetype-txt" style=font-size:1rem;color:currentColor></i>&nbsp;TXT</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","json")'><i class="bi bi-filetype-json" style=font-size:1rem;color:currentColor></i>&nbsp;JSON</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","xml")'><i class="bi bi-filetype-xml" style=font-size:1rem;color:currentColor></i>&nbsp;XML</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","html")'><i class="bi bi-filetype-html" style=font-size:1rem;color:currentColor></i>&nbsp;HTML</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabDocumentos","Gestión documental","Gestión documental","portrait","sql")'><i class="bi bi-filetype-sql" style=font-size:1rem;color:currentColor></i>&nbsp;SQL</button>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="col-auto align-self-center mt-1 mb-1">
+<input type=search id=buscar_documentos class=form-control placeholder=Buscar onchange='buscarAhora("tabDocumentos","buscar")' title="Buscar en la tabla" data-bs-toggle=tooltip>
+</div>
+<div class="col-auto align-self-center d-none d-md-block mt-1 mb-1">
+<div class=btn-group role=group>
+<div class="form-check form-switch btn-sm d-none d-md-block">
+<input class=form-check-input type=checkbox id=vistaTarjeta title="Vista de tarjeta" data-bs-toggle=tooltip onchange='valorTarjeta("tabDocumentos")'>
+<label class=form-check-label for=vistaTarjeta>Tarjeta</label>
+</div>
+</div>
+</div>
+<div class="col-auto align-self-center mt-1 mb-1">
+<button type=button class="btn-close btn-lg" data-bs-dismiss=modal aria-label=Close onClick="cambioDiv('documentos', localStorage.getItem('divAnt'), 0, 1)" title="Cerrar ventana" data-bs-toggle=tooltip style=text-align:right></button>
+</div>
+</div>
+</div>
+<div class=container-fluid>
+<table class="table table-striped table-hover table-responsive" data-page-number=1 id=tabDocumentos data-url="" data-method=post data-locale=es-SP data-toggle=table data-id-field=id data-undefined-text="" data-unique-id=id data-search=true data-show-search-button=false data-search-selector=#buscar_documentos data-search-highlight=true data-search-on-enter-key=false data-side-pagination=client data-pagination=true data-page-size=100000 data-show-pagination-switch=false data-show-extended-pagination=false data-pagination-parts="['pageList']" data-id-table=tabDocumentos data-click-to-select=true data-single-select=true data-sort-name=fec data-sort-order=asc data-virtual-scroll=false data-icons-prefix=bi data-icons=icons data-auto-refresh=false data-auto-refresh-interval=60 data-show-refresh=false data-show-auto-refresh=false data-auto-refresh-silent=true data-export-data-type=all data-cache=false>
+<thead class="bg-dark text-light">
+<tr>
+<th data-field=id data-sortable=false data-visible=false data-searchable=false data-switchable=false data-print-ignore=true data-force-hide=true data-card-visible=false></th>
+<th data-field=fec data-sortable=true data-click-to-select=true data-formatter=fecFormato>Fecha</th>
+<th data-field=nom data-sortable=true data-click-to-select=true data-formatter=enlaceFormato>Nombre fichero</th>
+<th data-field=vis data-sortable=false data-searchable=false data-click-to-select=true data-visible=true data-print-ignore=true data-force-hide=true data-card-visible=true data-align=center data-formatter=visFormato><i class="bi bi-tv"></i></th>
+<th data-field=edi data-sortable=false data-searchable=false data-click-to-select=true data-visible=true data-print-ignore=true data-force-hide=true data-card-visible=true data-align=center data-formatter=editDoc><i class="bi bi-pencil"></i></th>
+<th data-field=com data-sortable=true data-click-to-select=true>Descripción</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<div id=toaDocumento></div>
+<div id=msjDocumentos></div>
+</div>
+<div class="modal fade" id=modalDocumento tabindex=-1 data-bs-backdrop=false data-bs-keyboard=false aria-labelledby=staticBackdropLabel aria-hidden=true aria-label="Aria Name">
+<div class="modal-dialog modal-lg modal-ajustada">
+<div class=modal-content>
+<form id=formDocumento>
+<div class="modal-header bg-dark bg-gradient sticky-top">
+<div class=col-auto>
+<a class="navbar-brand text-warning" id=exampleModalLabel><span>Documento</span></a>
+</div>
+<div class=col-auto style=text-align:right>
+<div class=btn-group role=group>
+<button type=submit class="btn btn-success me-2 text-white" id=aceptar_documentos value=Aceptar title="Guardar cambios" data-bs-toggle=tooltip><i class="bi bi-check-circle"></i> </button>
+</div>
+<div class=btn-group role=group>
+<button type=reset class="btn btn-warning btn-sm" id=cancelar_documentos value=Cancelar title="Cancelar cambios" data-bs-toggle=tooltip><i class="bi bi-x-circle"></i> </button>
+</div>
+<input type=hidden name=id id=id_documentos value=0>
+<div class="btn-group ms-2" role=group>
+<button type=button class="btn-close btn-close-white btn-lg" data-bs-dismiss=modal aria-label=Close onClick=cambiarHashAlCerrarModal()></button>
+</div>
+</div>
+</div>
+<div class="modal-body bg-primary bg-opacity-25">
+<div class=container-fluid>
+<div class="row align-content-center justify-content-start gx-3 gy-3 mb-3 mfil">
+<div class=col-auto>
+<label for=fec_documentos class=col-form-label>Fecha</label>
+</div>
+<div class=col-auto>
+<input type=date name=fec id=fec_documentos required class=form-control title="Fecha del documento" data-bs-toggle=tooltip>
+</div>
+<div class=col-auto>
+<button id=openDocEdit class="btn btn-primary" title="Editar documento" data-bs-toggle=tooltip><i class="bi bi-pencil"></i> <span>Editar documento</span></button>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-3 mfil">
+<div class="d-flex flex-column">
+<label for=fic_documentos class="form-label mb-1" id=etGrupoBuscarDoc>Selecciona un documento</label>
+<div class=input-group>
+<input type=file id=fic_documentos name=fic style=display:none>
+<div class=input-group-prepend>
+<button type=button class="btn btn-primary" id=examinar_documentos onclick='document.getElementById("fic_documentos").click()' title=Examinar... data-bs-toggle=tooltip>
+<i class="bi bi-search" style=font-size:1rem;color:currentColor></i>
+</button>
+</div>
+<input name=nom id=nom_documentos placeholder="Nombre del fichero" maxlength=255 size=255 required class=form-control title="Nombre del fichero" data-bs-toggle=tooltip>
+</div>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-3 mfil" id=creaNuevoDocumento>
+<div class="col-auto w-100">
+<div class=dropdown>
+<button class="form-select dropdown-toggle text-start bg-white" type=button id=fileTypeDropdown data-bs-toggle=dropdown aria-expanded=false><span>O crea un nuevo documento...</span>
+</button>
+<ul class=dropdown-menu aria-labelledby=fileTypeDropdown id=fileTypeMenu>
+<li><h6 class="dropdown-header fw-bold fs-5 text-danger">Microsoft Office</h6></li>
+<li><a class="dropdown-item d-flex align-items-center" href=# data-value=docx>
+<i class="bi bi-file-earmark-word-fill text-primary me-2"></i> Word (.docx)
+</a></li>
+<li><a class="dropdown-item d-flex align-items-center" href=# data-value=xlsx>
+<i class="bi bi-file-earmark-excel-fill text-success me-2"></i> Excel (.xlsx)
+</a></li>
+<li><a class="dropdown-item d-flex align-items-center" href=# data-value=pptx>
+<i class="bi bi-file-earmark-ppt-fill text-danger me-2"></i> PowerPoint (.pptx)
+</a></li>
+<li><hr class=dropdown-divider></li>
+<li><h6 class="dropdown-header fw-bold fs-5"><span class=text-success>Libre</span><span class=text-dark>Office</span></h6></li>
+<li><a class="dropdown-item d-flex align-items-center" href=# data-value=odt>
+<i class="bi bi-file-earmark-text-fill text-primary me-2"></i> Writer (.odt)
+</a></li>
+<li><a class="dropdown-item d-flex align-items-center" href=# data-value=ods>
+<i class="bi bi-file-spreadsheet-fill text-success me-2"></i> Calc (.ods)
+</a></li>
+<li><a class="dropdown-item d-flex align-items-center" href=# data-value=odp>
+<i class="bi bi-easel2-fill text-danger me-2"></i> Impress (.odp)
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-1 mfil">
+<div class="col-auto w-100">
+<textarea name=com id=com_documentos placeholder=Descripción maxlength=255 size=255 rows=3 class=form-control title="Descripción del documento" data-bs-toggle=tooltip></textarea>
+</div>
+</div>
+</div>
+<div id=msjModDocumento></div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class=modal id=dialogoDocumento tabindex=-1 data-bs-backdrop=false>
+<div class=modal-dialog>
+<div class=modal-content>
+<div class="modal-header bg-light">
+<h5 class=modal-title>My Contacts Cloud</h5>
+<button type=button class=btn-close data-bs-dismiss=modal aria-label=Close data-bs-toggle=tooltip title="Cerrar ventana"></button>
+</div>
+<div class=modal-body>
+<div align=center>
+<p id=msjDocumento>No se puede eliminar el documento por defecto</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id=formEliminarDocumento tabindex=-1 aria-label="Aria Name 1" data-bs-backdrop=false>
+<div class="modal-dialog modal-ajustada">
+<div class=modal-content>
+<div class="modal-header bg-light">
+<h5 class=modal-title><span>Documento</span></h5>
+<button type=button class=btn-close data-bs-dismiss=modal aria-label=Close data-bs-toggle=tooltip title="Cerrar ventana"></button>
+</div>
+<div class=modal-body>
+<div class=container-fluid>
+<div class="row mb-3">
+<div class="row align-content-center justify-content-start gx-3 gy-3">
+<div class=col-auto>
+<label for=fecE class=col-form-label>Fecha</label>
+</div>
+<div class=col-auto>
+<input id=fecE disabled class=form-control title="Fecha del documento" data-bs-toggle=tooltip>
+</div>
+</div>
+</div>
+<div class="row mb-3">
+<div class="col-auto w-100">
+<input id=nomE disabled class=form-control title="Nombre del fichero" data-bs-toggle=tooltip>
+</div>
+</div>
+<div class="row mb-1">
+<div class="col-auto w-100">
+<input id=comE disabled class=form-control title="Descripción del documento" data-bs-toggle=tooltip>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-footer bg-light">
+<div align=center>
+<span>¿Eliminar documento?</span>
+</div>
+<button type=button class="btn btn-primary" id=SiEliminarDocumento data-bs-dismiss=modal><span>Sí</span></button>
+<button type=button class="btn btn-secondary" id=NoEliminarDocumento data-bs-dismiss=modal><span>No</span></button>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

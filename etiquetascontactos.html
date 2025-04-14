@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang=es>
+<head>
+<style>body{font-family:Arial,sans-serif}.tag-container-etiquetas{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}.tagEtiquetas{color:#fff;padding:5px 10px;border-radius:5px;display:flex;align-items:center;cursor:pointer}.tagEtiquetas span{margin-right:10px}.tagEtiquetas button{background:0 0;border:none;color:#fff;cursor:pointer;font-size:14px}.tagEtiquetas button:hover{color:#00bfff}.hiddenEtiquetas{display:none}</style>
+</head>
+<body>
+<div class="container-fluid mt-2">
+<div class="row mb-3">
+<div class="col-12 d-flex justify-content-between align-items-center">
+<a class="navbar-brand text-success h3" style=font-weight:700 id=titulo><span>Etiquetas de contactos</span></a>
+<div class=btn-group role=group>
+<button id=cerVentana_gruposContactos class="btn-close btn-lg" aria-label=Close title="Cerrar ventana" data-bs-toggle=tooltip onclick='cambioDiv("etiquetascontactos","menu",0,0)'></button>
+</div>
+</div>
+</div>
+<div class="row mb-3">
+<div class="controls mb-3">
+<input class="form-control mb-2" id=tagInput placeholder="Escribe una etiqueta" maxlength=50>
+<div class="col-auto align-self-center">
+<label class="radio-inline control-label"><span>Selecciona el color</span>&nbsp;</label>
+<input type=radio class=btn-check name=color id=color1_eventos value=1 checked>
+<label class="btn btn-outline-primary border-3 focus-ring" for=color1_eventos></label>
+<input type=radio class=btn-check name=color id=color2_eventos value=2>
+<label class="btn btn-outline-success border-3 focus-ring" for=color2_eventos></label>
+<input type=radio class=btn-check name=color id=color3_eventos value=3>
+<label class="btn btn-outline-danger border-3 focus-ring" for=color3_eventos></label>
+<input type=radio class=btn-check name=color id=color4_eventos value=4>
+<label class="btn btn-outline-warning border-3 focus-ring" for=color4_eventos></label>
+<input type=radio class=btn-check name=color id=color5_eventos value=5>
+<label class="btn btn-outline-dark border-3 focus-ring" for=color5_eventos></label>
+</div>
+<div class="row mt-2">
+<div class=col-auto>
+<button type=button id=addButton class="btn btn-success" onclick=addTag() title="Añadir etiqueta" data-bs-toggle=tooltip><i class="bi bi-tag"></i> <span>Añadir etiqueta</span></button>
+<button type=button id=saveButton class="btn btn-success hiddenEtiquetas" onclick=saveTag() title="Guardar cambios" data-bs-toggle=tooltip><i class="bi bi-check-circle"></i> <span>Guardar</span></button>
+<button type=button id=cancelButton class="btn btn-warning btn-sm hiddenEtiquetas" onclick=cancelTag() title="Cancelar cambios" data-bs-toggle=tooltip><i class="bi bi-x-circle"></i> <span>Cancelar</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class=row>
+<div class=tag-container-etiquetas id=tagContainerEtiquetas>
+</div>
+</div>
+<div id=msjEtiquetasContactos></div>
+</div>
+</body>
+</html>

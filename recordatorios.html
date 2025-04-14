@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang=en-ES>
+<head>
+<style>.success4{background:#d0e8f9;font-weight:700}.btn-mini{padding:.25rem .5rem;font-size:.75rem;line-height:1.25}</style>
+</head>
+<body class=bg-light>
+<div class=wrapper>
+<div class="container-fluid sticky-top bg-light">
+<div class="row justify-content-between align-content-center gx-0 gy-2" id=filaRecordatorios>
+<div class="col-auto d-none d-md-block mt-1 mb-1">
+<div class=btn-group role=group>
+<button class="btn btn-success btn-sm dropdown-toggle d-none d-md-block" type=button id=cont6_recordatorios data-bs-toggle=dropdown data-bs-auto-close=true aria-expanded=false data-bs-toggle=tooltip title="Exportar tabla">
+<i class=bi-cloud-download style=font-size:1.4rem;color:currentColor></i>
+</button>
+<ul class=dropdown-menu aria-labelledby=cont6_recordatorios>
+<li>
+<button class="btn btn-link dropdown-item" onClick="imprimirTabla('tabRecordatorios', 'Recordatorios', 'landscape')"><i class="bi bi-printer" style=font-size:1rem;color:currentColor></i>&nbsp;<span>Imprimir</span></button>
+</li>
+<li><h5 id=lisExp class=dropdown-header><span>Exportar a</span>:</h5></li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","pdf")'>&nbsp;&nbsp;<i class="bi bi-filetype-pdf" style=font-size:1rem;color:currentColor></i>&nbsp;PDF</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","xlsx")'>&nbsp;&nbsp;<i class="bi bi-filetype-xlsx" style=font-size:1rem;color:currentColor></i>&nbsp;Excel</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","ods")'>&nbsp;&nbsp;<i class="bi bi-file-earmark" style=font-size:1rem;color:currentColor></i>&nbsp;ODS</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","csv")'>&nbsp;&nbsp;<i class="bi bi-filetype-csv" style=font-size:1rem;color:currentColor></i>&nbsp;CSV</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","txt")'>&nbsp;&nbsp;<i class="bi bi-filetype-txt" style=font-size:1rem;color:currentColor></i>&nbsp;TXT</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","json")'>&nbsp;&nbsp;<i class="bi bi-filetype-json" style=font-size:1rem;color:currentColor></i>&nbsp;JSON</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","xml")'>&nbsp;&nbsp;<i class="bi bi-filetype-xml" style=font-size:1rem;color:currentColor></i>&nbsp;XML</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","html")'>&nbsp;&nbsp;<i class="bi bi-filetype-html" style=font-size:1rem;color:currentColor></i>&nbsp;HTML</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","sql")'>&nbsp;&nbsp;<i class="bi bi-filetype-sql" style=font-size:1rem;color:currentColor></i>&nbsp;SQL</button>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-auto align-self-center d-none d-lg-block mt-1 mb-1">
+<a class="navbar-brand text-success h3" style=font-weight:700 id=titulo><span>Recordatorios</span></a>
+</div>
+<div class="col-auto align-self-center d-sm-block d-md-none mt-1 mb-1">
+<button class="btn btn-success dropdown-toggle" type=button id=MenuMovil_recordatorios data-bs-toggle=dropdown aria-expanded=false>
+<i class="bi bi-list" style=font-size:1rem;color:currentColor></i> </button>
+<ul class=dropdown-menu aria-labelledby=MenuMovil_recordatorios>
+<li class=dropend>
+<button class="btn btn-link dropdown-item dropdown-toggle" type=button data-bs-toggle=dropdown aria-expanded=false id=opcionesTablaSubmenu_recordatorios>
+<i class="bi bi-table" style=font-size:1rem;color:currentColor></i>&nbsp;<span>Tabla</span>
+</button>
+<ul class="submenu dropdown-menu" aria-labelledby=opcionesTablaSubmenu_recordatorios id=opcion1_recordatorios>
+<li>
+<button class="btn btn-link dropdown-item" id=imprimirb_recordatorios onClick="imprimirTabla('tabRecordatorios', 'Recordatorios', 'landscape')"><i class="bi bi-printer" style=font-size:1rem;color:currentColor></i>&nbsp;<span>Imprimir</span></button>
+</li>
+<li class=dropstart>
+<button class="btn btn-link dropdown-item dropdown-toggle" type=button data-bs-toggle=dropdown aria-expanded=false id=cont6b_recordatorios>
+<i class=bi-cloud-download style=font-size:1rem;color:currentColor></i>&nbsp;<span>Exportar a</span>
+</button>
+<ul class="submenu submenu1 dropdown-menu" aria-labelledby=cont6b_recordatorios>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","pdf")'><i class="bi bi-filetype-pdf" style=font-size:1rem;color:currentColor></i>&nbsp;PDF</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","xlsx")'><i class="bi bi-filetype-xlsx" style=font-size:1rem;color:currentColor></i>&nbsp;Excel</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","ods")'><i class="bi bi-file-earmark" style=font-size:1rem;color:currentColor></i>&nbsp;ODS</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","csv")'><i class="bi bi-filetype-csv" style=font-size:1rem;color:currentColor></i>&nbsp;CSV</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","txt")'><i class="bi bi-filetype-txt" style=font-size:1rem;color:currentColor></i>&nbsp;TXT</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","json")'><i class="bi bi-filetype-json" style=font-size:1rem;color:currentColor></i>&nbsp;JSON</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","xml")'><i class="bi bi-filetype-xml" style=font-size:1rem;color:currentColor></i>&nbsp;XML</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","html")'><i class="bi bi-filetype-html" style=font-size:1rem;color:currentColor></i>&nbsp;HTML</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabRecordatorios","Recordatorios","Recordatorios","landscape","sql")'><i class="bi bi-filetype-sql" style=font-size:1rem;color:currentColor></i>&nbsp;SQL</button>
+</li>
+</ul>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" id=tarjeta_recordatorios onclick='valorTarjeta("tabRecordatorios")'>
+<i class="bi bi-card-list" style=font-size:1rem;color:currentColor></i>&nbsp;<span>Tarjeta/Tabla</span>
+</button>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="col-auto align-self-center mt-1 mb-1">
+<div class=btn-group role=group>
+<input type=search id=buscar_recordatorios class=form-control placeholder=Buscar onchange='buscarAhora("tabRecordatorios","buscar")' title="Buscar en la tabla" data-bs-toggle=tooltip>
+</div>
+</div>
+<div class="col-auto align-self-center mt-1 mb-1">
+<div class=btn-group role=group>
+<div class="form-check form-switch btn-sm d-none d-md-block">
+<input class=form-check-input type=checkbox id=vistaTarjeta_recordatorios title="Vista de tarjeta" data-bs-toggle=tooltip onchange='valorTarjeta("tabRecordatorios")'>
+<label class=form-check-label for=vistaTarjeta_recordatorios><span>Tarjeta</span></label>
+</div>
+</div>
+</div>
+<div class="col-auto align-self-center mt-1 mb-1">
+<button type=button id=cerVentana_recordatorios class="btn-close btn-lg" data-bs-dismiss=modal aria-label=Close title=Cerrar onclick='cambioDiv("recordatorios","menu",0,0)' data-bs-toggle=tooltip></button>
+</div>
+</div>
+</div>
+<div class=container-fluid>
+<table class="table table-striped table-hover table-responsive" data-page-number=1 id=tabRecordatorios data-url="" data-method=post data-toggle=table data-id-field=idir data-undefined-text="" data-locale=es-SP data-unique-id=idir data-search=true data-show-search-button=false data-search-selector=#buscar_recordatorios data-search-highlight=true data-search-on-enter-key=false data-side-pagination=client data-pagination=true data-page-size=100000 data-show-pagination-switch=false data-show-extended-pagination=false data-pagination-parts="['pageList']" data-id-table=tabRecordatorios data-click-to-select=true data-single-select=true data-sort-name=recr data-sort-order=desc data-virtual-scroll=false data-icons-prefix=bi data-icons=icons data-auto-refresh=false data-auto-refresh-interval=30 data-show-refresh=false data-show-auto-refresh=false data-auto-refresh-silent=true data-export-data-type=all data-detail-view=true data-detail-formatter=detailFormatterTabRecordatorios data-cache=false>
+<thead class="bg-dark text-light">
+<tr>
+<th data-field=idir data-sortable=false data-visible=false data-searchable=false data-switchable=false data-print-ignore=true data-force-hide=true data-card-visible=false></th>
+<th data-field=idcr data-sortable=false data-visible=false data-searchable=false data-switchable=false data-print-ignore=true data-force-hide=true data-card-visible=false></th>
+<th data-sortable=false data-searchable=false data-visible=true data-force-hide=true data-card-visible=false data-align=center data-formatter=comFormatoRecordatorio><i class="bi bi-wifi"></i></th>
+<th data-field=recr data-title=Recordatorio data-sortable=true data-formatter=fecHorFormato></th>
+<th data-field=penr data-title=Pendiente data-sortable=true data-formatter=pendienteInteraccionFormato></th>
+<th data-field=codr data-title=Código data-sortable=true></th>
+<th data-field=perr data-title=Nombre data-sortable=true></th>
+<th data-field=nomr data-title=Empresa data-sortable=true></th>
+<th data-field=fhir data-title=Fecha/hora data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=tipr data-title=Tipo data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=asur data-title=Asunto data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=desr data-title=Descripción data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=nclr data-title="Notas cliente" data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=etar data-title=Etapa data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=resr data-title=Resultado data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=domr data-title=Dirección data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=cpor data-title=">C. P." data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=pobr data-title=Población data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=pror data-title=Provincia data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=pair data-title=País data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=te1r data-title="Teléfono 1" data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=te2r data-title="Teléfono 2" data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=corr data-title=E-mail data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=wwwr data-title=Web data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=linr data-title=LinkedIn data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=telr data-title=Telegram data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=insr data-title=Instagram data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=mesr data-title=Messenger data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+<th data-field=xxxr data-title=X data-sortable=false data-searchable=false data-visible=false data-print-ignore=true></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<div id=toaRecordatorio></div>
+<div id=coltabRecordatorios></div>
+<div id=msjRecordatorios></div>
+</div>
+</div>
+</body>
+</html>

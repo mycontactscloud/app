@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang=en-ES>
+<head>
+<style>.success3{background:#d0e8f9;font-weight:700}.btn-mini{padding:.25rem .5rem;font-size:.75rem;line-height:1.25}</style>
+</head>
+<body class=bg-light>
+<div class="container-fluid sticky-top bg-light">
+<div class="row justify-content-between align-content-center gx-0 gy-2" id=filaInteracciones>
+<div class="col-auto d-none d-md-block mt-1 mb-1">
+<div class=btn-group role=group>
+<button class="btn btn-success btn-sm" id=cont2_interacciones title="Nueva interacción" data-bs-toggle=tooltip onClick="regTabla('modalInteraccion', 'opcionInteraccion', 1)"><i class="bi bi-journal-plus" style=font-size:1.4rem;color:currentColor></i></button>
+<button class="btn btn-success btn-sm" id=cont3_interacciones title="Editar interacción" data-bs-toggle=tooltip onClick="regTabla('modalInteraccion', 'opcionInteraccion', 2)"><i class="bi bi-journal-text" style=font-size:1.4rem;color:currentColor></i></button>
+<button class="btn btn-success btn-sm" id=cont4_interacciones title="Eliminar interacción" data-bs-toggle=tooltip onClick=eliminarInteraccion()><i class="bi bi-journal-minus" style=font-size:1.4rem;color:currentColor></i></button>
+<button class="btn btn-success btn-sm" id=cont1_interacciones title="Ver interacción" data-bs-toggle=tooltip onClick="regTabla('modalInteraccion', 'opcionInteraccion', 4)"><i class="bi bi-journal" style=font-size:1.4rem;color:currentColor></i></button>
+</div>
+<div class=btn-group role=group>
+<button class="btn btn-success btn-sm dropdown-toggle d-none d-md-block" type=button id=cont6_interacciones data-bs-toggle=dropdown data-bs-auto-close=true aria-expanded=false data-bs-toggle=tooltip title="Exportar tabla">
+<i class=bi-cloud-download style=font-size:1.4rem;color:currentColor></i>
+</button>
+<ul class=dropdown-menu aria-labelledby=cont6_interacciones>
+<li>
+<button class="btn btn-link dropdown-item" onClick="imprimirTabla('tabInteracciones', 'Interacciones', 'landscape')"><i class="bi bi-printer" style=font-size:1rem;color:currentColor></i>&nbsp;<span>Imprimir</span></button>
+</li>
+<li><h5 id=lisExp class=dropdown-header><span>Exportar a</span>:</h5></li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","pdf")'>&nbsp;&nbsp;<i class="bi bi-filetype-pdf" style=font-size:1rem;color:currentColor></i>&nbsp;PDF</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","xlsx")'>&nbsp;&nbsp;<i class="bi bi-filetype-xlsx" style=font-size:1rem;color:currentColor></i>&nbsp;Excel</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","ods")'>&nbsp;&nbsp;<i class="bi bi-file-earmark" style=font-size:1rem;color:currentColor></i>&nbsp;ODS</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","csv")'>&nbsp;&nbsp;<i class="bi bi-filetype-csv" style=font-size:1rem;color:currentColor></i>&nbsp;CSV</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","txt")'>&nbsp;&nbsp;<i class="bi bi-filetype-txt" style=font-size:1rem;color:currentColor></i>&nbsp;TXT</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","json")'>&nbsp;&nbsp;<i class="bi bi-filetype-json" style=font-size:1rem;color:currentColor></i>&nbsp;JSON</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","xml")'>&nbsp;&nbsp;<i class="bi bi-filetype-xml" style=font-size:1rem;color:currentColor></i>&nbsp;XML</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","html")'>&nbsp;&nbsp;<i class="bi bi-filetype-html" style=font-size:1rem;color:currentColor></i>&nbsp;HTML</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","sql")'>&nbsp;&nbsp;<i class="bi bi-filetype-sql" style=font-size:1rem;color:currentColor></i>&nbsp;SQL</button>
+</li>
+</ul>
+<button class="btn btn-success btn-sm d-none d-md-block" id=verCol_interacciones title="Mostrar columnas" data-bs-toggle=tooltip onClick="modalColTab('modalColTabInteracciones', 'colTabInteracciones', 'tabInteracciones')"><i class="bi bi-layout-three-columns" style=font-size:1.4rem;color:currentColor></i></button>
+</div>
+</div>
+<div class="col-auto align-self-center d-none d-lg-block mt-1 mb-1">
+<a class="navbar-brand text-success h3" style=font-weight:700 id=titulo><span>Interacciones</span></a>
+</div>
+<div class="col-auto align-self-center d-sm-block d-md-none mt-1 mb-1" id=menuDesplegable>
+<button class="btn btn-success dropdown-toggle" type=button id=MenuMovil_interacciones data-bs-toggle=dropdown aria-expanded=false>
+<i class="bi bi-list" style=font-size:1rem;color:currentColor></i> </button>
+<ul class=dropdown-menu aria-labelledby=MenuMovil_interacciones>
+<li>
+<button class="btn btn-link dropdown-item" id=cont2b_interacciones onclick='regTabla("modalInteraccion","opcionInteraccion",1)'>
+<i class="bi bi-journal-plus" style=font-size:1rem;color:currentColor></i>&nbsp;<span>Nueva interacción</span>
+</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" id=cont3b_interacciones onclick='regTabla("modalInteraccion","opcionInteraccion",2)'>
+<i class="bi bi-journal-text" style=font-size:1rem;color:currentColor></i>&nbsp;<span>Editar interacción</span>
+</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" id=cont4b_interacciones onclick=eliminarInteraccion()>
+<i class="bi bi-journal-minus" style=font-size:1rem;color:currentColor></i>&nbsp;<span>Eliminar interacción</span>
+</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" id=cont1b_interacciones onclick='regTabla("modalInteraccion","opcionInteraccion",4)'>
+<i class="bi bi-journal" style=font-size:1rem;color:currentColor></i>&nbsp;<span id=cont1bt>Ver interacción</span>
+</button>
+</li>
+<li><hr class=dropdown-divider></li>
+<li class=dropend>
+<button class="btn btn-link dropdown-item dropdown-toggle" type=button data-bs-toggle=dropdown aria-expanded=false id=opcionesTablaSubmenu_interacciones>
+<i class="bi bi-table" style=font-size:1rem;color:currentColor></i>&nbsp;<span>Tabla</span>
+</button>
+<ul class="submenu dropdown-menu" aria-labelledby=opcionesTablaSubmenu_interacciones id=opcion1_interacciones>
+<li>
+<button class="btn btn-link dropdown-item" id=imprimirb_interacciones onClick="imprimirTabla('tabInteracciones', 'Interacciones', 'landscape')"><i class="bi bi-printer" style=font-size:1rem;color:currentColor></i>&nbsp;<span>Imprimir</span></button>
+</li>
+<li class=dropstart>
+<button class="btn btn-link dropdown-item dropdown-toggle" type=button data-bs-toggle=dropdown aria-expanded=false id=cont6b_interacciones>
+<i class=bi-cloud-download style=font-size:1rem;color:currentColor></i>&nbsp;<span>Exportar a</span>
+</button>
+<ul class="submenu submenu1 dropdown-menu" aria-labelledby=cont6b_interacciones>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","pdf")'><i class="bi bi-filetype-pdf" style=font-size:1rem;color:currentColor></i>&nbsp;PDF</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","xlsx")'><i class="bi bi-filetype-xlsx" style=font-size:1rem;color:currentColor></i>&nbsp;Excel</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","ods")'><i class="bi bi-file-earmark" style=font-size:1rem;color:currentColor></i>&nbsp;ODS</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","csv")'><i class="bi bi-filetype-csv" style=font-size:1rem;color:currentColor></i>&nbsp;CSV</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","txt")'><i class="bi bi-filetype-txt" style=font-size:1rem;color:currentColor></i>&nbsp;TXT</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","json")'><i class="bi bi-filetype-json" style=font-size:1rem;color:currentColor></i>&nbsp;JSON</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","xml")'><i class="bi bi-filetype-xml" style=font-size:1rem;color:currentColor></i>&nbsp;XML</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","html")'><i class="bi bi-filetype-html" style=font-size:1rem;color:currentColor></i>&nbsp;HTML</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" onclick='exportarTabla("tabInteracciones","Interacciones","Interacciones","landscape","sql")'><i class="bi bi-filetype-sql" style=font-size:1rem;color:currentColor></i>&nbsp;SQL</button>
+</li>
+</ul>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" id=verCol1_interacciones onclick='modalColTab("modalColTabInteracciones","colTabInteracciones","tabInteracciones")'>
+<i class="bi bi-layout-three-columns" style=font-size:1rem;color:currentColor></i>&nbsp;<span>Mostrar columnas</span>
+</button>
+</li>
+<li>
+<button class="btn btn-link dropdown-item" id=tarjeta_interacciones onclick='valorTarjeta("tabInteracciones")'>
+<i class="bi bi-card-list" style=font-size:1rem;color:currentColor></i>&nbsp;<span>Tarjeta/Tabla</span>
+</button>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="col-auto align-self-center mt-1 mb-1">
+<div class=btn-group role=group>
+<input type=search id=buscar_interacciones class=form-control placeholder=Buscar onchange='buscarAhora("tabInteracciones","buscar")' title="Buscar en la tabla" data-bs-toggle=tooltip>
+</div>
+</div>
+<div class="col-auto align-self-center mt-1 mb-1">
+<div class=btn-group role=group>
+<div class="form-check form-switch btn-sm d-none d-md-block">
+<input class=form-check-input type=checkbox id=vistaTarjeta_interacciones title="Vista de tarjeta" data-bs-toggle=tooltip onchange='valorTarjeta("tabInteracciones")'>
+<label class=form-check-label for=vistaTarjeta_interacciones><span>Tarjeta</span></label>
+</div>
+</div>
+</div>
+<div class="col-auto align-self-center mt-1 mb-1">
+<button type=button id=cerVentana_interacciones class="btn-close btn-lg" data-bs-dismiss=modal aria-label=Close title="Cerrar ventana" onclick='cambioDiv("interacciones","contactos",0,1)' data-bs-toggle=tooltip></button>
+</div>
+</div>
+</div>
+<div class=container-fluid>
+<table class="table table-striped table-hover table-responsive" data-page-number=1 id=tabInteracciones data-url="" data-method=post data-toggle=table data-id-field=idii data-undefined-text="" data-locale=es-SP data-unique-id=idii data-search=true data-show-search-button=false data-search-selector=#buscar_interacciones data-search-highlight=true data-search-on-enter-key=false data-side-pagination=client data-pagination=true data-page-size=100000 data-show-pagination-switch=false data-show-extended-pagination=false data-pagination-parts="['pageList']" data-id-table=tabInteracciones data-click-to-select=true data-single-select=true data-sort-name=fhii data-sort-order=asc data-virtual-scroll=false data-icons-prefix=bi data-icons=icons data-auto-refresh=false data-auto-refresh-interval=30 data-show-refresh=false data-show-auto-refresh=false data-auto-refresh-silent=true data-export-data-type=all data-detail-view=true data-detail-formatter=detailFormatterTabInteracciones data-cache=false>
+<thead class="bg-dark text-light">
+<tr>
+<th data-field=idii data-sortable=false data-visible=false data-searchable=false data-switchable=false data-print-ignore=true data-force-hide=true data-card-visible=false></th>
+<th data-field=idci data-sortable=false data-visible=false data-searchable=false data-switchable=false data-print-ignore=true data-force-hide=true data-card-visible=false></th>
+<th data-field=fhii data-title=Fecha/hora data-sortable=true></th>
+<th data-field=tipi data-title=Tipo data-sortable=true></th>
+<th data-field=asui data-title=Asunto data-sortable=true></th>
+<th data-field=desi data-title=Descripción data-sortable=true></th>
+<th data-field=ncli data-title="Notas cliente" data-sortable=true></th>
+<th data-field=etai data-title=Etapa data-sortable=true></th>
+<th data-field=resi data-title=Resultado data-sortable=true></th>
+<th data-field=peni data-title=Pendiente data-sortable=true></th>
+<th data-field=reci data-title=Recordatorio data-sortable=true></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<div id=toaInteraccion></div>
+<div id=colTabInteracciones></div>
+<div id=msjInteracciones></div>
+</div>
+<div class="modal fade" id=formEliminarInteraccion tabindex=-1 data-bs-backdrop=false aria-label="Aria Name 1">
+<div class="modal-dialog modal-ajustada">
+<div class=modal-content>
+<div class="modal-header bg-light">
+<h5 class=modal-title><span>Interacción</span></h5>
+<button type=button class=btn-close data-bs-dismiss=modal aria-label=Close data-bs-toggle=tooltip title="Cerrar ventana"></button>
+</div>
+<div class=modal-body>
+<form id=formDelInteraccion>
+<div class="form-group mb-2">
+<input name=fhiiE id=fhiiE_interacciones size=20 maxlength=20 readonly class=form-control title=Fecha/hora data-bs-toggle=tooltip>
+</div>
+<div class=form-group>
+<input name=asuiE id=asuiE_interacciones size=50 maxlength=50 readonly class=form-control title=Asunto data-bs-toggle=tooltip>
+</div>
+</form>
+</div>
+<div class="modal-footer bg-light">
+<div align=center>
+<span>¿Eliminar Interacción?</span>
+</div>
+<button type=button class="btn btn-primary" id=SieliminarInteraccion data-bs-dismiss=modal><span>Sí</span></button>
+<button type=button class="btn btn-secondary" id=NoeliminarInteraccion data-bs-dismiss=modal><span>No</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id=modalInteraccion tabindex=-1 data-bs-backdrop=false data-bs-keyboard=false aria-labelledby=staticBackdropLabel aria-hidden=false aria-label="Aria Name">
+<div class="modal-dialog modal-xl modal-ajustada">
+<div class=modal-content>
+<form id=formInteraccion>
+<div class="modal-header bg-dark bg-gradient sticky-top">
+<div class=col-auto>
+<a class="navbar-brand text-warning"><span>Interacción</span></a>
+</div>
+<div class=col-auto style=text-align:right>
+<input type=hidden name=idii id=idii_interacciones value=0>
+<div class=btn-group role=group>
+<button type=submit class="btn btn-success text-white me-2" id=aceptar_interacciones value=Aceptar title="Guardar cambios" data-bs-toggle=tooltip><i class="bi bi-check-circle"></i> </button>
+</div>
+<div class=btn-group role=group>
+<button type=reset class="btn btn-warning btn-sm" id=cancelar_interacciones value=Cancelar title="Cancelar cambios" data-bs-toggle=tooltip><i class="bi bi-x-circle"></i> </button>
+</div>
+<div class="btn-group ms-2" role=group>
+<button type=button class="btn-close btn-close-white btn-lg" data-bs-dismiss=modal aria-label=Close></button>
+</div>
+</div>
+</div>
+<div class="modal-body bg-primary bg-opacity-25">
+<div class=container-fluid>
+<div class="row justify-content-between gx-2 gy-2 mb-3 mfil">
+<div class="col-lg-3 col-auto form-floating">
+<input type=datetime-local name=fhii id=fhii_interacciones title="Fecha/hora de la interacción" data-bs-toggle=tooltip required class=form-control>
+<label for=fhii_interacciones>Fecha/hora</label>
+</div>
+<div class="col-auto form-floating">
+<select name=tipi id=tipi_interacciones class=form-select title="Tipo de interacción" data-bs-toggle=tooltip>
+<option value=1>Llamada Telefónica</option>
+<option value=2>Correo Electrónico</option>
+<option value=3>Reunión Presencial</option>
+<option value=4>Videollamada</option>
+<option value=5>Mensaje de Texto</option>
+<option value=6>Mensajería Instantánea</option>
+<option value=7>Presentación de Producto / Servicio</option>
+<option value=8>Demo o Prueba de Producto</option>
+<option value=9>Capacitación o Formación</option>
+<option value=10>Propuesta Enviada</option>
+<option value=11>Confirmación de Pedido</option>
+<option value=12>Entrega de Producto / Servicio</option>
+<option value=13>Reunión de Seguimiento</option>
+<option value=14>Revisión de Progreso</option>
+<option value=15>Encuesta de Satisfacción</option>
+<option value=16>Asistencia Técnica</option>
+<option value=17>Resolución de Incidencias</option>
+<option value=18>Renovación de Contrato o Servicio</option>
+<option value=19>Actualización de Condiciones</option>
+<option value=20>Ajuste de Propuesta</option>
+<option value=21>Cierre de Venta</option>
+<option value=22>Cancelación / Terminación de Servicio</option>
+<option value=23>Envío de Documentación</option>
+<option value=24>Invitación a Evento/Webinar</option>
+<option value=25>Notificación de Cobro / Facturación</option>
+<option value=26>Reunión Interna de Estrategia (Equipo)</option>
+<option value=27>Otro</option>
+</select>
+<label for=tipi_interacciones>Tipo</label>
+</div>
+<div class="col-auto form-floating">
+<input name=asui id=asui_interacciones placeholder=Asunto maxlength=50 size=50 class=form-control title=Asunto data-bs-toggle=tooltip>
+<label for=asui_interacciones>Asunto</label>
+</div>
+<div class=col-12>
+<textarea name=desi id=desi_interacciones placeholder=Descripción rows=4 class="form-control mb-3" title=Descripción data-bs-toggle=tooltip></textarea>
+</div>
+<div class=col-12>
+<textarea name=ncli id=ncli_interacciones placeholder="Notas cliente" rows=4 class="form-control mb-3" title="Notas cliente" data-bs-toggle=tooltip></textarea>
+</div>
+<div class="col-auto form-floating">
+<select name=etai id=etai_interacciones class=form-select title="Etapa del proceso de venta" data-bs-toggle=tooltip>
+<option value=1>Prospecto Inicial</option>
+<option value=2>Calificación de Lead</option>
+<option value=3>Contacto Realizado</option>
+<option value=4>Reunión Inicial</option>
+<option value=5>Identificación de Necesidades</option>
+<option value=6>Presentación de Producto / Servicio</option>
+<option value=7>Envio de Propuesta</option>
+<option value=8>Negociación</option>
+<option value=9>Términos Acordados</option>
+<option value=10>Cierre Pendiente de Aprobación</option>
+<option value=11>Cierre de Venta</option>
+<option value=12>Implementación</option>
+<option value=13>Seguimiento Postventa</option>
+<option value=14>Renovación / Recompra</option>
+<option value=15>Oportunidad Perdida</option>
+<option value=16>Prospecto Inactivo</option>
+<option value=17>Otro</option>
+</select>
+<label for=etai_interacciones>Etapa</label>
+</div>
+<div class="col-auto form-floating">
+<select name=resi id=resi_interacciones class=form-select title="Resultado de la interacción" data-bs-toggle=tooltip>
+<option value=1>Exitosa</option>
+<option value=2>Sin Respuesta</option>
+<option value=3>Interesado</option>
+<option value=4>No Interesado</option>
+<option value=5>Seguimiento Programado</option>
+<option value=6>Propuesta Enviada</option>
+<option value=7>Aprobación Pendiente</option>
+<option value=8>Condiciones Negociadas</option>
+<option value=9>Cierre Exitoso</option>
+<option value=10>Oportunidad Perdida</option>
+<option value=11>Pendiente de Acción del Cliente</option>
+<option value=12>Feedback Recibido</option>
+<option value=13>Otro</option>
+</select>
+<label for=resi_interacciones>Resultado</label>
+</div>
+<div class="col-auto form-floating">
+<select name=peni id=peni_interacciones class=form-select title="Acción Pendiente" data-bs-toggle=tooltip>
+<option value=1>Enviar Correo de Seguimiento</option>
+<option value=2>Llamar para Recordatorio</option>
+<option value=3>Enviar Propuesta</option>
+<option value=4>Programar Reunión</option>
+<option value=5>Confirmar Asistencia</option>
+<option value=6>Enviar Documentación Adicional</option>
+<option value=7>Actualizar Propuesta</option>
+<option value=8>Revisar Necesidades del Cliente</option>
+<option value=9>Negociar Nuevas Condiciones</option>
+<option value=10>Solicitar Feedback</option>
+<option value=11>Cerrar Venta</option>
+<option value=12>Otro</option>
+</select>
+<label for=peni_interacciones>Acción Pendiente</label>
+</div>
+<div class="col-lg-3 col-auto form-floating">
+<input type=datetime-local name=reci id=reci_interacciones title="Recordatorio de la Acción Pendiente" data-bs-toggle=tooltip class=form-control>
+<label for=reci_interacciones>Recordatorio</label>
+</div>
+</div>
+</div>
+</div></form>
+<div id=msjModInteraccion></div>
+</div>
+</div>
+</div>
+</body>
+</html>

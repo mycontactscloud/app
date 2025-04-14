@@ -1,0 +1,1538 @@
+<!doctype html>
+<html lang=es>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=manifest href=manifest.json>
+<link href=https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css rel=stylesheet integrity=sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3 crossorigin=anonymous>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css integrity="sha256-9kPW/n5nn53j4WMRYAxe9c1rCY96Oogo/MKSVdKzPmI=" crossorigin=anonymous>
+<link href=https://cdn.jsdelivr.net/gh/mycontactscloud/app/lib/style.css rel=stylesheet>
+<link rel=preload href=https://cdn.jsdelivr.net/gh/mycontactscloud/web/img/icons-sprite.svg as=fetch type=image/svg+xml crossorigin=anonymous>
+<link href=https://cdn.jsdelivr.net/gh/mycontactscloud/app/im/icon192.png rel="shortcut icon">
+<title>My Contacts Cloud</title>
+<style>body,html{min-height:100vh;margin:0;padding:0;background-color:#fff}#botonIdiomaOpciones{max-height:300px;overflow-y:auto;width:300px}#spinnerPrincipal{position:fixed;top:50%;left:50%;z-index:1050}#spinnerPrincipal span{color:#000;font-size:1rem}.claseDiv{box-sizing:border-box;width:100%;height:100%;position:absolute;top:0;left:0;background-color:#fff}.selected-option{display:flex;align-items:center;gap:5px}.selected-option svg{width:24px;height:18px;margin-right:5px}.note-editor .dropdown-toggle::after{all:unset}.note-editor .note-modal-footer{box-sizing:content-box}.note-editable{background-color:#fff!important}.note-editor .note-dropdown-menu{box-sizing:content-box}.text-yahoo{color:#6001d2!important}.modal-backdrop{background:radial-gradient(circle at center,#ffe9a8 0,#f8f9fa 50%,#c8ecd7 100%)!important;opacity:1!important}@media (max-width:576px){.modal-ajustada{width:100vw!important;max-width:100vw!important;margin:0}}</style>
+</head>
+<body>
+<script>document.addEventListener("DOMContentLoaded",(function(){libIdioma(localStorage.getItem("idiomaPais"),0),setTimeout((()=>{let e=localStorage.getItem("divAnt")||"",t=localStorage.getItem("divNue")||"menu";"eventos"===e&&"contactos"===t||"documentos"===t||"interacciones"===t?t=e:"cambiaridioma"===t&&(t="menu"),e="",opPrincipalNoMenu(t)}),100);const e=document.getElementById("correoDropdown"),t=e.querySelector("#btnClienteCorreo");e.addEventListener("click",(function(e){const o=e.target.closest(".dropdown-item");if(!o)return;e.preventDefault();const n=parseInt(o.dataset.value),a=o.textContent.trim();localStorage.setItem("clienteCorreo",n),t.textContent=a}))})),window.addEventListener("resize",(function(){const e=localStorage.getItem("divNue"),t={contactos:"tabContactos",documentos:"tabDocumentos",interacciones:"tabInteracciones",recordatorios:"tabRecordatorios",importargoogle:"tabImportGoogle",importarapple:"tabImportApple",importarms:"tabImportMs"};return t[e]&&(cambiarAltoTabla(t[e],e.includes("importar")?20:0),barraPaginacion(`#${t[e]}`)),!1})),window.addEventListener("orientationchange",(function(){return"contactos"===localStorage.getItem("divNue")&&(pCompleta_contactos.style.display=window.screen.orientation.type.startsWith("landscape")?"":"none"),!1})),window.addEventListener("load",(function(){history.pushState&&(history.pushState(null,null,location.href),window.onpopstate=function(e){e.preventDefault(),"popstate"===e.type&&history.go(1)})})),window.addEventListener("pageshow",(function(){"false"===localStorage.getItem("procValida")&&location.replace("../index.html#install")})),window.addEventListener("storage",(function(e){if("estadoSuscripcion"===e.key){const t=document.getElementById("promocion"),o=document.getElementById("filaPruebas");"trialing"===e.newValue||"probando"===e.newValue?(t.classList.contains("d-none")&&t.classList.remove("d-none"),o.classList.contains("d-none")&&o.classList.remove("d-none"),"0"===localStorage.getItem("pruebaCancelada")?(colPruebas1.innerText=fColPruebas1(),colPruebas2.innerText=fColPruebas2()):(colPruebas1.innerText=fColPruebas3(),colPruebas2.innerText=fColPruebas4())):(t.classList.contains("d-none")||t.classList.add("d-none"),o.classList.contains("d-none")||o.classList.add("d-none"))}})),document.body.classList.add("loading")</script>
+<div id=spinnerPrincipal class=spinner-border role=status style=width:3rem;height:3rem>
+<span>&nbsp;Loading...</span>
+</div>
+<div class=container-fluid>
+<div class="modal fade" id=modalMenu tabindex=-1 data-bs-backdrop=static data-bs-keyboard=false aria-labelledby=staticBackdropLabel aria-hidden=true aria-label="Aria Name">
+<div class="modal-dialog modal-ajustada">
+<div class=modal-content>
+<div class="modal-header bg-dark bg-gradient">
+<div class="d-flex justify-content-between align-items-center w-100">
+<div class="d-flex align-items-center justify-content-start">
+<img src=https://cdn.jsdelivr.net/gh/mycontactscloud/app/im/icon192.png alt="icon My Contacts Cloud" width=32 height=32 class="d-inline-block align-text-top">
+<h5 class="modal-title text-white">&nbsp;<span>Menú</span>&nbsp;<strong>My Contacts</strong></h5>
+</div>
+<div class="d-flex align-items-center justify-content-end">
+<button type=button class="btn-close btn-close-white btn-lg" data-bs-dismiss=modal aria-label=Close onclick=salidaApp()></button>
+</div>
+</div>
+</div>
+<div class="modal-body bg-primary bg-opacity-25">
+<div class="row gx-2 gy-2 mb-2">
+<div class=col-6>
+<button type=button class="btn btn-dark bg-gradient w-100" onclick=opPrincipal(1) data-bs-toggle=popover id=popoverBtn><i class="bi bi-people-fill" style=font-size:1.6rem;color:orange></i>&nbsp;<span>Contactos</span></button>
+</div>
+<div class=col-6>
+<button type=button class="btn btn-dark bg-gradient w-100" onclick=opPrincipal(18) data-bs-toggle=popover id=popoverBtn><i class="bi bi-journals" style=font-size:1.6rem;color:orange></i>&nbsp;<span>Recordatorios</span></button>
+</div>
+</div>
+<div class="row gx-2 gy-2 mb-2">
+<div class=col-6>
+<div class="btn-group w-100" role=group>
+<button type=button class="btn btn-dark bg-gradient dropdown-toggle" id=submenuImportar data-bs-toggle=dropdown aria-expanded=false><i class="bi bi-cloud-upload-fill" style=font-size:1.6rem;color:orange></i>&nbsp;<span>Importar</span></button>
+<ul class="dropdown-menu pre-scrollable" aria-labelledby=submenuImportar>
+<li class=dropdown-item style=cursor:pointer onclick=opPrincipal(2)><i class="bi bi-person-fill-up me-2 text-primary"></i><span>Contactos de Google</span></li>
+<li class=dropdown-item style=cursor:pointer onclick=opPrincipal(3)><i class="bi bi-person-fill-up me-2 text-danger"></i><span>Contactos de Microsoft</span></li>
+<li class=dropdown-item style=cursor:pointer onclick=opPrincipal(23)><i class="bi bi-person-fill-up me-2 text-dark"></i><span>Contactos de Apple</span></li>
+<li class=dropdown-item style=cursor:pointer onclick=opPrincipal(4)><i class="bi bi-file-earmark-spreadsheet-fill me-2 text-success"></i><span>Desde fichero Excel</span></li>
+</ul>
+</div>
+</div>
+<div class="col-6 align-self-end">
+<center class="text-success fw-bold"><span>Planificador</span></center>
+<small><center class=text-dark><span>Eventos Reuniones Tareas</span></center></small>
+</div>
+</div>
+<div class="row gx-2 gy-2 mb-2" id=fila3>
+<div class=col-6>
+<div class="btn-group w-100" role=group>
+<button type=button class="btn btn-dark bg-gradient dropdown-toggle" id=submenuUtilidades data-bs-toggle=dropdown aria-expanded=false><i class="bi bi-tools" style=font-size:1.6rem;color:orange></i>&nbsp;<span>Utilidades</span></button>
+<ul class="dropdown-menu pre-scrollable" aria-labelledby=submenuUtilidades>
+<li class=dropdown-item style=cursor:pointer onclick=opPrincipal(5)><i class="bi bi-people-fill me-2 text-success"></i><span>Grupos de contactos</span></li>
+<li class=dropdown-item style=cursor:pointer onclick=opPrincipal(17)><i class="bi bi-tags-fill me-2 text-success"></i><span>Etiquetas de contactos</span></li>
+<li class=dropdown-divider></li>
+<li class=dropdown-item style=cursor:pointer onclick=opPrincipal(6)><i class="bi bi-person-fill-gear me-2 text-primary"></i><span>Configurar contactos</span></li>
+<li class=dropdown-item style=cursor:pointer onclick=opPrincipal(7)><i class="bi bi-calendar2-event-fill me-2 text-primary"></i><span>Configurar eventos</span></li>
+<li class=dropdown-divider></li>
+<li class="dropdown-item border-bottom-0" style=cursor:pointer onclick=opPrincipal(8)><i class="bi bi-translate me-2 text-danger"></i><span>Cambiar idioma</span></li>
+<li class=dropdown-item style=cursor:pointer onclick=opPrincipal(9) id=cambioContrasena><i class="bi bi-asterisk me-2 text-danger"></i><span>Cambiar contraseña</span></li>
+</ul>
+</div>
+</div>
+<div class=col-6>
+<button type=button class="btn btn-success bg-gradient w-100" onclick=opPrincipal(13)><i class="bi bi-calendar-date" style=font-size:1.6rem;color:orange></i>&nbsp;<span>Día</span></button>
+</div>
+</div>
+<div class="row gx-2 gy-2 mb-2" id=fila4>
+<div class=col-6>
+<div id=espacioPlanesPro>
+<button type=button class="btn btn-dark bg-gradient w-100" onclick=opPrincipal(10) id=idPlanesPro><i class="bi bi-palette2" style=font-size:1.6rem;color:orange></i>&nbsp;<span>Planes PRO</span></button>
+</div>
+</div>
+<div class=col-6>
+<button type=button class="btn btn-success bg-gradient w-100" onclick=opPrincipal(14)><i class="bi bi-calendar-week" style=font-size:1.6rem;color:orange></i>&nbsp;<span>Semana</span></button>
+</div>
+</div>
+<div class="row gx-2 gy-2 mb-2" id=fila5>
+<div class=col-6>
+<div id=espacioSuscripcion>
+<button type=button class="btn btn-dark bg-gradient w-100" onclick=opPrincipal(11) id=idStripe><i class="bi bi-hand-index" style=font-size:1.6rem;color:orange></i>&nbsp;<span>Suscripción</span></button>
+</div>
+</div>
+<div class=col-6>
+<button type=button class="btn btn-success bg-gradient w-100" onclick=opPrincipal(15)><i class="bi bi-calendar3" style=font-size:1.6rem;color:orange></i>&nbsp;<span>Mes</span></button>
+</div>
+</div>
+<div class="row gx-2 gy-2 mb-2">
+<div class=col-6>
+<button type=button class="btn btn-dark bg-gradient w-100" onclick=opPrincipal(12)><i class="bi bi-star-fill" style=font-size:1.6rem;color:orange></i>&nbsp;<span>¡Vótanos!</span></button>
+</div>
+<div class=col-6>
+<button type=button class="btn btn-success bg-gradient w-100" onclick=opPrincipal(16)><i class="bi bi-list-task" style=font-size:1.6rem;color:orange></i>&nbsp;<span>Agenda</span></button>
+</div>
+</div>
+<div class="row gx-2 gy-2 mb-2">
+<div class="col-6 align-self-center justify-content-center">
+<div id=correoDropdown>
+<small><span class=text-dark>App de correo</span></small>
+<div class=dropdown>
+<button id=btnClienteCorreo class="btn btn-success bg-gradient dropdown-toggle w-100" type=button data-bs-toggle=dropdown aria-expanded=false>
+Seleccionar
+</button>
+<ul class="dropdown-menu w-100" style="border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,.1);overflow:hidden">
+<li><a class="dropdown-item d-flex align-items-center" href=# data-value=1><i class="bi bi-envelope-fill me-2 text-danger"></i> Gmail</a></li>
+<li><a class="dropdown-item d-flex align-items-center" href=# data-value=2><i class="bi bi-envelope-fill me-2 text-primary"></i> Outlook</a></li>
+<li><a class="dropdown-item d-flex align-items-center" href=# data-value=3><i class="bi bi-cloud-fill me-2 text-info"></i> iCloud</a></li>
+<li><a class="dropdown-item d-flex align-items-center" href=# data-value=4><i class="bi bi-envelope-fill me-2 text-yahoo"></i> Yahoo</a></li>
+<li><a class="dropdown-item d-flex align-items-center" href=# data-value=0><i class="bi bi-tablet-fill me-1 text-secondary"></i> <span>Dispositivo</span></a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-6 align-self-center justify-content-center">
+<div id=docDropdownContainer>
+<small><span class=text-dark>Nuevo documento</span></small>
+<div class=dropdown>
+<button id=docDropdown class="btn btn-success bg-gradient dropdown-toggle w-100" type=button data-bs-toggle=dropdown aria-expanded=false><span>Selecciona tipo</span>
+</button>
+<div class="dropdown-menu p-3 w-100" style="border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,.1);min-width:400px">
+<div class=row>
+<div class="col-6 pe-2 border-end">
+<h6 class="dropdown-header fw-bold fs-5 text-primary">Google</h6>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://docs.new><i class="bi bi-file-earmark-text-fill me-2 text-primary"></i> Docs</a>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://sheets.new><i class="bi bi-file-spreadsheet-fill me-2 text-success"></i> Sheets</a>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://slides.new><i class="bi bi-easel-fill me-2 text-warning"></i> Slides</a>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://forms.new><i class="bi bi-clipboard-check-fill me-2 text-yahoo"></i> Forms</a>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://keep.new><i class="bi bi-journal-bookmark-fill me-2 text-secondary"></i> Keep</a>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://cal.new><i class="bi bi-calendar-event-fill me-2 text-primary"></i> Calendar</a>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://site.new><i class="bi bi-globe me-2 text-primary"></i> Sites</a>
+<hr class=dropdown-divider>
+<h6 class="dropdown-header fw-bold fs-5 text-info"><span>Videollamada</span></h6>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://meet.new><i class="bi bi-camera-video-fill me-2 text-primary"></i> Google Meet</a>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://teams.microsoft.com/ ><i class="bi bi-microsoft-teams me-2 text-primary"></i> Microsoft Teams</a>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://zoom.us/start/videomeeting><i class="bi bi-camera-video-fill me-2 text-primary"></i> Zoom</a>
+</div>
+<div class="col-6 ps-2">
+<h6 class="dropdown-header fw-bold fs-5 text-danger">Microsoft Office</h6>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://word.new><i class="bi bi-file-earmark-word-fill me-2 text-primary"></i> Word</a>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://excel.new><i class="bi bi-file-earmark-excel-fill me-2 text-success"></i> Excel</a>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://powerpoint.new><i class="bi bi-file-earmark-ppt-fill me-2 text-danger"></i> PowerPoint</a>
+<hr class=dropdown-divider>
+<h6 class="dropdown-header fw-bold fs-5 text-yahoo"><span>Diseño</span></h6>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://canva.new><i class="bi bi-brush-fill me-2 text-primary"></i> Canva</a>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://figma.new><i class="bi bi-palette-fill me-2 text-danger"></i> Figma</a>
+<hr class=dropdown-divider>
+<h6 class="dropdown-header fw-bold fs-5 text-success"><span>Marketing</span></h6>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://pitch.new><i class="bi bi-megaphone-fill me-2 text-primary"></i> Pitch</a>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://webflow.new><i class="bi bi-box-fill me-2 text-primary"></i> Webflow</a>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://miro.new><i class="bi bi-diagram-3-fill me-2 text-dark"></i> Miro</a>
+<a class="dropdown-item doc-link d-flex align-items-center" href=# data-url=https://notion.new><i class="bi bi-kanban-fill me-2 text-dark"></i> Notion</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row gx-2 gy-2 mb-2">
+<div class="col-6 d-flex align-self-center justify-content-center">
+<button class="btn btn-outline-light border-0" id=pCompleta onClick="toggleFullScreen('pCompleta')"><i class="bi bi-arrows-fullscreen fw-bold" id=fullscreen-icon style=font-size:1rem;color:#198754></i> <span id=fullscreen-txt class=text-dark>Pantalla completa</span></button>
+</div>
+<div class="col-6 d-flex align-self-center justify-content-center">
+<div class="form-check form-switch float-end">
+<input class=form-check-input type=checkbox role=switch id=cerrarSesion>
+<label class="form-check-label text-dark fw-semibold" for=cerrarSesion><span>Cerrar sesión</span></label>
+</div>
+</div>
+</div>
+<div class="row gx-2 gy-2 mb-1">
+<div class=col-12>
+<span id=idCuenta></span>
+</div>
+</div>
+<div class="row gx-2 gy-2 d-none mb-2" id=filaPruebas>
+<div class=col-12>
+<span id=colPruebas1 class="text-success fw-bold"></span>
+</div>
+<div class=col-12>
+<span id=colPruebas2 style=margin-top:0;display:block>
+<div style=background-color:#f8f9fa;border-radius:10px;padding:10px;margin-top:10px>
+<div style=display:flex;align-items:center;font-size:1.2rem;font-weight:700;margin-bottom:.5rem;color:orange>
+<i class="bi bi-lightbulb-fill" style=margin-right:8px></i>
+<span id=sug11>Sugerencia</span>
+</div>
+<p style=font-size:1rem;color:#333>
+<span id=sug12>Importa tus contactos de</span>
+<a href=javascript:void(0); onclick=opPrincipal(2) style=color:#4285f4;text-decoration:none;font-weight:700> Google</a>
+,
+<a href=javascript:void(0); onclick=opPrincipal(3) style=color:#f25022;text-decoration:none;font-weight:700> Microsoft </a>
+<span id=sug13>y</span>
+<a href=javascript:void(0); onclick=opPrincipal(23) style=color:#000;text-decoration:none;font-weight:700> Apple</a>,
+<span id=sug14>haciendo clic sobre</span>
+<a href=javascript:void(0); onclick='opPrincipal("importar")' style=color:#000;text-decoration:none;font-weight:700> <i class="bi bi-cloud-upload-fill" style=margin-right:5px></i><span id=sug15>Importar</span></a>
+</p>
+</div>
+</span>
+</div>
+</div>
+<div class="row gx-2 gy-2 d-none" id=promocion>
+<div class="col-12 mt-3 text-center bg-light text-dark p-3 rounded" style=position:relative;overflow:hidden>
+<div style=position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(45deg,rgba(0,200,83,.7),rgba(0,128,0,.5));z-index:0;opacity:.9></div>
+<div style=position:relative;z-index:1>
+<h3 class=fw-bold style="font-size:1.8em;color:#198754;text-shadow:1px 1px 3px #198754" id=txtPromocion1></h3>
+<p class=fw-bold style=font-size:1.2em id=txtPromocion2></p>
+<p id=txtPromocion3></p>
+<p id=txtPromocion4></p>
+<a href=javascript:void(0); onclick=opPrincipal(10) class="btn btn-success btn-sm fw-bold px-4 py-2 hvr-bounce-to-right" style="font-size:1em;border-radius:25px;text-shadow:1px 1px 2px #000;background-color:#198754;border:none">
+<span>Ver planes</span>
+</a>
+</div>
+</div>
+</div>
+<script>esDispositivoiOS()&&(espacioPlanesPro.remove(),espacioSuscripcion.remove())</script>
+<div id=msjModPrincipal></div>
+</div>
+<div class="modal-footer bg-dark bg-gradient">
+<div class="row justify-content-between gy-1 mt-0 mb-0">
+<div class=col-auto>
+<a href=# class="text-decoration-none link-warning link-opacity-75" onclick=opPrincipal(21)><small><span>Escribe tu consulta</span></small></a>
+</div>
+<div class=col-auto>
+<a href="mailto:?subject=Recomendación%20App%20My%20Contacts%20Cloud&body=Hola%2C%0D%0A%0D%0ATe%20recomiendo%20que%20pruebes%20la%20App%20My%20Contacts%20Cloud.%20Es%20gratis%20y%20para%20siempre.%0D%0A%0D%0AAl%20hacer%20clic%20en%20https://mycontacts.cloud%20acceder%C3%A1s%20a%20la%20web%20de%20My%20Contacts%20y%20podr%C3%A1s%20suscribirte%20si%20te%20interesa.%0D%0A%0D%0ASaludos%20" target=_blank class="text-decoration-none link-warning text-center" id=recomendarAmigo><small><span>Recomendar a un amigo</span></small></a>
+</div>
+<div class=col-auto>
+<a href=https://mycontacts.cloud target=_blank class="text-decoration-none link-warning"><small>mycontacts.cloud</small></a>
+</div>
+<div class=col-auto>
+<a href=# class="text-decoration-none link-warning" onclick=opPrincipal(19)><small><span>Política de Privacidad</span></small></a>
+</div>
+<div class=col-auto>
+<a href=# class="text-decoration-none link-warning" onclick=opPrincipal(20)><small><span>Condiciones de Uso</span></small></a>
+</div>
+<div class=col-auto>
+<a href=# class="text-decoration-none link-warning" onclick=opPrincipal(22)><small><span>Desuscribirme</span></small></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>const cerrarSesion=document.getElementById("cerrarSesion"),modalMenu=document.getElementById("modalMenu");async function salidaApp(){navigator.sendBeacon("https://"+window.location.host+"/cierreSesion?cor="+localStorage.getItem("correoElec")),localStorage.setItem("procValida",!1);var e=localStorage.getItem("idiomaPais"),o=e?e.substring(0,2).toLowerCase():"";"en"==o&&(o=""),""!=o&&(o="/"+o);var t=".."+o+"/index.html#install";if(1==localStorage.getItem("cerrarSesion")){let e=localStorage.getItem("tipoSesion");1==e?(google.accounts.id.disableAutoSelect(),location.replace(t)):2==e?await obtenerTokenMicrosoft("logout"):3==e?(localStorage.removeItem("appleAccessToken"),location.replace(t)):0==e&&location.replace(t)}else esDispositivoiOS()?docmd.close():location.replace(t)}function redirigirAvotacion(){var e,o=navigator.userAgent.toLowerCase();e=o.indexOf("windows")>-1?"ms-windows-store://pdp/?productid=9N7118DTCSTB":(o.indexOf("android")>-1||o.indexOf("iphone")>-1||o.indexOf("ipad")>-1||o.indexOf("ipod"),"https://play.google.com/store/apps/details?id=cloud.mycontacts.twa"),window.open(e,"_blank")}modalMenu.addEventListener("hide.bs.modal",(function(e){desactivarTooltipsDiv("modalMenu")})),modalMenu.addEventListener("show.bs.modal",(function(e){const o=document.getElementById("correoDropdown"),t=document.getElementById("btnClienteCorreo"),a=localStorage.getItem("clienteCorreo");if(null!==a){const e=o.querySelector(`.dropdown-item[data-value="${a}"]`);e&&(t.textContent=tExp(e.textContent.trim(),""))}else t.textContent="Seleccionar";idCuenta.innerHTML=`\n        <span class="text-success fw-bold">${tExp("ID cuenta: ","")}</span>\n        <span class="text-dark fw-bold">${localStorage.getItem("correoElec")}</span>\n    `,libIdioma(localStorage.getItem("idiomaPais"),4)})),modalMenu.addEventListener("shown.bs.modal",(function(e){let o=localStorage.getItem("cerrarSesion");null==o?(localStorage.setItem("cerrarSesion",0),cerrarSesion.defaultChecked=!1):cerrarSesion.defaultChecked=1==o;let t=localStorage.getItem("tipoSesion");document.getElementById("cambioContrasena").style.display=0==t?"list-item":"none";var a=localStorage.getItem("usuarioMensaje");a&&(alert(a),localStorage.setItem("usuarioMensaje",""))})),cerrarSesion.addEventListener("click",(e=>{localStorage.setItem("cerrarSesion",cerrarSesion.checked?1:0)})),document.querySelectorAll("#docDropdownContainer .doc-link").forEach((e=>{e.addEventListener("click",(function(e){e.preventDefault();const o=this.dataset.url;o&&abrirVentanaUnica(o)}))}))</script>
+</div>
+<div class="modal fade" id=modalConfContactos tabindex=-1 data-bs-backdrop=static data-bs-keyboard=false aria-labelledby=staticBackdropLabel aria-hidden=true aria-label="Aria Name">
+<div class="modal-dialog modal-lg modal-ajustada">
+<div class=modal-content>
+<form id=formConfContactos>
+<div class="modal-header bg-dark bg-gradient sticky-top">
+<div class=col-auto>
+<p class="modal-title h6 text-warning"><span>Configurar contactos</span></p>
+</div>
+<div class=col-auto style=text-align:right>
+<div class=btn-group role=group>
+<button type=submit class="btn btn-success" id=aceptarConfContactos value=Aceptar><i class="bi bi-check-circle" style=font-size:1.2rem;color:#fff></i> </button>
+</div>
+<div class=btn-group role=group>
+<button type=reset class="btn btn-sm btn-warning text-dark" id=cancelarConfContactos value=Cancelar><i class="bi bi-x-circle" style=font-size:1rem;color:#000></i> </button>
+</div>
+<div class="btn-group ms-2" role=group>
+<button type=button class="btn-close btn-close-white btn-lg" data-bs-dismiss=modal aria-label=Close data-bs-toggle=tooltip title="Cerrar ventana" onClick="cambioDiv('confcontactos', 'menu', 0, 0);"></button>
+</div>
+</div>
+</div>
+<div class="modal-body bg-success bg-opacity-50">
+<div class=container-fluid>
+<div id=msgConfContactos></div>
+<div class="row justify-content-start gx-3 gy-3 mb-4">
+<div class=col-12>
+<small><span>Define los nombres de las referencias para la ficha del contacto. Ejemplos: Referencia, contrato, póliza, proyecto, obra, vehículo, matrícula,...</span></small>
+</div>
+<div class="col-12 col-md-6 form-floating">
+<input name=nomRef1 id=nomRef1_confContactos size=100 placeholder="Nombre referencia 1" maxlength=100 required class=form-control data-bs-toggle=tooltip>
+<label for=nomRef1_confContactos><span>Nombre referencia</span> 1</label>
+</div>
+<div class="col-12 col-md-6 form-floating">
+<input name=nomRef2 id=nomRef2_confContactos size=100 placeholder="Nombre referencia 2" maxlength=100 required class=form-control data-bs-toggle=tooltip>
+<label for=nomRef2_confContactos><span>Nombre referencia</span> 2</label>
+</div>
+<div class="col-12 col-md-6 form-floating">
+<input name=nomRef3 id=nomRef3_confContactos size=100 placeholder="Nombre referencia 3" maxlength=100 required class=form-control data-bs-toggle=tooltip>
+<label for=nomRef3_confContactos><span>Nombre referencia</span> 3</label>
+</div>
+<div class="col-12 col-md-6 form-floating">
+<input name=nomRef4 id=nomRef4_confContactos size=100 placeholder="Nombre referencia 4" maxlength=100 required class=form-control data-bs-toggle=tooltip>
+<label for=nomRef4_confContactos><span>Nombre referencia</span> 4</label>
+</div>
+</div>
+<div class="row justify-content-start gx-3 gy-3 mb-2">
+<div class=col-12>
+<small><span>Define los títulos de las preferencias del contacto. Ejemplos: Productos y servicios, necesidades especiales, envíos, tipo de comunicaciones, marketing, atención al cliente, formas de pago,...</span></small>
+</div>
+<div class="col-12 col-md-6 form-floating">
+<input name=titPref1 id=titPref1_confContactos size=100 placeholder="Título preferencia 1" maxlength=100 required class=form-control data-bs-toggle=tooltip>
+<label for=titPref1_confContactos><span>Título preferencia</span> 1</label>
+</div>
+<div class="col-12 col-md-6 form-floating">
+<input name=titPref2 id=titPref2_confContactos size=100 placeholder="Título preferencia 2" maxlength=100 required class=form-control data-bs-toggle=tooltip>
+<label for=titPref2_confContactos><span>Título preferencia</span> 2</label>
+</div>
+<div class="col-12 col-md-6 form-floating">
+<input name=titPref3 id=titPref3_confContactos size=100 placeholder="Título preferencia 3" maxlength=100 required class=form-control data-bs-toggle=tooltip>
+<label for=titPref3_confContactos><span>Título preferencia</span> 3</label>
+</div>
+<div class="col-12 col-md-6 form-floating">
+<input name=titPref4 id=titPref4_confContactos size=100 placeholder="Título preferencia 4" maxlength=100 required class=form-control data-bs-toggle=tooltip>
+<label for=titPref4_confContactos><span>Título preferencia</span> 4</label>
+</div>
+<div class="col-12 col-md-6 form-floating">
+<input name=titPref5 id=titPref5_confContactos size=100 placeholder="Título preferencia 5" maxlength=100 required class=form-control data-bs-toggle=tooltip>
+<label for=titPref5_confContactos><span>Título preferencia</span> 5</label>
+</div>
+<div class="col-12 col-md-6 form-floating">
+<input name=titPref6 id=titPref6_confContactos size=100 placeholder="Título preferencia 6" maxlength=100 required class=form-control data-bs-toggle=tooltip>
+<label for=titPref6_confContactos><span>Título preferencia</span> 6</label>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<script>modalConfContactos.addEventListener("show.bs.modal",(function(t){nomRef1_confContactos.title=tExp("Nombre referencia","")+" 1",nomRef2_confContactos.title=tExp("Nombre referencia","")+" 2",nomRef3_confContactos.title=tExp("Nombre referencia","")+" 3",nomRef4_confContactos.title=tExp("Nombre referencia","")+" 4",titPref1_confContactos.title=tExp("Título preferencia","")+" 1",titPref2_confContactos.title=tExp("Título preferencia","")+" 2",titPref3_confContactos.title=tExp("Título preferencia","")+" 3",titPref4_confContactos.title=tExp("Título preferencia","")+" 4",titPref5_confContactos.title=tExp("Título preferencia","")+" 5",titPref6_confContactos.title=tExp("Título preferencia","")+" 6",nomRef1_confContactos.defaultValue=localStorage.getItem("nomRef1"),nomRef2_confContactos.defaultValue=localStorage.getItem("nomRef2"),nomRef3_confContactos.defaultValue=localStorage.getItem("nomRef3"),nomRef4_confContactos.defaultValue=localStorage.getItem("nomRef4"),titPref1_confContactos.defaultValue=localStorage.getItem("titPref1"),titPref2_confContactos.defaultValue=localStorage.getItem("titPref2"),titPref3_confContactos.defaultValue=localStorage.getItem("titPref3"),titPref4_confContactos.defaultValue=localStorage.getItem("titPref4"),titPref5_confContactos.defaultValue=localStorage.getItem("titPref5"),titPref6_confContactos.defaultValue=localStorage.getItem("titPref6"),formConfContactos.reset();let o=localStorage.getItem("idiomaPais");cambiarTextoIdiomaDiv(o,"modalConfContactos"),crearEstilo("aceptarConfContactos","cancelarConfContactos",tExp("Guardar",""),tExp("Cancelar","")),activarTooltipsDiv("modalConfContactos")})),modalConfContactos.addEventListener("hide.bs.modal",(function(t){desactivarTooltipsDiv("modalConfContactos")})),formConfContactos.onsubmit=async t=>{t.preventDefault(),async function(){let t=new FormData(formConfContactos);t.append("prefijo",localStorage.getItem("prefijo")),t.append("tipo","1");const o=await fetch("https://"+window.location.host+"/configuracion",{method:"POST",body:t});return await o.json()}().then((t=>{t.success?"OK"==t.data.value1&&(localStorage.setItem("nomRef1",nomRef1_confContactos.value),localStorage.setItem("nomRef2",nomRef2_confContactos.value),localStorage.setItem("nomRef3",nomRef3_confContactos.value),localStorage.setItem("nomRef4",nomRef4_confContactos.value),localStorage.setItem("titPref1",titPref1_confContactos.value),localStorage.setItem("titPref2",titPref2_confContactos.value),localStorage.setItem("titPref3",titPref3_confContactos.value),localStorage.setItem("titPref4",titPref4_confContactos.value),localStorage.setItem("titPref5",titPref5_confContactos.value),localStorage.setItem("titPref6",titPref6_confContactos.value),cambioDiv("confcontactos","menu",0,0)):modal1("My Contacts Cloud",tExp(t.message,""),msgConfContactos)})).catch((t=>{modal1("My Contacts Cloud",t.message,msgConfContactos)}))}</script>
+<div class="modal fade" id=modalConfEventos tabindex=-1 data-bs-backdrop=static data-bs-keyboard=false aria-labelledby=staticBackdropLabel aria-hidden=true aria-label="Aria Name">
+<div class="modal-dialog modal-md modal-ajustada">
+<div class=modal-content>
+<form id=formConfEventos>
+<div class="modal-header bg-dark bg-gradient sticky-top">
+<div class=col-auto>
+<p class="modal-title h6 text-warning"><span>Configurar eventos</span></p>
+</div>
+<div class=col-auto style=text-align:right>
+<div class=btn-group role=group>
+<button type=submit class="btn btn-success" id=aceptarConfEventos value=Aceptar><i class="bi bi-check-circle" style=font-size:1.2rem;color:#fff></i> </button>
+</div>
+<div class=btn-group role=group>
+<button type=reset class="btn btn-sm btn-warning text-dark" id=cancelarConfEventos value=Cancelar><i class="bi bi-x-circle" style=font-size:1rem;color:#000></i> </button>
+</div>
+<div class="btn-group ms-2" role=group>
+<button type=button class="btn-close btn-close-white btn-lg" data-bs-dismiss=modal aria-label=Close data-bs-toggle=tooltip title="Cerrar ventana" onclick='cambioDiv("confeventos","menu",0,0)'></button>
+</div>
+</div>
+</div>
+<div class="modal-body bg-success bg-opacity-50">
+<div class=container-fluid>
+<div id=msgConfEventos></div>
+<div class="row justify-content-start gx-3 gy-3 mb-2">
+<div class="col-12 align-self-center">
+<div class="form-check form-switch">
+<label class=form-check-label for=weekends_confEventos><span>Fines de semana</span></label>
+<input class=form-check-input type=checkbox role=switch id=weekends_confEventos title="Fines de semana" data-bs-toggle=tooltip>
+</div>
+</div>
+<div class="col-12 form-floating">
+<div class="row align-items-center gx-2">
+<div class=col-auto>
+<label for=slotMinTime_confEventos>Hora de inicio</label>
+</div>
+<div class=col-auto>
+<select name=slotMinTime id=slotMinTime_confEventos class=form-select title="Hora de inicio" data-bs-toggle=tooltip>
+<option value=0>00</option>
+<option value=1>01</option>
+<option value=2>02</option>
+<option value=3>03</option>
+<option value=4>04</option>
+<option value=5>05</option>
+<option value=6>06</option>
+<option value=7>07</option>
+<option value=8>08</option>
+<option value=9>09</option>
+<option value=10>10</option>
+<option value=11>11</option>
+<option value=12>12</option>
+<option value=13>13</option>
+<option value=14>14</option>
+<option value=15>15</option>
+<option value=16>16</option>
+<option value=17>17</option>
+<option value=18>18</option>
+<option value=19>19</option>
+<option value=20>20</option>
+<option value=21>21</option>
+<option value=22>22</option>
+<option value=23>23</option>
+</select>
+</div>
+</div>
+</div>
+<div class="col-12 form-floating">
+<div class="row align-items-center gx-2">
+<div class=col-auto>
+<label for=slotMaxTime_confEventos>Hora final</label>
+</div>
+<div class=col-auto>
+<select name=slotMaxTime id=slotMaxTime_confEventos class=form-select title="Hora final" data-bs-toggle=tooltip>
+<option value=1>01</option>
+<option value=2>02</option>
+<option value=3>03</option>
+<option value=4>04</option>
+<option value=5>05</option>
+<option value=6>06</option>
+<option value=7>07</option>
+<option value=8>08</option>
+<option value=9>09</option>
+<option value=10>10</option>
+<option value=11>11</option>
+<option value=12>12</option>
+<option value=13>13</option>
+<option value=14>14</option>
+<option value=15>15</option>
+<option value=16>16</option>
+<option value=17>17</option>
+<option value=18>18</option>
+<option value=19>19</option>
+<option value=20>20</option>
+<option value=21>21</option>
+<option value=22>22</option>
+<option value=23>23</option>
+<option value=24>24</option>
+</select>
+</div>
+</div>
+</div>
+<div class="col-12 form-floating">
+<div class="row align-items-center gx-2">
+<div class=col-auto>
+<label for=slotDuration_confEventos>Intérvalo de tiempo</label>
+</div>
+<div class=col-auto>
+<select name=slotDuration id=slotDuration_confEventos class=form-select title="Intérvalo de tiempo" data-bs-toggle=tooltip>
+<option value=10>cada 10 minutos</option>
+<option value=15>cada 15 minutos</option>
+<option value=20>cada 20 minutos</option>
+<option value=30>cada media hora</option>
+<option value=1>cada hora</option>
+<option value=2>cada 2 horas</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<script>modalConfEventos.addEventListener("show.bs.modal",(function(e){let o=localStorage.getItem("weekends");weekends_confEventos.defaultValue=o,weekends_confEventos.defaultChecked=0!=o,seleccionarCombo("slotMinTime",localStorage.getItem("slotMinTime")),seleccionarCombo("slotMaxTime",localStorage.getItem("slotMaxTime")),seleccionarCombo("slotDuration",localStorage.getItem("slotDuration")),document.getElementById("formConfEventos").reset();let t=localStorage.getItem("idiomaPais");cambiarTextoIdiomaDiv(t,"modalConfEventos"),crearEstilo("aceptarConfEventos","cancelarConfEventos",tExp("Guardar",""),tExp("Cancelar","")),activarTooltipsDiv("modalConfEventos")})),modalConfEventos.addEventListener("hide.bs.modal",(function(e){desactivarTooltipsDiv("modalConfEventos")})),formConfEventos.onsubmit=async e=>{e.preventDefault();var o=0;weekends_confEventos.checked&&(o=1),async function(){let e=new FormData(formConfEventos);e.append("prefijo",localStorage.getItem("prefijo")),e.append("tipo","2"),e.append("weekends",o);const t=await fetch("https://"+window.location.host+"/configuracion",{method:"POST",body:e});return await t.json()}().then((e=>{e.success?"OK"==e.data.value1&&(localStorage.setItem("weekends",o),localStorage.setItem("slotMinTime",slotMinTime_confEventos.value),localStorage.setItem("slotMaxTime",slotMaxTime_confEventos.value),localStorage.setItem("slotDuration",slotDuration_confEventos.value),cambioDiv("confeventos","menu",0,0)):modal1("My Contacts Cloud",tExp(e.message,""),msgConfEventos)})).catch((e=>{modal1("My Contacts Cloud",e.message,msgConfEventos)}))}</script>
+<div class="modal fade" id=modalPoliticaPrivacidad tabindex=-1 data-bs-backdrop=static data-bs-keyboard=false aria-labelledby=staticBackdropLabel aria-hidden=true aria-label="Aria Name">
+<div class="modal-dialog modal-xl modal-ajustada">
+<div class=modal-content>
+<div class="modal-header bg-dark bg-gradient sticky-top">
+<div class=col-10>
+<a class="navbar-brand text-warning" id=exampleModalLabel><span></span></a>
+</div>
+<div class=col-2 style=text-align:right>
+<button type=button class="btn-close btn-close-white" data-bs-dismiss=modal aria-label=Close data-bs-toggle=tooltip title="Cerrar ventana" onclick='cambioDiv("politicaprivacidad","menu",0,0)'>
+</button>
+</div>
+</div>
+<div class=modal-body>
+<div class=container-fluid>
+<div id=contPolPriv align=left>
+<div class="row mb-3">
+<div class="ms-2 me-auto">
+<span></span>
+</div>
+</div>
+<div class="row mb-3">
+<div class="ms-2 me-auto">
+<span></span>
+</div>
+</div>
+<div class=row>
+<ol class="list-group list-group-numbered">
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto">
+<div class=fw-bold><span></span></div>
+<span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto">
+<div class=fw-bold><span></span></div>
+<span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto">
+<div class=fw-bold><span></span></div>
+<span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto">
+<div class=fw-bold><span></span></div>
+<span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto">
+<div class=fw-bold><span></span></div>
+<span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto">
+<div class=fw-bold><span></span></div>
+<span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto">
+<div class=fw-bold><span></span></div>
+<span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto">
+<div class=fw-bold><span></span></div>
+<span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto">
+<div class=fw-bold><span></span></div>
+<span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto">
+<div class=fw-bold><span></span></div>
+<span></span>
+</div>
+</li>
+</ol>
+</div>
+<br>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>modalPoliticaPrivacidad.addEventListener("show.bs.modal",(function(a){cambiarPolPri()}))</script>
+<div class="modal fade" id=modalCondicionesUso tabindex=-1 data-bs-backdrop=static data-bs-keyboard=false aria-labelledby=staticBackdropLabel aria-hidden=true aria-label="Aria Name">
+<div class="modal-dialog modal-xl modal-ajustada">
+<div class=modal-content>
+<div class="modal-header bg-dark bg-gradient sticky-top">
+<div class=col-10>
+<a class="navbar-brand text-warning" id=exampleModalLabel><span></span></a>
+</div>
+<div class=col-2 style=text-align:right>
+<button type=button class="btn-close btn-close-white" data-bs-dismiss=modal aria-label=Close data-bs-toggle=tooltip title="Cerrar ventana" onclick='cambioDiv("condicionesuso","menu",0,0)'>
+</button>
+</div>
+</div>
+<div class=modal-body>
+<div class=container-fluid>
+<div align=left>
+<div class=row>
+<ol class="list-group list-group-numbered">
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto"><span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto"><span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto"><span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto"><span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto"><span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto"><span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto"><span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto"><span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto"><span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto"><span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto"><span></span>
+</div>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto"><span></span>
+</div>
+</li>
+</ol>
+</div>
+<br>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>modalCondicionesUso.addEventListener("show.bs.modal",(function(o){cambiarTerCon()}))</script>
+<div class="modal fade" id=modalConsulta tabindex=-1 data-bs-backdrop=static data-bs-keyboard=false aria-labelledby=staticBackdropLabel aria-hidden=true aria-label="Aria Name">
+<div class="modal-dialog modal-lg modal-ajustada">
+<div class=modal-content>
+<form id=formConsulta>
+<div class="modal-header bg-dark bg-gradient sticky-top">
+<div class=col-auto>
+<a class="navbar-brand text-warning" id=exampleModalLabel><span>Consulta</span></a>
+</div>
+<div class=col-auto style=text-align:right>
+<button type=submit class="btn btn-success me-2 text-white" id=aceptar value=Enviar title="Enviar consulta" data-bs-toggle=tooltip><i class="bi bi-send"></i> </button>
+<button type=reset class="btn btn-warning btn-sm" id=cancelar value=Cancelar title="Cancelar cambios" data-bs-toggle=tooltip><i class="bi bi-x-circle"></i> </button>
+<button type=button class="btn-close btn-close-white btn-lg" data-bs-dismiss=modal aria-label=Close data-bs-toggle=tooltip title="Cerrar ventana" onclick='cambioDiv("consulta","menu",0,0)'>
+</button>
+</div>
+</div>
+<div class="modal-body bg-success bg-opacity-50 bg-gradient">
+<div class=container-fluid>
+<div class="row gx-3 gy-3 mt-1 mb-1">
+<div class=col-12>
+<input name=nombre id=nombreConsulta size=80 placeholder=Nombre maxlength=80 required class=form-control>
+</div>
+<div class=col-12>
+<input type=email name=dirCorreo id=dirCorreoConsulta size=120 placeholder="Correo electrónico" maxlength=120 required class=form-control>
+</div>
+<div class=col-12>
+<input name=asu id=asuConsulta size=80 placeholder=Asunto maxlength=80 required class=form-control>
+</div>
+<div class=col-12>
+<textarea name=cue id=cueConsulta placeholder=Contenido maxlength=1000 size=1000 rows=10 cols=80 class=form-control></textarea>
+</div>
+</div>
+<div id=msjConsulta></div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<script>modalConsulta.addEventListener("show.bs.modal",(function(a){let t=localStorage.getItem("idiomaPais");cambiarTextoIdiomaDiv(t,"modalConsulta"),crearEstilo("aceptar","cancelar",tExp("Enviar",""),tExp("Cancelar","")),activarTooltipsDiv("modalConsulta")})),modalConsulta.addEventListener("shown.bs.modal",(function(a){nombreConsulta.defaultValue=localStorage.getItem("nombre")||"",dirCorreoConsulta.defaultValue=localStorage.getItem("correoElec")||"",asuConsulta.defaultValue="",cueConsulta.defaultValue="",document.getElementById("formConsulta").reset()})),modalConsulta.addEventListener("hide.bs.modal",(function(a){desactivarTooltipsDiv("modalConsulta")})),formConsulta.onsubmit=async a=>{a.preventDefault(),async function(){let a=new FormData(formConsulta);const t=await fetch("https://"+window.location.host+"/consulta",{method:"POST",body:a});return await t.json()}().then((a=>{a.success?(a.data.Value1="ok")&&(toastMsj(tExp("Consulta enviada",""),msjConsulta,2e3,6),setTimeout((function(){cambioDiv("consulta","menu",0,0)}),2500)):modal1("My Contacts Cloud",tExp(a.message,""),msjConsulta)})).catch((a=>{modal1("My Contacts Cloud",a.message,msjConsulta)}))}</script>
+<div class="modal fade" id=modalDesuscripcion tabindex=-1 data-bs-backdrop=static data-bs-keyboard=false aria-labelledby=staticBackdropLabel aria-label="Aria Name" aria-hidden=true>
+<div class="modal-dialog modal-ajustada">
+<div class=modal-content>
+<div class="modal-header bg-dark bg-gradient">
+<img src=https://cdn.jsdelivr.net/gh/mycontactscloud/app/im/icon192.png alt="icon My Contacts Cloud" width=32 height=32 class="d-inline-block align-text-top">
+<h5 class="modal-title text-white">&nbsp;<strong> My Contacts Cloud</strong></h5>
+<button type=button class="btn-close btn-close-white btn-lg" data-bs-dismiss=modal aria-label=Close data-bs-toggle=tooltip title="Cerrar ventana" onclick='cambioDiv("desuscribirse","menu",0,0)'></button>
+</div>
+<div class="modal-body bg-success bg-opacity-50 bg-gradient">
+<form id=formDesuscribirse>
+<div class=row>
+<div class=col-auto>
+<span>Al desuscribirte...</span>
+</div>
+<div class=col-auto>
+<small>
+<ul>
+<li><span>Se eliminará la base de datos que contiene los datos introducidos en la app</span></li>
+<li><span>No recibirás más mensajes de nuestra newsletter</span></li>
+<li><span>Te daremos de baja en el registro de usuarios de la app</span></li>
+</ul>
+</small>
+</div>
+</div>
+<div class="input-group mb-3 mt-2">
+<div class=input-group-prepend>
+<div class="input-group-text bg-success bg-gradient text-white border-success"><i class="bi bi-at"></i></div>
+</div>
+<input type=email name=cor id=correoDesuscripcion placeholder="Correo electrónico" maxlength=120 size=120 required class="form-control focus-ring focus-ring-success" tabindex=0>
+</div>
+<div id=msjDesuscripcion></div>
+<div class="row justify-content-end align-items-center gx-2 gy-2 mt-2 mb-1">
+<div class=col-auto>
+<button type=submit class="btn btn-success bg-gradient" id=Aceptar value=Aceptar><span>Desuscribirme</span></button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<script>formDesuscribirse.onsubmit=async o=>{o.preventDefault();let s=new FormData(formDesuscribirse);(async function(){const o=await fetch("https://"+window.location.host+"/desuscribirsesolicitud",{method:"POST",body:s});return await o.json()})().then((o=>{o.success?"OK"==o.data.value1&&modal1("My Contacts Cloud",tExp("Recibirás un correo con un enlace para que confirmes la desuscripción",""),msjDesuscripcion):"dirCorElecDesconocido"==o.message?modal1("My Contacts Cloud",tExp("Correo electrónico desconocido",""),msjDesuscripcion):modal1("My Contacts Cloud",tExp(o.message,""),msjDesuscripcion)})).catch((o=>{modal1("My Contacts Cloud",o.message,msjDesuscripcion)}))},modalDesuscripcion.addEventListener("show.bs.modal",(function(o){let s=localStorage.getItem("idiomaPais");cambiarTextoIdiomaDiv(s,"modalDesuscripcion"),activarTooltipsDiv("modalDesuscripcion")})),modalDesuscripcion.addEventListener("shown.bs.modal",(function(o){var s=localStorage.getItem("correoElec");null==s||""==s||(correoDesuscripcion.value=s)})),modalDesuscripcion.addEventListener("hide.bs.modal",(function(o){desactivarTooltipsDiv("modalDesuscripcion")})),correoDesuscripcion.addEventListener("blur",(o=>{isValidEmail(correoDesuscripcion.value)||modal1("My Contacts Cloud",tExp("Correo electrónico no válido",""),msjDesuscripcion)}))</script>
+<div class="modal fade" id=modalIdioma tabindex=-1 data-bs-backdrop=static data-bs-keyboard=false aria-labelledby=staticBackdropLabel aria-hidden=true aria-label="Aria Name">
+<div class="modal-dialog modal-ajustada">
+<div class=modal-content>
+<div class="modal-header bg-dark bg-gradient">
+<p class="modal-title h6 text-warning"><span id=tCambiarIdioma>Cambiar idioma</span></p>
+<button type=button class="btn-close btn-close-white btn-lg" data-bs-dismiss=modal aria-label=Close data-bs-toggle=tooltip title="Cerrar ventana" onclick='cambioDiv("cambiaridioma","menu",0,0)'></button>
+</div>
+<div class="modal-body bg-success bg-opacity-50">
+<form id=formIdioma>
+<div id=msgIdioma></div>
+<div class="row justify-content-start mb-3">
+<div class=col-auto>
+<div class=dropdown>
+<a class="btn dropdown-toggle selected-option text-start bg-white" role=button data-bs-toggle=dropdown aria-expanded=false id=botonIdioma><svg class=icon><use xlink:href=#us></use></svg> English (United States)</a>
+<ul class=dropdown-menu id=botonIdiomaOpciones aria-labelledby=botonIdioma>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-US")'><svg class=icon><use xlink:href=#us></use></svg> English (United States)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-GB")'><svg class=icon><use xlink:href=#gb></use></svg> English (Great Britain)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-CA")'><svg class=icon><use xlink:href=#ca></use></svg> English (Canada)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-AU")'><svg class=icon><use xlink:href=#au></use></svg> English (Australia)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-NZ")'><svg class=icon><use xlink:href=#nz></use></svg> English (New Zealand)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-IE")'><svg class=icon><use xlink:href=#ie></use></svg> English (Ireland)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-IN")'><svg class=icon><use xlink:href=#in></use></svg> English (India)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-SG")'><svg class=icon><use xlink:href=#sg></use></svg> English (Singapore)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-HK")'><svg class=icon><use xlink:href=#hk></use></svg> English (Hong Kong)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-MY")'><svg class=icon><use xlink:href=#my></use></svg> English (Malaysia)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-PK")'><svg class=icon><use xlink:href=#pk></use></svg> English (Pakistan)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-NG")'><svg class=icon><use xlink:href=#ng></use></svg> English (Nigeria)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-BD")'><svg class=icon><use xlink:href=#bd></use></svg> English (Bangladesh)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-PH")'><svg class=icon><use xlink:href=#ph></use></svg> English (Philippines)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-TZ")'><svg class=icon><use xlink:href=#tz></use></svg> English (Tanzania)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-ZA")'><svg class=icon><use xlink:href=#za></use></svg> English (South Africa)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-KE")'><svg class=icon><use xlink:href=#ke></use></svg> English (Kenya)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-UG")'><svg class=icon><use xlink:href=#ug></use></svg> English (Uganda)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-GH")'><svg class=icon><use xlink:href=#gh></use></svg> English (Ghana)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-MW")'><svg class=icon><use xlink:href=#mw></use></svg> English (Malawi)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-ZM")'><svg class=icon><use xlink:href=#zm></use></svg> English (Zambia)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-ZW")'><svg class=icon><use xlink:href=#zw></use></svg> English (Zimbabwe)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-CM")'><svg class=icon><use xlink:href=#cm></use></svg> English (Cameroon)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("en-LK")'><svg class=icon><use xlink:href=#lk></use></svg> English (Sri Lanka)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-ES")'><svg class=icon><use xlink:href=#es></use></svg> Español (España)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-MX")'><svg class=icon><use xlink:href=#mx></use></svg> Español (México)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-CL")'><svg class=icon><use xlink:href=#cl></use></svg> Español (Chile)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-US")'><svg class=icon><use xlink:href=#us></use></svg> Español (Estados Unidos)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-AR")'><svg class=icon><use xlink:href=#ar></use></svg> Español (Argentina)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-CO")'><svg class=icon><use xlink:href=#co></use></svg> Español (Colombia)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-PE")'><svg class=icon><use xlink:href=#pe></use></svg> Español (Perú)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-UY")'><svg class=icon><use xlink:href=#uy></use></svg> Español (Uruguay)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-VE")'><svg class=icon><use xlink:href=#ve></use></svg> Español (Venezuela)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-GT")'><svg class=icon><use xlink:href=#gt></use></svg> Español (Guatemala)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-EC")'><svg class=icon><use xlink:href=#ec></use></svg> Español (Ecuador)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-BO")'><svg class=icon><use xlink:href=#bo></use></svg> Español (Bolivia)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-CU")'><svg class=icon><use xlink:href=#cu></use></svg> Español (Cuba)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-DO")'><svg class=icon><use xlink:href=#do></use></svg> Español (R. Dominicana)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-HN")'><svg class=icon><use xlink:href=#hn></use></svg> Español (Honduras)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-PY")'><svg class=icon><use xlink:href=#py></use></svg> Español (Paraguay)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-SV")'><svg class=icon><use xlink:href=#sv></use></svg> Español (El Salvador)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-NI")'><svg class=icon><use xlink:href=#ni></use></svg> Español (Nicaragua)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("es-PA")'><svg class=icon><use xlink:href=#pa></use></svg> Español (Panamá)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("fr-FR")'><svg class=icon><use xlink:href=#fr></use></svg> Français (France)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("fr-CA")'><svg class=icon><use xlink:href=#ca></use></svg> Français (Canada)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("fr-BE")'><svg class=icon><use xlink:href=#be></use></svg> Français (Belgique)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("fr-CH")'><svg class=icon><use xlink:href=#ch></use></svg> Français (Suisse)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("fr-CD")'><svg class=icon><use xlink:href=#cd></use></svg> Français (R. D. Congo)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("fr-CM")'><svg class=icon><use xlink:href=#cm></use></svg> Français (Cameroun)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("fr-MG")'><svg class=icon><use xlink:href=#mg></use></svg> Français (Madagascar)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("fr-CI")'><svg class=icon><use xlink:href=#ci></use></svg> Français (Côte d'Ivoire)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("fr-BF")'><svg class=icon><use xlink:href=#bf></use></svg> Français (Burkina Faso)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("fr-NE")'><svg class=icon><use xlink:href=#ne></use></svg> Français (Niger)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("fr-SN")'><svg class=icon><use xlink:href=#sn></use></svg> Français (Sénégal)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("fr-ML")'><svg class=icon><use xlink:href=#ml></use></svg> Français (Mali)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("fr-BJ")'><svg class=icon><use xlink:href=#bj></use></svg> Français (Bénin)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("fr-RW")'><svg class=icon><use xlink:href=#rw></use></svg> Français (Rwanda)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("fr-TD")'><svg class=icon><use xlink:href=#td></use></svg> Français (Tchad)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("fr-GN")'><svg class=icon><use xlink:href=#gn></use></svg> Français (Guinée)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("pt-PT")'><svg class=icon><use xlink:href=#pt></use></svg> Português (Portugal)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("pt-BR")'><svg class=icon><use xlink:href=#br></use></svg> Português (Brasil)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("pt-AO")'><svg class=icon><use xlink:href=#ao></use></svg> Português (Angola)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("pt-MZ")'><svg class=icon><use xlink:href=#mz></use></svg> Português (Moçambique)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("it-IT")'><svg class=icon><use xlink:href=#it></use></svg> Italiano (Italia)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("it-CH")'><svg class=icon><use xlink:href=#ch></use></svg> Italiano (Svizzera)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("de-DE")'><svg class=icon><use xlink:href=#de></use></svg> Deutsch (Deutschland)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("de-AT")'><svg class=icon><use xlink:href=#at></use></svg> Deutsch (Österreich)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("de-BE")'><svg class=icon><use xlink:href=#be></use></svg> Deutsch (Belgien)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("de-CH")'><svg class=icon><use xlink:href=#ch></use></svg> Deutsch (Schweiz)</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("ca-ES")'><svg class=icon><use xlink:href=#es-ct></use></svg> Catalá</a></li>
+<li><a href=# class="dropdown-item selected-option" onclick='fijId("gl-ES")'><svg class=icon><use xlink:href=#es-gl></use></svg> Galego</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row justify-content-end align-items-center gx-2 gy-2 mb-2">
+<div class=col-auto>
+<button type=submit class="btn btn-success" value=Aceptar><i class="bi bi-check-circle" style=font-size:1.2rem;color:#fff></i>&nbsp;<span id=tIdiomaAceptar>Aceptar</span></button>
+</div>
+<div class=col-auto>
+<button type=reset class="btn btn-sm btn-warning text-dark" value=Cancelar><i class="bi bi-x-circle" style=font-size:1rem;color:#000></i>&nbsp;<span id=tIdiomaCancelar>Cancelar</span></button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<script>var idiomaApp="";function fijId(a){idiomaApp=seleccionarIdioma(a,!0),setTimeout((()=>{libIdioma(idiomaApp,1)}),100)}var spriteCargado=!1;modalIdioma.addEventListener("shown.bs.modal",(function(a){spriteCargado||fetch("https://cdn.jsdelivr.net/gh/mycontactscloud/web/img/icons-sprite.svg").then((a=>a.text())).then((a=>{let o=document.createElement("div");o.innerHTML=a,document.body.appendChild(o),spriteCargado=!0})).catch((a=>console.error("Error cargando el sprite:",a))),idiomaApp=seleccionarIdioma(localStorage.getItem("idiomaPais"),!0),cambiarTextoIdiomaDiv(idiomaApp,"modalIdioma"),activarTooltipsDiv("modalIdioma")})),formIdioma.onsubmit=async a=>{a.preventDefault(),async function(){let a=new FormData;a.append("corElec",localStorage.getItem("correoElec")),a.append("idiPais",idiomaApp);const o=await fetch("https://"+window.location.host+"/cambiarIdioma",{method:"POST",body:a});return await o.json()}().then((a=>{a.success?"OK"===a.data.value1&&(localStorage.setItem("idiomaPais",idiomaApp),localStorage.setItem("divNue","menu"),setTimeout((()=>{window.location.reload()}),100)):modal1("My Contacts Cloud",tExp(a.message,idLang),msgIdioma)})).catch((a=>{modal1("My Contacts Cloud",a.message,msgIdioma)}))},formIdioma.addEventListener("reset",(function(a){a.preventDefault(),fijId(localStorage.getItem("idiomaPais"))}))</script>
+<div class="modal fade" id=modalImportarExcel tabindex=-1 data-bs-backdrop=static data-bs-keyboard=false aria-labelledby=staticBackdropLabel aria-hidden=true aria-label="Aria Name">
+<div class="modal-dialog modal-md modal-ajustada">
+<div class=modal-content>
+<form id=formImportarExcel>
+<div class="modal-header bg-dark bg-gradient sticky-top">
+<div class=col-auto>
+<a class="navbar-brand text-warning" id=exampleModalLabel_importarExcel><span>Importar desde Excel</span></a>
+</div>
+<div class=col-auto style=text-align:right>
+<div class=btn-group role=group>
+<button type=submit class="btn btn-success me-2 text-white" id=aceptar_importarExcel value=Importar title=Importar data-bs-toggle=tooltip><i class="bi bi-cloud-upload-fill"></i> </button>
+</div>
+<div class=btn-group role=group>
+<button type=reset class="btn btn-warning btn-sm" id=cancelar_importarExcel value=Cancelar title="Cancelar cambios" data-bs-toggle=tooltip><i class="bi bi-x-circle"></i> </button>
+</div>
+<div class="btn-group ms-2" role=group>
+<button type=button class="btn-close btn-close-white btn-lg" data-bs-dismiss=modal aria-label=Close data-bs-toggle=tooltip title="Cerrar ventana" onclick='cambioDiv("importarexcel","menu",0,0)'></button>
+</div>
+</div>
+</div>
+<div class="modal-body bg-success bg-opacity-50">
+<div class=container-fluid>
+<div class="row gx-3 gy-3">
+<ul>
+<li><span>La primera columna de datos debe ser la columna A</span></li>
+<li><span>El campo 'Nombre' es obligatorio</span></li>
+</ul>
+</div>
+<div class="row gx-3 gy-3 mb-3">
+<div class=input-group>
+<input type=file id=fic_importarExcel name=fic style=display:none>
+<div class=input-group-prepend>
+<button type=button class="btn btn-success" id=examinar_importarExcel onclick='document.getElementById("fic_importarExcel").click()' title=Examinar... data-bs-toggle=tooltip><i class="bi bi-search" style=font-size:1rem;color:currentColor></i></button>
+</div>
+<input name=nom id=nom_importarExcel placeholder="Nombre del fichero Excel" maxlength=255 size=255 required class=form-control disabled title="Nombre del fichero Excel" data-bs-toggle=tooltip>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-3">
+<div class=col-auto>
+<div class="form-check form-switch">
+<label class=form-check-label for=primeraFila_importarExcel><span>Primera fila contiene encabezados</span></label>
+<input class=form-check-input type=checkbox role=switch name=primeraFila id=primeraFila_importarExcel data-bs-toggle=tooltip title="Primera fila contiene encabezados" value=0>
+</div>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-2">
+<div class=col-6>
+<span>Código</span>
+</div>
+<div class=col-3>
+<select name=col1 id=col1_importarExcel class=form-select title="letra de la columna del campo 'Código'" data-bs-toggle=tooltip>
+<option value=0></option>
+<option value=1>A</option>
+<option value=2>B</option>
+<option value=3>C</option>
+<option value=4>D</option>
+<option value=5>E</option>
+<option value=6>F</option>
+<option value=7>G</option>
+<option value=8>H</option>
+<option value=9>I</option>
+<option value=10>J</option>
+<option value=11>K</option>
+<option value=12>L</option>
+<option value=13>M</option>
+<option value=14>N</option>
+<option value=15>O</option>
+<option value=16>P</option>
+<option value=17>Q</option>
+<option value=18>R</option>
+<option value=19>S</option>
+<option value=20>T</option>
+<option value=21>U</option>
+<option value=22>V</option>
+<option value=23>W</option>
+<option value=24>X</option>
+<option value=25>Y</option>
+<option value=26>Z</option>
+</select>
+</div>
+<div class=col-3>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-2">
+<div class=col-6>
+<span>Nombre</span>
+</div>
+<div class=col-3>
+<select name=col2 id=col2_importarExcel class=form-select title="letra de la columna del campo 'Nombre'" data-bs-toggle=tooltip>
+<option value=0></option>
+<option value=1>A</option>
+<option value=2>B</option>
+<option value=3>C</option>
+<option value=4>D</option>
+<option value=5>E</option>
+<option value=6>F</option>
+<option value=7>G</option>
+<option value=8>H</option>
+<option value=9>I</option>
+<option value=10>J</option>
+<option value=11>K</option>
+<option value=12>L</option>
+<option value=13>M</option>
+<option value=14>N</option>
+<option value=15>O</option>
+<option value=16>P</option>
+<option value=17>Q</option>
+<option value=18>R</option>
+<option value=19>S</option>
+<option value=20>T</option>
+<option value=21>U</option>
+<option value=22>V</option>
+<option value=23>W</option>
+<option value=24>X</option>
+<option value=25>Y</option>
+<option value=26>Z</option>
+</select>
+</div>
+<div class=col-3>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-2">
+<div class=col-6>
+<span>Dirección</span>
+</div>
+<div class=col-3>
+<select name=col3 id=col3_importarExcel class=form-select title="letra de la columna del campo 'Dirección'" data-bs-toggle=tooltip>
+<option value=0></option>
+<option value=1>A</option>
+<option value=2>B</option>
+<option value=3>C</option>
+<option value=4>D</option>
+<option value=5>E</option>
+<option value=6>F</option>
+<option value=7>G</option>
+<option value=8>H</option>
+<option value=9>I</option>
+<option value=10>J</option>
+<option value=11>K</option>
+<option value=12>L</option>
+<option value=13>M</option>
+<option value=14>N</option>
+<option value=15>O</option>
+<option value=16>P</option>
+<option value=17>Q</option>
+<option value=18>R</option>
+<option value=19>S</option>
+<option value=20>T</option>
+<option value=21>U</option>
+<option value=22>V</option>
+<option value=23>W</option>
+<option value=24>X</option>
+<option value=25>Y</option>
+<option value=26>Z</option>
+</select>
+</div>
+<div class=col-3>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-2">
+<div class=col-6>
+<span>C. P.</span>
+</div>
+<div class=col-3>
+<select name=col4 id=col4_importarExcel class=form-select title="letra de la columna del campo 'C. P.'" data-bs-toggle=tooltip>
+<option value=0></option>
+<option value=1>A</option>
+<option value=2>B</option>
+<option value=3>C</option>
+<option value=4>D</option>
+<option value=5>E</option>
+<option value=6>F</option>
+<option value=7>G</option>
+<option value=8>H</option>
+<option value=9>I</option>
+<option value=10>J</option>
+<option value=11>K</option>
+<option value=12>L</option>
+<option value=13>M</option>
+<option value=14>N</option>
+<option value=15>O</option>
+<option value=16>P</option>
+<option value=17>Q</option>
+<option value=18>R</option>
+<option value=19>S</option>
+<option value=20>T</option>
+<option value=21>U</option>
+<option value=22>V</option>
+<option value=23>W</option>
+<option value=24>X</option>
+<option value=25>Y</option>
+<option value=26>Z</option>
+</select>
+</div>
+<div class=col-3>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-2">
+<div class=col-6>
+<span>Población</span>
+</div>
+<div class=col-3>
+<select name=col5 id=col5_importarExcel class=form-select title="letra de la columna del campo 'Población'" data-bs-toggle=tooltip>
+<option value=0></option>
+<option value=1>A</option>
+<option value=2>B</option>
+<option value=3>C</option>
+<option value=4>D</option>
+<option value=5>E</option>
+<option value=6>F</option>
+<option value=7>G</option>
+<option value=8>H</option>
+<option value=9>I</option>
+<option value=10>J</option>
+<option value=11>K</option>
+<option value=12>L</option>
+<option value=13>M</option>
+<option value=14>N</option>
+<option value=15>O</option>
+<option value=16>P</option>
+<option value=17>Q</option>
+<option value=18>R</option>
+<option value=19>S</option>
+<option value=20>T</option>
+<option value=21>U</option>
+<option value=22>V</option>
+<option value=23>W</option>
+<option value=24>X</option>
+<option value=25>Y</option>
+<option value=26>Z</option>
+</select>
+</div>
+<div class=col-3>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-2">
+<div class=col-6>
+<span>Provincia</span>
+</div>
+<div class=col-3>
+<select name=col6 id=col6_importarExcel class=form-select title="letra de la columna del campo 'Provincia'" data-bs-toggle=tooltip>
+<option value=0></option>
+<option value=1>A</option>
+<option value=2>B</option>
+<option value=3>C</option>
+<option value=4>D</option>
+<option value=5>E</option>
+<option value=6>F</option>
+<option value=7>G</option>
+<option value=8>H</option>
+<option value=9>I</option>
+<option value=10>J</option>
+<option value=11>K</option>
+<option value=12>L</option>
+<option value=13>M</option>
+<option value=14>N</option>
+<option value=15>O</option>
+<option value=16>P</option>
+<option value=17>Q</option>
+<option value=18>R</option>
+<option value=19>S</option>
+<option value=20>T</option>
+<option value=21>U</option>
+<option value=22>V</option>
+<option value=23>W</option>
+<option value=24>X</option>
+<option value=25>Y</option>
+<option value=26>Z</option>
+</select>
+</div>
+<div class=col-3>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-2">
+<div class=col-6>
+<span>País</span>
+</div>
+<div class=col-3>
+<select name=col7 id=col7_importarExcel class=form-select title="letra de la columna del campo 'País'" data-bs-toggle=tooltip>
+<option value=0></option>
+<option value=1>A</option>
+<option value=2>B</option>
+<option value=3>C</option>
+<option value=4>D</option>
+<option value=5>E</option>
+<option value=6>F</option>
+<option value=7>G</option>
+<option value=8>H</option>
+<option value=9>I</option>
+<option value=10>J</option>
+<option value=11>K</option>
+<option value=12>L</option>
+<option value=13>M</option>
+<option value=14>N</option>
+<option value=15>O</option>
+<option value=16>P</option>
+<option value=17>Q</option>
+<option value=18>R</option>
+<option value=19>S</option>
+<option value=20>T</option>
+<option value=21>U</option>
+<option value=22>V</option>
+<option value=23>W</option>
+<option value=24>X</option>
+<option value=25>Y</option>
+<option value=26>Z</option>
+</select>
+</div>
+<div class=col-3>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-2">
+<div class=col-6>
+<span>Teléfono 1</span>
+</div>
+<div class=col-3>
+<select name=col8 id=col8_importarExcel class=form-select title="letra de la columna del campo 'Teléfono 1'" data-bs-toggle=tooltip>
+<option value=0></option>
+<option value=1>A</option>
+<option value=2>B</option>
+<option value=3>C</option>
+<option value=4>D</option>
+<option value=5>E</option>
+<option value=6>F</option>
+<option value=7>G</option>
+<option value=8>H</option>
+<option value=9>I</option>
+<option value=10>J</option>
+<option value=11>K</option>
+<option value=12>L</option>
+<option value=13>M</option>
+<option value=14>N</option>
+<option value=15>O</option>
+<option value=16>P</option>
+<option value=17>Q</option>
+<option value=18>R</option>
+<option value=19>S</option>
+<option value=20>T</option>
+<option value=21>U</option>
+<option value=22>V</option>
+<option value=23>W</option>
+<option value=24>X</option>
+<option value=25>Y</option>
+<option value=26>Z</option>
+</select>
+</div>
+<div class=col-3>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-2">
+<div class=col-6>
+<span>Teléfono 2</span>
+</div>
+<div class=col-3>
+<select name=col9 id=col9_importarExcel class=form-select title="letra de la columna del campo 'Teléfono 2'" data-bs-toggle=tooltip>
+<option value=0></option>
+<option value=1>A</option>
+<option value=2>B</option>
+<option value=3>C</option>
+<option value=4>D</option>
+<option value=5>E</option>
+<option value=6>F</option>
+<option value=7>G</option>
+<option value=8>H</option>
+<option value=9>I</option>
+<option value=10>J</option>
+<option value=11>K</option>
+<option value=12>L</option>
+<option value=13>M</option>
+<option value=14>N</option>
+<option value=15>O</option>
+<option value=16>P</option>
+<option value=17>Q</option>
+<option value=18>R</option>
+<option value=19>S</option>
+<option value=20>T</option>
+<option value=21>U</option>
+<option value=22>V</option>
+<option value=23>W</option>
+<option value=24>X</option>
+<option value=25>Y</option>
+<option value=26>Z</option>
+</select>
+</div>
+<div class=col-3>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-2">
+<div class=col-6>
+<span>Correo electrónico</span>
+</div>
+<div class=col-3>
+<select name=col10 id=col10_importarExcel class=form-select title="letra de la columna del campo 'Correo electrónico'" data-bs-toggle=tooltip>
+<option value=0></option>
+<option value=1>A</option>
+<option value=2>B</option>
+<option value=3>C</option>
+<option value=4>D</option>
+<option value=5>E</option>
+<option value=6>F</option>
+<option value=7>G</option>
+<option value=8>H</option>
+<option value=9>I</option>
+<option value=10>J</option>
+<option value=11>K</option>
+<option value=12>L</option>
+<option value=13>M</option>
+<option value=14>N</option>
+<option value=15>O</option>
+<option value=16>P</option>
+<option value=17>Q</option>
+<option value=18>R</option>
+<option value=19>S</option>
+<option value=20>T</option>
+<option value=21>U</option>
+<option value=22>V</option>
+<option value=23>W</option>
+<option value=24>X</option>
+<option value=25>Y</option>
+<option value=26>Z</option>
+</select>
+</div>
+<div class=col-3>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-2">
+<div class=col-6>
+<span>Dirección web</span>
+</div>
+<div class=col-3>
+<select name=col11 id=col11_importarExcel class=form-select title="letra de la columna del campo 'Dirección web'" data-bs-toggle=tooltip>
+<option value=0></option>
+<option value=1>A</option>
+<option value=2>B</option>
+<option value=3>C</option>
+<option value=4>D</option>
+<option value=5>E</option>
+<option value=6>F</option>
+<option value=7>G</option>
+<option value=8>H</option>
+<option value=9>I</option>
+<option value=10>J</option>
+<option value=11>K</option>
+<option value=12>L</option>
+<option value=13>M</option>
+<option value=14>N</option>
+<option value=15>O</option>
+<option value=16>P</option>
+<option value=17>Q</option>
+<option value=18>R</option>
+<option value=19>S</option>
+<option value=20>T</option>
+<option value=21>U</option>
+<option value=22>V</option>
+<option value=23>W</option>
+<option value=24>X</option>
+<option value=25>Y</option>
+<option value=26>Z</option>
+</select>
+</div>
+<div class=col-3>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-2">
+<div class=col-6>
+<span>Empresa</span>
+</div>
+<div class=col-3>
+<select name=col12 id=col12_importarExcel class=form-select title="letra de la columna del campo 'Empresa'" data-bs-toggle=tooltip>
+<option value=0></option>
+<option value=1>A</option>
+<option value=2>B</option>
+<option value=3>C</option>
+<option value=4>D</option>
+<option value=5>E</option>
+<option value=6>F</option>
+<option value=7>G</option>
+<option value=8>H</option>
+<option value=9>I</option>
+<option value=10>J</option>
+<option value=11>K</option>
+<option value=12>L</option>
+<option value=13>M</option>
+<option value=14>N</option>
+<option value=15>O</option>
+<option value=16>P</option>
+<option value=17>Q</option>
+<option value=18>R</option>
+<option value=19>S</option>
+<option value=20>T</option>
+<option value=21>U</option>
+<option value=22>V</option>
+<option value=23>W</option>
+<option value=24>X</option>
+<option value=25>Y</option>
+<option value=26>Z</option>
+</select>
+</div>
+<div class=col-3>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-2">
+<div class=col-6>
+<span>NIF</span>
+</div>
+<div class=col-3>
+<select name=col13 id=col13_importarExcel class=form-select title="letra de la columna del campo 'NIF'" data-bs-toggle=tooltip>
+<option value=0></option>
+<option value=1>A</option>
+<option value=2>B</option>
+<option value=3>C</option>
+<option value=4>D</option>
+<option value=5>E</option>
+<option value=6>F</option>
+<option value=7>G</option>
+<option value=8>H</option>
+<option value=9>I</option>
+<option value=10>J</option>
+<option value=11>K</option>
+<option value=12>L</option>
+<option value=13>M</option>
+<option value=14>N</option>
+<option value=15>O</option>
+<option value=16>P</option>
+<option value=17>Q</option>
+<option value=18>R</option>
+<option value=19>S</option>
+<option value=20>T</option>
+<option value=21>U</option>
+<option value=22>V</option>
+<option value=23>W</option>
+<option value=24>X</option>
+<option value=25>Y</option>
+<option value=26>Z</option>
+</select>
+</div>
+<div class=col-3>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-2" id=dirWeb_importarExcel>
+<div class=col-6>
+<span>Cargo</span>
+</div>
+<div class=col-3>
+<select name=col14 id=col14_importarExcel class=form-select title="letra de la columna del campo 'Cargo'" data-bs-toggle=tooltip>
+<option value=0></option>
+<option value=1>A</option>
+<option value=2>B</option>
+<option value=3>C</option>
+<option value=4>D</option>
+<option value=5>E</option>
+<option value=6>F</option>
+<option value=7>G</option>
+<option value=8>H</option>
+<option value=9>I</option>
+<option value=10>J</option>
+<option value=11>K</option>
+<option value=12>L</option>
+<option value=13>M</option>
+<option value=14>N</option>
+<option value=15>O</option>
+<option value=16>P</option>
+<option value=17>Q</option>
+<option value=18>R</option>
+<option value=19>S</option>
+<option value=20>T</option>
+<option value=21>U</option>
+<option value=22>V</option>
+<option value=23>W</option>
+<option value=24>X</option>
+<option value=25>Y</option>
+<option value=26>Z</option>
+</select>
+</div>
+<div class=col-3>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-2">
+<div class=col-6>
+<span>Departamento</span>
+</div>
+<div class=col-3>
+<select name=col15 id=col15_importarExcel class=form-select title="letra de la columna del campo 'Departamento'" data-bs-toggle=tooltip>
+<option value=0></option>
+<option value=1>A</option>
+<option value=2>B</option>
+<option value=3>C</option>
+<option value=4>D</option>
+<option value=5>E</option>
+<option value=6>F</option>
+<option value=7>G</option>
+<option value=8>H</option>
+<option value=9>I</option>
+<option value=10>J</option>
+<option value=11>K</option>
+<option value=12>L</option>
+<option value=13>M</option>
+<option value=14>N</option>
+<option value=15>O</option>
+<option value=16>P</option>
+<option value=17>Q</option>
+<option value=18>R</option>
+<option value=19>S</option>
+<option value=20>T</option>
+<option value=21>U</option>
+<option value=22>V</option>
+<option value=23>W</option>
+<option value=24>X</option>
+<option value=25>Y</option>
+<option value=26>Z</option>
+</select>
+</div>
+<div class=col-3>
+</div>
+</div>
+<div class="row gx-3 gy-3 mb-2">
+<div class=col-6>
+<span>Notas</span>
+</div>
+<div class=col-3>
+<select name=col16 id=col16_importarExcel class=form-select title="letra de la columna del campo 'Notas'" data-bs-toggle=tooltip>
+<option value=0></option>
+<option value=1>A</option>
+<option value=2>B</option>
+<option value=3>C</option>
+<option value=4>D</option>
+<option value=5>E</option>
+<option value=6>F</option>
+<option value=7>G</option>
+<option value=8>H</option>
+<option value=9>I</option>
+<option value=10>J</option>
+<option value=11>K</option>
+<option value=12>L</option>
+<option value=13>M</option>
+<option value=14>N</option>
+<option value=15>O</option>
+<option value=16>P</option>
+<option value=17>Q</option>
+<option value=18>R</option>
+<option value=19>S</option>
+<option value=20>T</option>
+<option value=21>U</option>
+<option value=22>V</option>
+<option value=23>W</option>
+<option value=24>X</option>
+<option value=25>Y</option>
+<option value=26>Z</option>
+</select>
+</div>
+<div class=col-3>
+</div>
+</div>
+<div id=msjImpExcel></div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<script>function abrirModal1DesdeImportar(){abrirVentanaUnica("planes.html")}primeraFila_importarExcel.addEventListener("click",(e=>{primeraFila_importarExcel.defaultChecked?e.preventDefault():primeraFila_importarExcel.checked?primeraFila_importarExcel.value=-1:primeraFila_importarExcel.value=0})),fic_importarExcel.addEventListener("change",(e=>{let a=e.target.files[0];nom_importarExcel.value=a.name})),modalImportarExcel.addEventListener("show.bs.modal",(e=>{window.tipoFicheroImportacion=localStorage.getItem("tipoFicheroImportacion");let a=localStorage.getItem("idiomaPais");cambiarTextoIdiomaDiv(a,"modalImportarExcel"),crearEstilo("aceptar_importarExcel","cancelar_importarExcel",tExp("Importar",""),tExp("Cancelar","")),activarTooltipsDiv("modalImportarExcel"),seleccionarCombo("fichero",window.tipoFicheroImportacion),document.getElementById("formImportarExcel").reset()})),modalImportarExcel.addEventListener("hide.bs.modal",(e=>{desactivarTooltipsDiv("modalImportarExcel")})),formImportarExcel.onsubmit=async e=>{if(e.preventDefault(),!dEstSuscrip())return!1;var a=fic_importarExcel.files.length;return 0===a?(toastSelFila(tExp("Pulsa sobre el botón de Examinar para seleccionar el fichero",""),msjImpExcel),!1):a>1?(toastSelFila(tExp("Selecciona un sólo fichero",""),msjImpExcel),!1):fic_importarExcel.files[0].size>10485760?(toastSelFila(tExp("El tamaño del fichero no debe superar los","")+"&nbsp;10 Mb.",msjImpExcel),!1):void async function(){let e=new FormData(formImportarExcel);e.append("numFicheros",a),e.append("plan",localStorage.getItem("plan")),e.append("prefijo",localStorage.getItem("prefijo")),e.append("maxRegFree",localStorage.getItem("maxRegFree"));const t=await fetch("https://"+window.location.host+"/importarExcel",{method:"POST",body:e});return await t.json()}().then((e=>{if(e.success){var a=e.data.value1,t="";t=0===a?tExp("No se importó nada",""):1===a?tExp("Se importó un registro",""):a+" "+tExp("registros importados",""),modMsj(2,"My Contacts Cloud",t,msjImpExcel,!1)}else"K1"===e.message?modMsjFinPruebaToast("importExcel001","My Contacts Cloud",txtFinPrueba1(),txtFinPrueba2()):"K2"===e.message?modMsj(2,"My Contacts Cloud",tExp("Te recomendamos cambiar a un plan PRO superior para poder añadir más contactos","")+'.<br><center><button type="button" class="btn btn-success" data-bs-dismiss="modal" onClick="abrirModal1DesdeFicha(2)">Mi suscripción</button></center>',msjImpExcel,!1):toastSelFila(e.message,msjImpExcel)})).catch((e=>{toastSelFila(e.message,msjImpExcel)}))}</script>
+<div class="modal fade" id=modalContrasena tabindex=-1 data-bs-backdrop=static data-bs-keyboard=false aria-labelledby=staticBackdropLabel aria-hidden=true aria-label="Aria Name">
+<div class="modal-dialog modal-ajustada">
+<div class=modal-content>
+<div class="modal-header bg-dark bg-gradient">
+<p class="modal-title h6 text-warning"><span>Cambiar contraseña</span></p>
+<button type=button class="btn-close btn-close-white btn-lg" data-bs-dismiss=modal aria-label=Close data-bs-toggle=tooltip title="Cerrar ventana" onClick="cambioDiv('cambiarcontrasena', 'menu', 0, 0);"></button>
+</div>
+<div class="modal-body bg-success bg-opacity-50 bg-gradient">
+<form id=formContrasena>
+<div class="input-group mb-4">
+<div class=input-group-prepend>
+<span class="input-group-text bg-success text-white border-success"><i class="bi bi-unlock-fill"></i></span>
+</div>
+<input type=password name=contrasenaant id=contrasenaant placeholder="Contraseña actual" maxlength=32 required class=form-control>
+</div>
+<div class="input-group mb-2">
+<div class=input-group-prepend>
+<span class="input-group-text bg-success text-white border-success"><i class="bi bi-unlock-fill"></i></span>
+</div>
+<input type=password name=contrasena id=contrasena placeholder="Nueva contraseña" maxlength=32 required class=form-control>
+</div>
+<div class="input-group mb-1">
+<div class=input-group-prepend>
+<span class="input-group-text bg-success text-white border-success"><i class="bi bi-unlock-fill"></i></span>
+</div>
+<input type=password name=contrasena1 id=contrasena1 placeholder="Repita contraseña" maxlength=32 required class=form-control>
+</div>
+<div id=msjContrasena></div>
+<div class=row>
+<div class=col-auto>
+<ul><small>
+<li><span>Ocho caracteres como mínimo</span></li>
+<li><span>Un número al menos</span></li>
+<li><span>Una letra minúscula al menos</span></li>
+<li><span>Una letra mayúscula al menos</span></li>
+<li><span>Uno de estos caracteres especiales al menos !@#$%_-+=?</span></li>
+</small></ul>
+</div>
+</div>
+<div class="row justify-content-end align-items-center gx-2 gy-2 mb-2">
+<div class=col-auto>
+<button type=submit class="btn btn-success" value=Aceptar><i class="bi bi-check-circle" style=font-size:1.2rem;color:#fff></i>&nbsp;<span>Aceptar</span></button>
+</div>
+<div class=col-auto>
+<button type=reset class="btn btn-sm btn-warning text-dark" value=Cancelar><i class="bi bi-x-circle" style=font-size:1rem;color:#000></i>&nbsp;<span>Cancelar</span></button>
+</div>
+</div></form>
+</div>
+</div>
+</div>
+</div>
+<script>modalContrasena.addEventListener("show.bs.modal",(function(a){let n=localStorage.getItem("idiomaPais");cambiarTextoIdiomaDiv(n,"modalContrasena"),activarTooltipsDiv("modalContrasena")})),modalContrasena.addEventListener("hide.bs.modal",(function(a){desactivarTooltipsDiv("modalContrasena")})),formContrasena.onsubmit=async a=>{a.preventDefault();var n=localStorage.getItem("idiomaPais");return contrasena.value!=contrasena1.value?(modal1("My Contacts Cloud",tExp("La contraseña no coincide",n),msjContrasena),!1):contrasena.value.length<8?(modal1("My Contacts Cloud",tExp("La longitud de la contraseña debe ser de ocho caracteres como mínimo",n),msjContrasena),!1):noIncluidoEnContrasena(contrasena.value,1)?(modal1("My Contacts Cloud",tExp("La contraseña debe contener al menos un número",n),msjContrasena),!1):noIncluidoEnContrasena(contrasena.value,2)?(modal1("My Contacts Cloud",tExp("La contraseña debe contener al menos una letra minúscula",n),msjContrasena),!1):noIncluidoEnContrasena(contrasena.value,3)?(modal1("My Contacts Cloud",tExp("La contraseña debe contener al menos una letra mayúscula",n),msjContrasena),!1):noIncluidoEnContrasena(contrasena.value,4)?(modal1("My Contacts Cloud",tExp("La contraseña debe contener al menos uno de estos caracteres especiales !@#$%_-+=?",n),msjContrasena),!1):void async function(){let a=new FormData(formContrasena);a.append("prefijo",localStorage.getItem("prefijo"));const n=await fetch("https://"+window.location.host+"/cambiarContrasena",{method:"POST",body:a});return await n.json()}().then((a=>{a.success?(toastMsj(tExp("Contraseña cambiada",""),msjContrasena,2e3,6),setTimeout((function(){cambioDiv("cambiarcontrasena","menu",0,0)}),2500)):modal1("My Contacts Cloud",tExp(a.message,""),msjContrasena)})).catch((a=>{modal1("My Contacts Cloud",a.message,msjContrasena)}))}</script>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js integrity=sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/gh/mycontactscloud/app/lib/libgp3.4.4b.js defer></script>
+<script src=https://cdn.jsdelivr.net/npm/@azure/msal-browser@2.39.0/lib/msal-browser.min.js integrity="sha256-yTMJJVWlLU3tAZbRZXhAbctdJd/fmHvz4nYGZT6Z8dY=" crossorigin=anonymous></script>
+<script src=https://accounts.google.com/gsi/client defer></script>
+<script src=https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/cjs/index.min.js defer></script>
+</body>
+</html>
