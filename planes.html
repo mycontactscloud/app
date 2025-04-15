@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang=es-ES>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link href=https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css rel=stylesheet integrity=sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3 crossorigin=anonymous>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css integrity="sha256-9kPW/n5nn53j4WMRYAxe9c1rCY96Oogo/MKSVdKzPmI=" crossorigin=anonymous>
+<link rel="shortcut icon" href=https://cdn.jsdelivr.net/gh/mycontactscloud/app/im/icon192.png>
+<title>My Contacts Cloud</title>
+<style>@import url(https://fonts.googleapis.com/css?family=Lato);.modal-backdrop{background:radial-gradient(circle at center,#ffe9a8 0,#f8f9fa 50%,#c8ecd7 100%)!important;opacity:1!important}#cuerpo{background-color:#eee}#msjPlanes{z-index:1050}#pricing-tables{background-color:#eee;padding:30px 0;position:relative;font-family:Lato,sans-serif}#pricing-tables .col-lg-3,#pricing-tables .col-md-6,#pricing-tables .col-sm-12{padding-right:0;padding-left:0}#pricing-tables .col-lg-3:hover,#pricing-tables .col-md-6:hover,#pricing-tables .col-sm-12:hover{box-shadow:0 11px 30px 0 rgba(0,0,0,.75);z-index:2;transform:scale(1.06);border:0;transition:.5s square-fill;border:none}.single-table{background:#fff;transition:square-fill .2s linear;z-index:1}.single-table .plan-header{background:#e67e22;color:#fff;text-transform:capitalize;padding:2px 0}.single-table .plan-header h3{margin:0;padding:20px 0 5px 0;text-transform:uppercase}.single-table .plan-price{display:inline-block;color:#e67e22;margin:0 0 10px 0;font-size:25px;font-weight:700;background:#fff;border-radius:50%;color:#e67e22;padding:33px 15px}.single-table .plan-price span{font-size:20px;font-weight:700}.single-table ul{margin:0;padding:20px 0;list-style:none}.single-table ul li{padding:8px 0;margin:0 20px;border-bottom:1px solid #fff;font-size:15px}.single-table .plan-submit{display:inline-block;text-decoration:none;margin:20px 0 30px 0;padding:10px 40px;border:1px solid #e67e22;color:#e67e22;font-size:15px;text-transform:uppercase;border-radius:3px;transition:square-fill .25s linear}.single-table .plan-submit:hover{background:#e67e22;color:#fff;transition:square-fill .25s linear}.single-table .hvr-bubble-float-right{display:inline-block;vertical-align:middle;transform:translateZ(0);box-shadow:0 0 1px transparent;-webkit-backface-visibility:hidden;backface-visibility:hidden;-moz-osx-font-smoothing:grayscale;position:relative;transition-duration:.3s;transition-property:transform}.single-table .hvr-bubble-float-right:before{position:absolute;z-index:-1;top:calc(50% - 10px);right:0;content:"";border-style:solid;border-width:10px 0 10px 10px;border-color:transparent transparent transparent transparent;transition-duration:.3s;transition-property:transform}.single-table .hvr-bubble-float-right:active,.single-table .hvr-bubble-float-right:focus,.single-table .hvr-bubble-float-right:hover{transform:translateX(-10px)}.single-table .hvr-bubble-float-right:active:before,.single-table .hvr-bubble-float-right:focus:before,.single-table .hvr-bubble-float-right:hover:before{transform:translateX(10px);border-color:transparent transparent transparent #e67e22}.color-1 .single-table .plan-header{background:#e67e22;color:#fff}.color-1 .single-table .plan-header .plan-price{color:#e67e22;background:#fff}.color-1 .single-table .plan-submit{border:1px solid #e67e22;color:#e67e22}.color-1 .single-table .plan-submit:hover{background:#e67e22;color:#fff}.color-1 .hvr-bubble-float-right:active:before,.color-1 .hvr-bubble-float-right:focus:before,.color-1 .hvr-bubble-float-right:hover:before{transform:translateX(10px);border-color:transparent transparent transparent #e67e22}.color-2 .single-table .plan-header{background:#3498db;color:#fff}.color-2 .single-table .plan-header .plan-price{color:#3498db;background:#fff}.color-2 .single-table .plan-submit{border:1px solid #3498db;color:#3498db}.color-2 .single-table .plan-submit:hover{background:#3498db;color:#fff}.color-2 .hvr-bubble-float-right:active:before,.color-2 .hvr-bubble-float-right:focus:before,.color-2 .hvr-bubble-float-right:hover:before{transform:translateX(10px);border-color:transparent transparent transparent #3498db}.color-3 .single-table .plan-header{background:#2ecc71;color:#fff}.color-3 .single-table .plan-header .plan-price{color:#2ecc71;background:#fff}.color-3 .single-table .plan-submit{border:1px solid #2ecc71;color:#2ecc71}.color-3 .single-table .plan-submit:hover{background:#2ecc71;color:#fff}.color-3 .hvr-bubble-float-right:active:before,.color-3 .hvr-bubble-float-right:focus:before,.color-3 .hvr-bubble-float-right:hover:before{transform:translateX(10px);border-color:transparent transparent transparent #2ecc71}.color-4 .single-table .plan-header{background:#9b59b6;color:#fff}.color-4 .single-table .plan-header .plan-price{color:#9b59b6;background:#fff}.color-4 .single-table .plan-submit{border:1px solid #9b59b6;color:#9b59b6}.color-4 .single-table .plan-submit:hover{background:#9b59b6;color:#fff}.color-4 .hvr-bubble-float-right:active:before,.color-4 .hvr-bubble-float-right:focus:before,.color-4 .hvr-bubble-float-right:hover:before{transform:translateX(10px);border-color:transparent transparent transparent #9b59b6}.color-5 .single-table .plan-header{background:#3700b3;color:#fff}.color-5 .single-table .plan-header .plan-price{color:#3700b3;background:#fff}.color-5 .single-table .plan-submit{border:1px solid #3700b3;color:#3700b3}.color-5 .single-table .plan-submit:hover{background:#3700b3;color:#fff}.color-5 .hvr-bubble-float-right:active:before,.color-5 .hvr-bubble-float-right:focus:before,.color-5 .hvr-bubble-float-right:hover:before{transform:translateX(10px);border-color:transparent transparent transparent #3700b3}.imagen-ajustada{width:100%;height:auto;object-fit:contain}.lista-ajustada li{margin:0;padding:0;list-style-type:none}.lista-ajustada h1,.lista-ajustada h4,.lista-ajustada h6{margin:0;padding:0}</style>
+</head>
+<body>
+<script>document.addEventListener("DOMContentLoaded",(function(e){var o=window.location.href;function t(e){e=e.replace(/[\[\]]/g,"\\$&");var t=new RegExp("[?&]"+e+"(=([^&#]*)|&|#|$)").exec(o);return t?t[2]?decodeURIComponent(t[2].replace(/\+/g," ")):"":null}var n=t("cor"),a=t("leng");null!==n&&null!==a&&(localStorage.setItem("correoElec",n),localStorage.setItem("idiomaPais",a)),setTimeout((function(){libIdioma(localStorage.getItem("idiomaPais"),5)}),100)}))</script>
+<div class="modal fade" id=modalPlanes tabindex=-1 data-bs-backdrop=static data-bs-keyboard=false aria-labelledby=staticBackdropLabel aria-hidden=true aria-label="Aria Name">
+<div class="modal-dialog modal-xl modal-fullscreen-sm-down">
+<div class=modal-content>
+<div class="modal-header bg-dark bg-gradient sticky-top">
+<a class="navbar-brand text-white" href=#>
+<img src=https://cdn.jsdelivr.net/gh/mycontactscloud/app/im/icon192.png alt="icon My Contacts Cloud" width=32 height=32 class="d-inline-block align-text-top">
+My Contacts Cloud
+</a>
+<button type=button class="btn-close btn-close-white btn-lg" data-bs-dismiss=modal aria-label=Close onclick=window.close()></button>
+</div>
+<div class=modal-body id=cuerpo>
+<div class=container-fluid>
+<div class=row id=tarjetaPrueba>
+<div class="col-12 col-lg-6">
+<img src=./im/im7.jpg alt=Test class=imagen-ajustada>
+</div>
+<div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
+<ul class="text-center lista-ajustada">
+<li><h1 class="margenesPrueba fw-bold text-success" id=txtPrueba1></h1></li>
+<li><h4 class="margenesPrueba fw-bold text-success" id=txtPrueba2></h4></li>
+<li><h6 class="margenesPrueba fw-bold text-success" id=txtPrueba3></h6></li>
+<li><hr class=dropdown-divider></li>
+<li><span id=txtPrueba4></span><br><h4 id=txtPrueba5 class="fw-bold text-primary"></h4></li>
+</ul>
+</div>
+</div>
+<div class=row id=pricing-tables>
+<div class="col-lg-4 col-md-6 col-sm-12 color-2">
+<div class="single-table text-center">
+<div class=plan-header>
+<span style=font-size:1.4em>&nbsp;</span>
+<h3>PRO 1</h3>
+<h4 class=plan-price id=planDesde1></h4>
+<p><span style=font-size:.8em>valor al mes con la suscripción anual</span></p>
+</div>
+<ul class=text-center>
+<li id=c1000></li>
+<li id=f1000></li>
+<li id=e1000></li>
+<li id=d1000></li>
+<li><hr class=dropdown-divider></li>
+<li style=border:none></li>
+<li style=border:none></li>
+<li style=border:none></li>
+<li>
+<span>Mensual</span>: <span class=fw-bold id=planMensual1></span><br>
+<a href=# target=_self class="plan-submit hvr-bubble-float-right" id=b1m><span>Probar</span></a>
+</li>
+<li>
+<span>Anual</span>: <span class=fw-bold id=planAnual1></span><br><small><span>(dos meses gratis)</span></small><br>
+<div id=promocion1 class=d-none>
+<br><span class="fw-bold text-primary" style="font-size:1.5em;padding:2px 5px;border-radius:5px;text-shadow:2px 2px 5px #004085">🎁 Welcome gift 🎁</span><br><span id=bfPrimerAn1>Primer año</span>: <span class=fw-bold id=planAnual1BF></span><br><small><span id=bfDiezMeses1>Cuatro meses gratis!</span></small><br>
+</div>
+<a href=# target=_self class="plan-submit hvr-bubble-float-right" id=b1a><span>Probar</span></a>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 col-sm-12 color-1">
+<div class="single-table text-center">
+<div class=plan-header>
+<span style="display:inline-block;padding:.3em .6em;font-size:1em;color:#fff;background-color:#000;border-radius:.3em">más popular</span>
+<h3>PRO 3</h3>
+<h4 class=plan-price id=planDesde3></h4>
+<p><span style=font-size:.8em>valor al mes con la suscripción anual</span></p>
+</div>
+<ul class=text-center style=background-color:#fae5d2>
+<li style=border:none id=c3000></li>
+<li style=border:none id=f3000></li>
+<li style=border:none id=e3000></li>
+<li style=border:none id=d3000></li>
+<li style=border:none><span id=ventaja style="display:inline-block;padding:.3em .6em;font-size:1em;color:#fff;background-color:#000;border-radius:.3em">El triple de datos pagando sólo el doble</span></li>
+<li style=border:none></li>
+<li style=border:none>
+<span>Mensual</span>: <span class=fw-bold id=planMensual3></span><br>
+<a href=# target=_self class="plan-submit hvr-bubble-float-right" id=b3m><span>Probar</span></a>
+</li>
+<li style=border:none>
+<span>Anual</span>: <span class=fw-bold id=planAnual3></span><br><small><span>(dos meses gratis)</span></small><br>
+<div id=promocion3 class=d-none>
+<br><span class="fw-bold text-primary" style="font-size:1.5em;padding:2px 5px;border-radius:5px;text-shadow:2px 2px 5px #004085">🎁 Welcome gift 🎁</span><br><span id=bfPrimerAn3>Primer año</span>: <span class=fw-bold id=planAnual3BF></span><br><small><span id=bfDiezMeses3>Cuatro meses gratis!!</span></small><br>
+</div>
+<a href=# target=_self class="plan-submit hvr-bubble-float-right" id=b3a><span>Probar</span></a>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 col-sm-12 color-3">
+<div class="single-table text-center">
+<div class=plan-header>
+<span style=font-size:1.4em>&nbsp;</span>
+<h3>PRO 6</h3>
+<h4 class=plan-price id=planDesde6></h4>
+<p><span style=font-size:.8em>valor al mes con la suscripción anual</span></p>
+</div>
+<ul class="text-center bg-light">
+<li id=c6000></li>
+<li id=f6000></li>
+<li id=e6000></li>
+<li id=d6000></li>
+<li><hr class=dropdown-divider></li>
+<li style=border:none></li>
+<li style=border:none></li>
+<li style=border:none></li>
+<li>
+<span>Mensual</span>: <span class=fw-bold id=planMensual6></span><br>
+<a href=# target=_self class="plan-submit hvr-bubble-float-right" id=b6m><span>Probar</span></a>
+</li>
+<li>
+<span>Anual</span>: <span class=fw-bold id=planAnual6></span><br><small><span>(dos meses gratis)</span></small><br>
+<div id=promocion6 class=d-none>
+<br><span class="fw-bold text-primary" style="font-size:1.5em;padding:2px 5px;border-radius:5px;text-shadow:2px 2px 5px #004085">🎁 Welcome gift 🎁</span><br><span id=bfPrimerAn6>Primer año</span>: <span class=fw-bold id=planAnual6BF></span><br><small><span id=bfDiezMeses6>Cuatro meses gratis!</span></small><br>
+</div>
+<a href=# target=_self class="plan-submit hvr-bubble-float-right" id=b6a><span>Probar</span></a>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 col-sm-12 color-4">
+<div class="single-table text-center">
+<div class=plan-header>
+<span style=font-size:1.4em>&nbsp;</span>
+<h3>PRO 12</h3>
+<h4 class=plan-price id=planDesde12></h4>
+<p><span style=font-size:.8em>valor al mes con la suscripción anual</span></p>
+</div>
+<ul class=text-center>
+<li id=c12000></li>
+<li id=f12000></li>
+<li id=e12000></li>
+<li id=d12000></li>
+<li><hr class=dropdown-divider></li>
+<li></li>
+<li>
+<span>Mensual</span>: <span class=fw-bold id=planMensual12></span><br>
+<a href=# target=_self class="plan-submit hvr-bubble-float-right" id=b12m><span>Probar</span></a>
+</li>
+<li>
+<span>Anual</span>: <span class=fw-bold id=planAnual12></span><br><small><span>(dos meses gratis)</span></small><br>
+<div id=promocion12 class=d-none>
+<br><span class="fw-bold text-primary" style="font-size:1.5em;padding:2px 5px;border-radius:5px;text-shadow:2px 2px 5px #004085">🎁 Welcome gift 🎁</span><br><span id=bfPrimerAn12>Primer año</span>: <span class=fw-bold id=planAnual12BF></span><br><small><span id=bfDiezMeses12>Cuatro meses gratis!</span></small><br>
+</div>
+<a href=# target=_self class="plan-submit hvr-bubble-float-right" id=b12a><span>Probar</span></a>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 col-sm-12 color-5">
+<div class="single-table text-center">
+<div class=plan-header>
+<span style=font-size:1.4em>&nbsp;</span>
+<h3>PRO 25</h3>
+<h4 class=plan-price id=planDesde25></h4>
+<p><span style=font-size:.8em>valor al mes con la suscripción anual</span></p>
+</div>
+<ul class=text-center>
+<li id=c25000></li>
+<li id=f25000></li>
+<li id=e25000></li>
+<li id=d25000></li>
+<li><hr class=dropdown-divider></li>
+<li></li>
+<li>
+<span>Mensual</span>: <span class=fw-bold id=planMensual25></span><br>
+<a href=# target=_self class="plan-submit hvr-bubble-float-right" id=b25m><span>Probar</span></a>
+</li>
+<li>
+<span>Anual</span>: <span class=fw-bold id=planAnual25></span><br><small><span>(dos meses gratis)</span></small><br>
+<div id=promocion25 class=d-none>
+<br><span class="fw-bold text-primary" style="font-size:1.5em;padding:2px 5px;border-radius:5px;text-shadow:2px 2px 5px #004085">🎁 Welcome gift 🎁</span><br><span id=bfPrimerAn25>Primer año</span>: <span class=fw-bold id=planAnual25BF></span><br><small><span id=bfDiezMeses25>Cuatro meses gratis!</span></small><br>
+</div>
+<a href=# target=_self class="plan-submit hvr-bubble-float-right" id=b25a><span>Probar</span></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div id=msjPlanes></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js integrity=sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/gh/mycontactscloud/app/lib/libgp3.4.4.js></script>
+<script>function actPrecios(){var e,n="",r="",a=2,t=",",i=".";let s=localStorage.getItem("idiomaPais");switch(s){case"es-es":case"es-ES":case"gl-es":case"gl-ES":case"ca-es":case"ca-ES":case"eu-es":case"eu-ES":case"de-de":case"de-DE":case"it-it":case"it-IT":case"pt-pt":case"pt-PT":case"fr-fr":case"fr-FR":case"en-ie":case"en-IE":case"fr-be":case"fr-BE":case"de-at":case"de-AT":case"de-be":case"de-BE":e=9,r=" €","en-IE"==s||"en-ie"==s?(t=",",i="."):(t=".",i=",");break;case"fr-ch":case"fr-CH":case"it-ch":case"it-CH":case"de-ch":case"de-CH":n="CHF ",e=9;break;case"es-mx":case"es-MX":n="$",e=150,r=" MXN";break;case"es-cl":case"es-CL":n="$",e=9e3,r=" CLP",a=0,t=".",i=",";break;case"es-ar":case"es-AR":n="$",e=8e3,r=" ARS";break;case"es-co":case"es-CO":n="$",e=35e3,r=" COP",t=".",i=",";break;case"es-pe":case"es-PE":n="S/.",e=35,r=" PEN";break;case"es-uy":case"es-UY":n="$",e=400,r=" UYU";break;case"en-GB":case"en-gb":n="£",e=8;break;case"en-us":case"en-US":case"es-us":case"es-US":default:n="$",e=9,r=" USD";break;case"en-ca":case"en-CA":case"fr-ca":case"fr-CA":n="$",e=13,r=" CAD";break;case"en-au":case"en-AU":n="$",e=15,r=" AUD";break;case"pt-br":case"pt-BR":n="R$",e=50,t=".",i=",";break;case"en-nz":case"en-NZ":n="$",e=16,r=" NZD";break;case"en-in":case"en-IN":n="₹",e=800,r=" INR";break;case"en-sg":case"en-SG":n="$",e=13,r=" SGD";break;case"en-hk":case"en-HK":n="$",e=75,r=" HKD";break;case"en-my":case"en-MY":n="RM ",e=45}planDesde1.innerText=n+formatearCifra(1*e*10/12,a,t,i)+r,planDesde3.innerText=n+formatearCifra(2*e*10/12,a,t,i)+r,planDesde6.innerText=n+formatearCifra(3*e*10/12,a,t,i)+r,planDesde12.innerText=n+formatearCifra(5*e*10/12,a,t,i)+r,planDesde25.innerText=n+formatearCifra(10*e*10/12,a,t,i)+r,planMensual1.innerText=n+formatearCifra(1*e,0,t,i)+r,planMensual3.innerText=n+formatearCifra(2*e,0,t,i)+r,planMensual6.innerText=n+formatearCifra(3*e,0,t,i)+r,planMensual12.innerText=n+formatearCifra(5*e,0,t,i)+r,planMensual25.innerText=n+formatearCifra(10*e,0,t,i)+r,planAnual1.innerText=n+formatearCifra(1*e*10,0,t,i)+r,planAnual3.innerText=n+formatearCifra(2*e*10,0,t,i)+r,planAnual6.innerText=n+formatearCifra(3*e*10,0,t,i)+r,planAnual12.innerText=n+formatearCifra(5*e*10,0,t,i)+r,planAnual25.innerText=n+formatearCifra(10*e*10,0,t,i)+r,planAnual1BF.innerText=n+formatearCifra(1*e*8,0,t,i)+r,planAnual3BF.innerText=n+formatearCifra(2*e*8,0,t,i)+r,planAnual6BF.innerText=n+formatearCifra(3*e*8,0,t,i)+r,planAnual12BF.innerText=n+formatearCifra(5*e*8,0,t,i)+r,planAnual25BF.innerText=n+formatearCifra(10*e*8,0,t,i)+r,c1000.innerHTML='<i class="bi bi-people-fill" style="font-size: 1.2rem; color: #3498db;"></i> '+formatearCifra(1e3,0,t,i)+" "+tExp("contactos",""),f1000.innerHTML='<i class="bi bi-wechat" style="font-size: 1.2rem; color: #3498db;"></i> '+formatearCifra(1e3,0,t,i)+" "+tExp("interacciones",""),e1000.innerHTML='<i class="bi bi-calendar-week-fill" style="font-size: 1.2rem; color: #3498db;"></i> '+formatearCifra(1e3,0,t,i)+" "+tExp("eventos",""),d1000.innerHTML='<i class="bi bi-folder-symlink-fill" style="font-size: 1.2rem; color: #3498db;"></i> '+formatearCifra(1e3,0,t,i)+" "+tExp("documentos",""),c3000.innerHTML='<i class="bi bi-people-fill" style="font-size: 1.2rem; color: #E67E22;"></i> '+formatearCifra(3e3,0,t,i)+" "+tExp("contactos",""),f3000.innerHTML='<i class="bi bi-wechat" style="font-size: 1.2rem; color: #E67E22;"></i> '+formatearCifra(3e3,0,t,i)+" "+tExp("interacciones",""),e3000.innerHTML='<i class="bi bi-calendar-week-fill" style="font-size: 1.2rem; color: #E67E22;"></i> '+formatearCifra(3e3,0,t,i)+" "+tExp("eventos",""),d3000.innerHTML='<i class="bi bi-folder-symlink-fill" style="font-size: 1.2rem; color: #E67E22;"></i> '+formatearCifra(3e3,0,t,i)+" "+tExp("documentos",""),c6000.innerHTML='<i class="bi bi-people-fill" style="font-size: 1.2rem; color: #2ecc71;"></i> '+formatearCifra(6e3,0,t,i)+" "+tExp("contactos",""),f6000.innerHTML='<i class="bi bi-wechat" style="font-size: 1.2rem; color: #2ecc71;"></i> '+formatearCifra(6e3,0,t,i)+" "+tExp("interacciones",""),e6000.innerHTML='<i class="bi bi-calendar-week-fill" style="font-size: 1.2rem; color: #2ecc71;"></i> '+formatearCifra(6e3,0,t,i)+" "+tExp("eventos",""),d6000.innerHTML='<i class="bi bi-folder-symlink-fill" style="font-size: 1.2rem; color: #2ecc71;"></i> '+formatearCifra(6e3,0,t,i)+" "+tExp("documentos",""),c12000.innerHTML='<i class="bi bi-people-fill" style="font-size: 1.2rem; color: #9b59b6;"></i> '+formatearCifra(12e3,0,t,i)+" "+tExp("contactos",""),f12000.innerHTML='<i class="bi bi-wechat" style="font-size: 1.2rem; color: #9b59b6;"></i> '+formatearCifra(12e3,0,t,i)+" "+tExp("interacciones",""),e12000.innerHTML='<i class="bi bi-calendar-week-fill" style="font-size: 1.2rem; color: #9b59b6;"></i> '+formatearCifra(12e3,0,t,i)+" "+tExp("eventos",""),d12000.innerHTML='<i class="bi bi-folder-symlink-fill" style="font-size: 1.2rem; color: #9b59b6;"></i> '+formatearCifra(12e3,0,t,i)+" "+tExp("documentos",""),c25000.innerHTML='<i class="bi bi-people-fill" style="font-size: 1.2rem; color: #3700b3;"></i> '+formatearCifra(25e3,0,t,i)+" "+tExp("contactos",""),f25000.innerHTML='<i class="bi bi-wechat" style="font-size: 1.2rem; color: #3700b3;"></i> '+formatearCifra(25e3,0,t,i)+" "+tExp("interacciones",""),e25000.innerHTML='<i class="bi bi-calendar-week-fill" style="font-size: 1.2rem; color: #3700b3;"></i> '+formatearCifra(25e3,0,t,i)+" "+tExp("eventos",""),d25000.innerHTML='<i class="bi bi-folder-symlink-fill" style="font-size: 1.2rem; color: #3700b3;"></i> '+formatearCifra(25e3,0,t,i)+" "+tExp("documentos","")}function formatearCifra(e,n,r,a){let t=(e=e.toFixed(n)).split("."),i=t[0],s=t[1];return i=i.replace(/\B(?=(\d{3})+(?!\d))/g,r),i+(s?a+s:"")}function cuponLineas(){switch(localStorage.getItem("idiomaPais").substring(0,2)){case"es":cuponLinea1.innerText="¡Sólo este fin de semana!",cuponLinea2.innerText="50% de descuento los 3 primeros meses";break;case"fr":cuponLinea1.innerText="Seulement ce week-end !",cuponLinea2.innerText="50 % de réduction pendant les 3 premiers mois";break;case"it":cuponLinea1.innerText="Solo questo fine settimana!",cuponLinea2.innerText="50% di sconto per i primi 3 mesi";break;case"de":cuponLinea1.innerText="Nur dieses Wochenende!",cuponLinea2.innerText="50 % Rabatt für die ersten 3 Monate";break;case"pt":cuponLinea1.innerText="Só este fim de semana!",cuponLinea2.innerText="50% de desconto nos primeiros 3 meses";break;case"ca":cuponLinea1.innerText="Només aquest cap de setmana!",cuponLinea2.innerText="50% de descompte els 3 primers mesos";break;case"gl":cuponLinea1.innerText="Só este fin de semana!",cuponLinea2.innerText="50% de desconto os 3 primeiros meses";break;default:cuponLinea1.innerText="Only this weekend!",cuponLinea2.innerText="50% discount for the first 3 months"}}function ventajaPlan3(){switch(localStorage.getItem("idiomaPais").substring(0,2)){case"es":ventaja.innerHTML="El triple de datos<br>pagando sólo el doble";break;case"fr":ventaja.innerHTML="Le triple de données<br>en payant seulement le double";break;case"it":ventaja.innerHTML="Il triplo dei dati<br>pagando solo il doppio";break;case"de":ventaja.innerHTML="Dreimal so viele Daten,<br>nur zum doppelten Preis";break;case"pt":ventaja.innerHTML="O triplo de dados<br>pagando apenas o dobro";break;case"ca":ventaja.innerHTML="El triple de dades<br>pagant només el doble";break;case"gl":ventaja.innerHTML="O triplo de datos<br>pagando só o dobre";break;default:ventaja.innerHTML="Three times the data<br>for only double the price"}}function promocion(){switch(localStorage.getItem("idiomaPais").substring(0,2)){case"es":bfPrimerAn1.innerText="Primer año",bfDiezMeses1.innerText="¡¡Cuatro meses gratis!!",bfPrimerAn3.innerText="Primer año",bfDiezMeses3.innerText="¡¡Cuatro meses gratis!!",bfPrimerAn6.innerText="Primer año",bfDiezMeses6.innerText="¡¡Cuatro meses gratis!!",bfPrimerAn12.innerText="Primer año",bfDiezMeses12.innerText="¡¡Cuatro meses gratis!!",bfPrimerAn25.innerText="Primer año",bfDiezMeses25.innerText="¡¡Cuatro meses gratis!!";break;case"fr":bfPrimerAn1.innerText="Première année",bfDiezMeses1.innerText="Quatre mois gratuits !!",bfPrimerAn3.innerText="Première année",bfDiezMeses3.innerText="Quatre mois gratuits !!",bfPrimerAn6.innerText="Première année",bfDiezMeses6.innerText="Quatre mois gratuits !!",bfPrimerAn12.innerText="Première année",bfDiezMeses12.innerText="Quatre mois gratuits !!",bfPrimerAn25.innerText="Première année",bfDiezMeses25.innerText="Quatre mois gratuits !!";break;case"it":bfPrimerAn1.innerText="Primo anno",bfDiezMeses1.innerText="Quattro mesi gratis!!",bfPrimerAn3.innerText="Primo anno",bfDiezMeses3.innerText="Quattro mesi gratis!!",bfPrimerAn6.innerText="Primo anno",bfDiezMeses6.innerText="Quattro mesi gratis!!",bfPrimerAn12.innerText="Primo anno",bfDiezMeses12.innerText="Quattro mesi gratis!!",bfPrimerAn25.innerText="Primo anno",bfDiezMeses25.innerText="Quattro mesi gratis!!";break;case"de":bfPrimerAn1.innerText="Erstes Jahr",bfDiezMeses1.innerText="Vier Monate gratis!!",bfPrimerAn3.innerText="Erstes Jahr",bfDiezMeses3.innerText="Vier Monate gratis!!",bfPrimerAn6.innerText="Erstes Jahr",bfDiezMeses6.innerText="Vier Monate gratis!!",bfPrimerAn12.innerText="Erstes Jahr",bfDiezMeses12.innerText="Vier Monate gratis!!",bfPrimerAn25.innerText="Erstes Jahr",bfDiezMeses25.innerText="Vier Monate gratis!!";break;case"pt":bfPrimerAn1.innerText="Primeiro ano",bfDiezMeses1.innerText="Quatro meses grátis!!",bfPrimerAn3.innerText="Primeiro ano",bfDiezMeses3.innerText="Quatro meses grátis!!",bfPrimerAn6.innerText="Primeiro ano",bfDiezMeses6.innerText="Quatro meses grátis!!",bfPrimerAn12.innerText="Primeiro ano",bfDiezMeses12.innerText="Quatro meses grátis!!",bfPrimerAn25.innerText="Primeiro ano",bfDiezMeses25.innerText="Quatro meses grátis!!";break;case"ca":bfPrimerAn1.innerText="Primer any",bfDiezMeses1.innerText="Quatre mesos gratis!!",bfPrimerAn3.innerText="Primer any",bfDiezMeses3.innerText="Quatre mesos gratis!!",bfPrimerAn6.innerText="Primer any",bfDiezMeses6.innerText="Quatre mesos gratis!!",bfPrimerAn12.innerText="Primer any",bfDiezMeses12.innerText="Quatre mesos gratis!!",bfPrimerAn25.innerText="Primer any",bfDiezMeses25.innerText="Quatre mesos gratis!!";break;case"gl":bfPrimerAn1.innerText="Primeiro ano",bfDiezMeses1.innerText="Catro meses de balde!!",bfPrimerAn3.innerText="Primeiro ano",bfDiezMeses3.innerText="Catro meses de balde!!",bfPrimerAn6.innerText="Primeiro ano",bfDiezMeses6.innerText="Catro meses de balde!!",bfPrimerAn12.innerText="Primeiro ano",bfDiezMeses12.innerText="Catro meses de balde!!",bfPrimerAn25.innerText="Primeiro ano",bfDiezMeses25.innerText="Catro meses de balde!!";break;default:bfPrimerAn1.innerText="First year",bfDiezMeses1.innerText="Four months free!!",bfPrimerAn3.innerText="First year",bfDiezMeses3.innerText="Four months free!!",bfPrimerAn6.innerText="First year",bfDiezMeses6.innerText="Four months free!!",bfPrimerAn12.innerText="First year",bfDiezMeses12.innerText="Four months free!!",bfPrimerAn25.innerText="First year",bfDiezMeses25.innerText="Four months free!!"}}function textoPrueba(){var e="";let n=localStorage.getItem("estadoSuscripcion");if("trialing"==n||""==n){switch(e=""==n?txtProbarPlanAhora():txtCambiarPlanAhora(),localStorage.getItem("idiomaPais").substring(0,2)){case"es":txtPrueba1.innerText="Pruébalo",txtPrueba2.innerText="durante 7 días",txtPrueba3.innerText="con acceso a todas las funciones",txtPrueba4.innerText=""==n?"Elige un plan de prueba, haciendo clic sobre el botón '"+e+"'":"Plan de prueba activo:";break;case"fr":txtPrueba1.innerText="Essayez-le",txtPrueba2.innerText="pendant 7 jours",txtPrueba3.innerText="avec accès à toutes les fonctionnalités",txtPrueba4.innerText=""==n?"Choisissez un plan d'essai en cliquant sur le bouton '"+e+"'":"Plan de test actif :";break;case"it":txtPrueba1.innerText="Provalo",txtPrueba2.innerText="per 7 giorni",txtPrueba3.innerText="con accesso a tutte le funzioni",txtPrueba4.innerText=""==n?"Scegli un piano di prova facendo clic sul pulsante '"+e+"'":"Piano di prova attivo:";break;case"de":txtPrueba1.innerText="Probiere es aus",txtPrueba2.innerText="für 7 Tage",txtPrueba3.innerText="mit Zugriff auf alle Funktionen",txtPrueba4.innerText=""==n?"Wähle einen Testplan, indem du auf die Schaltfläche klickst '"+e+"'":"Aktiver Testplan:";break;case"pt":txtPrueba1.innerText="Experimente",txtPrueba2.innerText="por 7 dias",txtPrueba3.innerText="com acesso a todas as funções",txtPrueba4.innerText=""==n?"Escolha um plano de teste clicando no botão '"+e+"'":"Plano de teste ativo:";break;case"ca":txtPrueba1.innerText="Prova-ho",txtPrueba2.innerText="durant 7 dies",txtPrueba3.innerText="amb accés a totes les funcions",txtPrueba4.innerText=""==n?"Tria un pla de prova fent clic sobre el botó '"+e+"'":"Pla de prova actiu:";break;case"gl":txtPrueba1.innerText="Pruébao",txtPrueba2.innerText="durante 7 días",txtPrueba3.innerText="con acceso a todas as funcións",txtPrueba4.innerText=""==n?"Elixe un plan de proba facendo clic sobre o botón '"+e+"'":"Plan de proba activo:";break;default:txtPrueba1.innerText="Try it",txtPrueba2.innerText="for 7 days",txtPrueba3.innerText="with access to all features",txtPrueba4.innerText=""==n?"Choose a trial plan by clicking on the button '"+e+"'":"Active trial plan:"}txtPrueba5.innerText=""==n?"":"PRO "+localStorage.getItem("plan")}else document.getElementById("tarjetaPrueba").style.display="none",e=tExp("comprar","");b1m.innerText=e,b1a.innerText=e,b3m.innerText=e,b3a.innerText=e,b6m.innerText=e,b6a.innerText=e,b12m.innerText=e,b12a.innerText=e,b25m.innerText=e,b25a.innerText=e}modalPlanes.addEventListener("show.bs.modal",(function(e){textoPrueba(),actPrecios(),ventajaPlan3(),"probando"==localStorage.getItem("estadoSuscripcion")?(document.getElementById("promocion1").classList.contains("d-none")&&document.getElementById("promocion1").classList.remove("d-none"),document.getElementById("promocion3").classList.contains("d-none")&&document.getElementById("promocion3").classList.remove("d-none"),document.getElementById("promocion6").classList.contains("d-none")&&document.getElementById("promocion6").classList.remove("d-none"),document.getElementById("promocion12").classList.contains("d-none")&&document.getElementById("promocion12").classList.remove("d-none"),document.getElementById("promocion25").classList.contains("d-none")&&document.getElementById("promocion25").classList.remove("d-none"),promocion()):(document.getElementById("promocion1").classList.contains("d-none")||document.getElementById("promocion1").classList.add("d-none"),document.getElementById("promocion3").classList.contains("d-none")||document.getElementById("promocion3").classList.add("d-none"),document.getElementById("promocion6").classList.contains("d-none")||document.getElementById("promocion6").classList.add("d-none"),document.getElementById("promocion12").classList.contains("d-none")||document.getElementById("promocion12").classList.add("d-none"),document.getElementById("promocion25").classList.contains("d-none")||document.getElementById("promocion25").classList.add("d-none"))})),b1m.addEventListener("click",(e=>{e.stopPropagation(),bPlanStripe("1m")})),b3m.addEventListener("click",(e=>{e.stopPropagation(),bPlanStripe("3m")})),b6m.addEventListener("click",(e=>{e.stopPropagation(),bPlanStripe("6m")})),b12m.addEventListener("click",(e=>{e.stopPropagation(),bPlanStripe("12m")})),b25m.addEventListener("click",(e=>{e.stopPropagation(),bPlanStripe("25m")})),b1a.addEventListener("click",(e=>{e.stopPropagation(),bPlanStripe("1a")})),b3a.addEventListener("click",(e=>{e.stopPropagation(),bPlanStripe("3a")})),b6a.addEventListener("click",(e=>{e.stopPropagation(),bPlanStripe("6a")})),b12a.addEventListener("click",(e=>{e.stopPropagation(),bPlanStripe("12a")})),b25a.addEventListener("click",(e=>{e.stopPropagation(),bPlanStripe("25a")}))</script>
+</body>
+</html>
