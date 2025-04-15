@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/video.js@8.17.4/dist/video-js.min.css" integrity="sha256-OBW8feEwFiiI7rdGj3pzmPHixl1rm68OZgeogFavGas=" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/video.js@8.17.4/dist/video.min.js" integrity="sha256-zWMTZiLEfaJJKmrFuRB44hs//mHAlK0CLKdQKvgK2Xw=" crossorigin="anonymous"></script>
+
+
+
+  <title>My Contacts Cloud</title>
+</head>
+<body>
+
+  <video id="my-video" class="video-js" controls preload="auto" width="640" height="360">
+    Tu navegador no soporta el tag de video.
+  </video>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Lee valores desde localStorage
+      var videoSrc    = localStorage.getItem('nomDocVid');
+      var videoExt    = localStorage.getItem('extDocVid');
+      var videoType   = '';
+
+      if  (videoExt == '.mp4') { videoType   = 'video/mp4'; }
+      if  (videoExt == '.mp3') { videoType   = 'audio/mp3'; }
+      if  (videoExt == '.avi') { videoType   = 'video/avi'; } // no lo soporta
+      if  (videoExt == '.flv') { videoType   = 'video/flv'; } // no lo soporta
+
+      if  (videoExt == '.webm') { videoType  = 'video/webm'; } // ok 
+      if  (videoExt == '.ogv') { videoType   = 'video/ogg'; } // ok    
+
+      if  (videoExt == '.ogg') { videoType   = 'audio/ogg'; } // ok
+    
+
+      // Verifica si los valores existen y son válidos
+      if (videoSrc && videoType) {
+        // Obtén el elemento de video
+        var videoElement = document.getElementById('my-video');
+
+        // Asigna los valores a los atributos src y type
+        videoElement.src = videoSrc;
+        videoElement.type = videoType;
+
+        // Inicializa el reproductor de Video.js
+        var myPlayer = videojs('my-video');
+      }
+    });
+  </script>
+
+</body>
+</html>
