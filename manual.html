@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manual - My Contacts Cloud CRM</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --mcc-ink: #1f2933;
+      --mcc-muted: #5f6b7a;
+      --mcc-line: #d8dee8;
+      --mcc-brand: #0d6efd;
+      --mcc-green: #198754;
+      --mcc-soft: #f4f7fb;
+      --mcc-warn: #fff8e8;
+    }
+
+    body {
+      color: var(--mcc-ink);
+      background: #fff;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.58;
+    }
+
+    .manual-topbar {
+      background: #20262e;
+      border-bottom: 4px solid var(--mcc-brand);
+    }
+
+    .manual-title {
+      font-size: clamp(1.45rem, 2.5vw, 2.25rem);
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .manual-subtitle {
+      color: #dce6f3;
+      max-width: 1040px;
+    }
+
+    .manual-layout {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .manual-nav {
+      position: sticky;
+      top: 1rem;
+      align-self: start;
+      border-right: 1px solid var(--mcc-line);
+      padding-right: 1rem;
+      max-height: calc(100vh - 2rem);
+      overflow-y: auto;
+    }
+
+    .manual-nav a {
+      display: block;
+      color: #26323f;
+      text-decoration: none;
+      padding: .35rem .45rem;
+      border-radius: 6px;
+      font-size: .95rem;
+    }
+
+    .manual-nav a:hover,
+    .manual-nav a:focus {
+      background: var(--mcc-soft);
+      color: var(--mcc-brand);
+    }
+
+    .manual-content {
+      min-width: 0;
+    }
+
+    section {
+      border-bottom: 1px solid var(--mcc-line);
+      padding: 0 0 2rem;
+      margin-bottom: 2rem;
+      scroll-margin-top: 1rem;
+    }
+
+    h2 {
+      font-size: 1.65rem;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+
+    h3 {
+      font-size: 1.18rem;
+      margin-top: 1.5rem;
+      margin-bottom: .65rem;
+      color: #243447;
+    }
+
+    h4 {
+      font-size: 1rem;
+      margin-top: 1.15rem;
+      margin-bottom: .45rem;
+      color: #2f3d4e;
+      font-weight: 700;
+    }
+
+    .lead-block,
+    .tip-block,
+    .warning-block,
+    .example-block {
+      padding: 1rem 1.15rem;
+      margin: 1rem 0;
+    }
+
+    .lead-block {
+      background: var(--mcc-soft);
+      border-left: 5px solid var(--mcc-brand);
+    }
+
+    .tip-block {
+      background: #f6fbf8;
+      border-left: 5px solid var(--mcc-green);
+    }
+
+    .warning-block {
+      background: var(--mcc-warn);
+      border-left: 5px solid #f0ad00;
+    }
+
+    .example-block {
+      background: #f7f4ff;
+      border-left: 5px solid #6f42c1;
+    }
+
+    .step-list li,
+    .plain-list li {
+      margin-bottom: .45rem;
+    }
+
+    .kicker {
+      color: var(--mcc-muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--mcc-line);
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+
+    .table {
+      margin-bottom: 0;
+      min-width: 820px;
+    }
+
+    .table th {
+      background: #f0f4f8;
+      color: #1f2933;
+      white-space: nowrap;
+    }
+
+    code {
+      color: #aa245f;
+      background: #f5f5f7;
+      padding: .1rem .25rem;
+      border-radius: 4px;
+    }
+
+    .manual-footer {
+      color: var(--mcc-muted);
+      font-size: .92rem;
+    }
+
+    @media (max-width: 992px) {
+      .manual-layout {
+        display: block;
+      }
+
+      .manual-nav {
+        position: static;
+        max-height: none;
+        border-right: 0;
+        border-bottom: 1px solid var(--mcc-line);
+        padding: 0 0 1rem;
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="manual-root" aria-live="polite" aria-busy="true">
+    <div class="container py-5 text-center text-secondary" id="manual-loading">Cargando manual…</div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  (() => {
+    const manuals = {"es":{"file":"manual-es.html","htmlLang":"es","title":"Manual operativo - My Contacts Cloud CRM"},"en":{"file":"manual-en.html","catalog":"mcc_en-US.js","htmlLang":"en","title":"Operating manual - My Contacts Cloud CRM"},"fr":{"file":"manual-fr.html","catalog":"mcc_fr-FR.js","htmlLang":"fr","title":"Manuel d’utilisation - My Contacts Cloud CRM"},"it":{"file":"manual-it.html","catalog":"mcc_it-IT.js","htmlLang":"it","title":"Manuale operativo - My Contacts Cloud CRM"},"de":{"file":"manual-de.html","catalog":"mcc_de-DE.js","htmlLang":"de","title":"Benutzerhandbuch - My Contacts Cloud CRM"},"ca":{"file":"manual-ca.html","catalog":"mcc_ca-ES.js","htmlLang":"ca","title":"Manual operatiu - My Contacts Cloud CRM"},"gl":{"file":"manual-gl.html","catalog":"mcc_gl-ES.js","htmlLang":"gl","title":"Manual operativo - My Contacts Cloud CRM"},"pt-PT":{"file":"manual-pt-PT.html","catalog":"mcc_pt-PT.js","htmlLang":"pt-PT","title":"Manual de utilização - My Contacts Cloud CRM"},"pt-BR":{"file":"manual-pt-BR.html","catalog":"mcc_pt-BR.js","htmlLang":"pt-BR","title":"Manual operacional - My Contacts Cloud CRM"}};
+    const messages = {
+      es: { loading: 'Cargando manual…', error: 'No se pudo cargar el manual.', back: 'Volver' },
+      en: { loading: 'Loading manual…', error: 'The manual could not be loaded.', back: 'Back' },
+      fr: { loading: 'Chargement du manuel…', error: 'Impossible de charger le manuel.', back: 'Retour' },
+      it: { loading: 'Caricamento del manuale…', error: 'Impossibile caricare il manuale.', back: 'Indietro' },
+      de: { loading: 'Handbuch wird geladen…', error: 'Das Handbuch konnte nicht geladen werden.', back: 'Zurück' },
+      ca: { loading: 'Carregant el manual…', error: 'No s’ha pogut carregar el manual.', back: 'Tornar' },
+      gl: { loading: 'Cargando o manual…', error: 'Non se puido cargar o manual.', back: 'Volver' },
+      'pt-PT': { loading: 'A carregar o manual…', error: 'Não foi possível carregar o manual.', back: 'Voltar' },
+      'pt-BR': { loading: 'Carregando o manual…', error: 'Não foi possível carregar o manual.', back: 'Voltar' }
+    };
+
+    function resolveLanguage(value) {
+      const locale = String(value || '').trim().replace('_', '-').toLowerCase();
+      if (locale === 'pt-br' || locale.startsWith('pt-br-')) return 'pt-BR';
+      if (locale.startsWith('pt')) return 'pt-PT';
+      if (locale.startsWith('en')) return 'en';
+      if (locale.startsWith('fr')) return 'fr';
+      if (locale.startsWith('it')) return 'it';
+      if (locale.startsWith('de')) return 'de';
+      if (locale.startsWith('ca')) return 'ca';
+      if (locale.startsWith('gl')) return 'gl';
+      return 'es';
+    }
+
+    const selected = resolveLanguage(localStorage.getItem('idiomaPais') || navigator.language);
+    const root = document.getElementById('manual-root');
+    const loading = document.getElementById('manual-loading');
+    loading.textContent = messages[selected].loading;
+
+    function volverApp() {
+      if (window.opener && !window.opener.closed) {
+        try { window.opener.focus(); } catch (error) {}
+        window.close();
+        return;
+      }
+      if (history.length > 1) history.back();
+      else location.replace('principal.html');
+    }
+
+    function addBackButton(language) {
+      const headerRow = root.querySelector('.manual-topbar .container-fluid > .d-flex');
+      if (!headerRow) return;
+
+      const headerContent = document.createElement('div');
+      headerContent.className = 'd-flex align-items-center gap-3 flex-grow-1';
+      while (headerRow.firstChild) headerContent.appendChild(headerRow.firstChild);
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'btn btn-outline-light flex-shrink-0';
+      button.setAttribute('aria-label', messages[language].back);
+      button.addEventListener('click', volverApp);
+
+      const icon = document.createElement('i');
+      icon.className = 'bi bi-arrow-left me-1';
+      const label = document.createElement('span');
+      label.textContent = messages[language].back;
+      button.append(icon, ' ', label);
+
+      headerRow.className = 'd-flex flex-wrap justify-content-between align-items-center gap-3';
+      headerRow.append(headerContent, button);
+    }
+
+    async function requestManual(language) {
+      const response = await fetch('manual/' + manuals[language].file);
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      return response.text();
+    }
+
+    function applyManual(html, language) {
+      root.innerHTML = html;
+      root.removeAttribute('aria-busy');
+      document.documentElement.lang = manuals[language].htmlLang;
+      const documentRoot = root.querySelector('.manual-document');
+      document.title = documentRoot?.dataset.manualTitle || manuals[language].title;
+      addBackButton(language);
+      if (location.hash.length > 1) {
+        requestAnimationFrame(() => document.getElementById(location.hash.slice(1))?.scrollIntoView());
+      }
+    }
+
+    requestManual(selected)
+      .then((html) => applyManual(html, selected))
+      .catch(() => {
+        if (selected === 'es') throw new Error(messages.es.error);
+        return requestManual('es').then((html) => applyManual(html, 'es'));
+      })
+      .catch(() => {
+        root.removeAttribute('aria-busy');
+        root.innerHTML = '<div class="container py-5 text-center text-danger"></div>';
+        root.firstElementChild.textContent = messages[selected].error;
+      });
+  })();
+  </script>
+</body>
+</html>
