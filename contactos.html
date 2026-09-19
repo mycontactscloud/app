@@ -161,7 +161,7 @@
 </div>
 <div class="col-auto align-self-center mt-1 mb-1">
 <div class=btn-group role=group>
-<input type=search id=buscar_contactos class=form-control placeholder=Buscar onchange='buscarAhora("tabContactos","buscar")' title="Buscar en la tabla" data-bs-toggle=tooltip>
+<input type=search id=buscar_contactos class=form-control placeholder=Buscar onchange='buscarAhora("tabContactos","buscar_contactos")' title="Buscar en la tabla" data-bs-toggle=tooltip>
 </div>
 </div>
 <div class="col-auto align-self-center mt-1 mb-1">
@@ -173,7 +173,7 @@
 </div>
 </div>
 <div class="col-auto align-self-center mt-1 mb-1">
-<button type=button id=cerVentana_contactos class="btn-close btn-lg" data-bs-dismiss=modal aria-label=Close data-bs-toggle=tooltip title="Cerrar ventana" onclick='1==salidaModalEvento?setTimeout((function(){cambioDiv("contactos","eventos",0,1)}),500):cambioDiv("contactos","menu",0,0)' data-bs-toggle=tooltip></button>
+<button type=button id=cerVentana_contactos class="btn-close btn-lg" aria-label=Close title="Cerrar ventana" onclick='1==salidaModalEvento?setTimeout((function(){cambioDiv("contactos","eventos",0,1)}),500):cambioDiv("contactos","menu",0,0)' data-bs-toggle=tooltip></button>
 </div>
 </div>
 </div>
@@ -390,9 +390,12 @@
 <div class=input-group>
 <input type=email name=cor id=cor_contactos placeholder="Correo electrónico" maxlength=120 size=120 class=form-control title="Correo electrónico" data-bs-toggle=tooltip>
 <div class=input-group-append>
+
 <div id=botonEmail>
-<button type=button class="btn btn-primary ml-auto" id=abrirD_contactos title="Enviar un mensaje" data-bs-toggle=tooltip onclick=hiperenlace(cor_contactos.value,5)><i class="bi bi-at" style=font-size:1rem;color:currentColor></i></button>
+<button type=button class="btn btn-primary ml-auto" id=abrirD_contactos title="Enviar un mensaje" data-bs-toggle=tooltip onclick="hiperenlace(cor_contactos.value, 5, {tfGesDoc:85,numGesDoc:ccn_contactos.value})"><i class="bi bi-at" style=font-size:1rem;color:currentColor></i></button>
 </div>
+
+
 </div>
 </div>
 </div>
@@ -638,6 +641,8 @@
 </div>
 </div>
 </div>
+
+
 <div class="modal fade" id=tagModal tabindex=-1 aria-labelledby=tagModalLabel aria-hidden=true data-bs-backdrop=false>
 <div class="modal-dialog modal-ajustada">
 <div class=modal-content>
@@ -684,61 +689,74 @@
 </div>
 </div>
 </div>
-<div class="modal fade" id=modalFiltroContactos data-bs-backdrop=false tabindex=-1 aria-labelledby=modalFiltroContactosLabel aria-hidden=true>
+
+
+
+<div class="modal fade" id="modalFiltroContactos" data-bs-backdrop="false" tabindex="-1" aria-labelledby="modalFiltroContactosLabel" aria-hidden="true">
 <div class="modal-dialog modal-lg modal-ajustada">
-<div class=modal-content>
+<div class="modal-content">
 <div class="modal-header bg-light">
-<h5 class=modal-title id=modalFiltroContactosLabel>Filtrar por grupos y etiquetas</h5>
-<button type=button class=btn-close data-bs-dismiss=modal data-bs-toggle=tooltip title="Cerrar ventana" aria-label=Close></button>
+<h5 class="modal-title" id="modalFiltroContactosLabel">Filtrar por grupos y etiquetas</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" data-bs-toggle="tooltip" title="Cerrar ventana" aria-label="Close"></button>
 </div>
-<div class=modal-body>
-<div class=container-fluid>
+<div class="modal-body">
+<div class="container-fluid">
 <div class="row mt-3">
-<div class="col-12 col-md-3">
-<label for=eg1_filtroGruposContactos id=ng1_filtroGruposContactos class=form-label>Grupo de contactos</label>
+  <div class="col-12 col-md-3">
+    <label for="eg1_filtroGruposContactos" id="ng1_filtroGruposContactos" class="form-label">Grupo de contactos</label>
+  </div>
+  <div class="col-12 col-md-9" id="idSelect1">
+    <select id="eg1_filtroGruposContactos" multiple>
+      <!-- Opciones -->
+    </select>
+  </div>
 </div>
-<div class="col-12 col-md-9" id=idSelect1>
-<select id=eg1_filtroGruposContactos multiple>
-</select>
-</div>
-</div>
+
 <div class="row mt-3">
-<div class="col-12 col-md-3">
-<label for=eg2_filtroGruposContactos id=ng2_filtroGruposContactos class=form-label>Grupo de contactos</label>
+  <div class="col-12 col-md-3">
+    <label for="eg2_filtroGruposContactos" id="ng2_filtroGruposContactos" class="form-label">Grupo de contactos</label>
+  </div>
+  <div class="col-12 col-md-9" id="idSelect2">
+    <select id="eg2_filtroGruposContactos" multiple>
+      <!-- Opciones -->
+    </select>
+  </div>
 </div>
-<div class="col-12 col-md-9" id=idSelect2>
-<select id=eg2_filtroGruposContactos multiple>
-</select>
-</div>
-</div>
+
 <div class="row mt-3">
-<div class="col-12 col-md-3">
-<label for=eg3_filtroGruposContactos id=ng3_filtroGruposContactos class=form-label>Grupo de contactos</label>
+  <div class="col-12 col-md-3">
+    <label for="eg3_filtroGruposContactos" id="ng3_filtroGruposContactos" class="form-label">Grupo de contactos</label>
+  </div>
+  <div class="col-12 col-md-9" id="idSelect3">
+    <select id="eg3_filtroGruposContactos" multiple>
+      <!-- Opciones -->
+    </select>
+  </div>
 </div>
-<div class="col-12 col-md-9" id=idSelect3>
-<select id=eg3_filtroGruposContactos multiple>
-</select>
-</div>
-</div>
+
 <div class="row gx-3 gy-3 mt-3">
-<div class=col-auto>
-<button class="btn btn-success btn-sm" onclick='abrirModalTags("modalFiltroContactos")' id=abrirTagModalDesdeFiltro>
+<div class="col-auto">
+<button class="btn btn-success btn-sm" onclick='abrirModalTags("modalFiltroContactos")' id="abrirTagModalDesdeFiltro">
 <i class="bi bi-tags-fill"></i>
 <span>Etiquetas</span>
 </button>
 </div>
-<div class=col-auto>
-<div class="selected-tags d-inline-block" id=selectedTagsFiltro></div>
+<div class="col-auto">
+<div class="selected-tags d-inline-block" id="selectedTagsFiltro"></div>
 </div>
 </div>
 </div>
 </div>
 <div class="modal-footer bg-light">
-<button type=button class="btn btn-success text-white" id=applyFiltersBtn><i class="bi bi-funnel-fill"></i> <span id=txtFiltrar>Filtrar</span></button>
-<button type=button class="btn btn-warning btn-sm" id=clearFiltersBtn><i class="bi bi-funnel"></i> <span id=txtQuitarFiltro>Quitar filtro</span></button>
+<button type="button" class="btn btn-success text-white" id="applyFiltersBtn"><i class="bi bi-funnel-fill"></i> <span id="txtFiltrar">Filtrar</span></button>
+<button type="button" class="btn btn-warning btn-sm" id="clearFiltersBtn"><i class="bi bi-funnel"></i> <span id="txtQuitarFiltro">Quitar filtro</span></button>
 </div>
 </div>
 </div>
 </div>
+
+
+
+
 </body>
 </html>

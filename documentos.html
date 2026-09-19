@@ -1,7 +1,14 @@
 <!doctype html>
 <html lang=es-ES>
 <head>
-<style>.success1{background:#d0e8f9;font-weight:700}#fileTypeDropdown.form-select{appearance:none;-webkit-appearance:none;background-image:none!important}</style>
+<style>
+	.success1{background:#d0e8f9;font-weight:700}
+	#fileTypeDropdown.form-select {
+		appearance: none;
+		-webkit-appearance: none;
+		background-image: none !important; /* Elimina el ícono nativo */
+	}
+</style>
 </head>
 <body class=bg-light>
 <div class="container-fluid sticky-top bg-light">
@@ -106,7 +113,7 @@
 </ul>
 </div>
 <div class="col-auto align-self-center mt-1 mb-1">
-<input type=search id=buscar_documentos class=form-control placeholder=Buscar onchange='buscarAhora("tabDocumentos","buscar")' title="Buscar en la tabla" data-bs-toggle=tooltip>
+<input type=search id=buscar_documentos class=form-control placeholder=Buscar onchange='buscarAhora("tabDocumentos","buscar_documentos")' title="Buscar en la tabla" data-bs-toggle=tooltip>
 </div>
 <div class="col-auto align-self-center d-none d-md-block mt-1 mb-1">
 <div class=btn-group role=group>
@@ -117,7 +124,7 @@
 </div>
 </div>
 <div class="col-auto align-self-center mt-1 mb-1">
-<button type=button class="btn-close btn-lg" data-bs-dismiss=modal aria-label=Close onClick="cambioDiv('documentos', localStorage.getItem('divAnt'), 0, 1)" title="Cerrar ventana" data-bs-toggle=tooltip style=text-align:right></button>
+<button type=button class="btn-close btn-lg" aria-label=Close onClick="cambioDiv('documentos', localStorage.getItem('divAnt'), 0, 1)" title="Cerrar ventana" data-bs-toggle=tooltip style=text-align:right></button>
 </div>
 </div>
 </div>
@@ -169,62 +176,80 @@
 <div class=col-auto>
 <input type=date name=fec id=fec_documentos required class=form-control title="Fecha del documento" data-bs-toggle=tooltip>
 </div>
+
+
 <div class=col-auto>
-<button id=openDocEdit class="btn btn-primary" title="Editar documento" data-bs-toggle=tooltip><i class="bi bi-pencil"></i> <span>Editar documento</span></button>
+	<button type="button" id="openDocEdit" class="btn btn-primary" title="Editar documento" data-bs-toggle=tooltip><i class="bi bi-pencil"></i> <span>Editar documento</span></button>
 </div>
+
+<div class="col-12 col-lg-auto" id="avisoGuardarDocumento" hidden>
+	<div class="alert alert-warning d-flex align-items-center py-2 px-3 mb-0" role="status" aria-live="polite">
+		<i class="bi bi-exclamation-triangle-fill me-2" aria-hidden="true"></i>
+		<span id="textoAvisoGuardarDocumento"></span>
+	</div>
 </div>
+
+
+
+
+
+</div>
+
+
+
 <div class="row gx-3 gy-3 mb-3 mfil">
-<div class="d-flex flex-column">
-<label for=fic_documentos class="form-label mb-1" id=etGrupoBuscarDoc>Selecciona un documento</label>
-<div class=input-group>
-<input type=file id=fic_documentos name=fic style=display:none>
-<div class=input-group-prepend>
-<button type=button class="btn btn-primary" id=examinar_documentos onclick='document.getElementById("fic_documentos").click()' title=Examinar... data-bs-toggle=tooltip>
-<i class="bi bi-search" style=font-size:1rem;color:currentColor></i>
-</button>
+    <div class="d-flex flex-column"> <!-- Contenedor para reducir espacio -->
+        <label for="fic_documentos" class="form-label mb-1" id="etGrupoBuscarDoc">Selecciona un documento</label>
+        <div class="input-group">
+            <input type="file" id="fic_documentos" name="fic" style="display:none">
+            <div class="input-group-prepend">
+                <button type="button" class="btn btn-primary" id="examinar_documentos" onclick='document.getElementById("fic_documentos").click()' title="Examinar..." data-bs-toggle="tooltip">
+                    <i class="bi bi-search" style="font-size:1rem;color:currentColor;"></i>
+                </button>
+            </div>
+            <input name="nom" id="nom_documentos" placeholder="Nombre del fichero" maxlength="255" size="255" required class="form-control" title="Nombre del fichero" data-bs-toggle="tooltip">
+        </div>
+    </div>
 </div>
-<input name=nom id=nom_documentos placeholder="Nombre del fichero" maxlength=255 size=255 required class=form-control title="Nombre del fichero" data-bs-toggle=tooltip>
+
+
+
+
+<div class="row gx-3 gy-3 mb-3 mfil" id="creaNuevoDocumento">
+    <div class="col-auto w-100">
+        
+		<div class="dropdown">
+		  <button class="form-select dropdown-toggle text-start bg-white" type="button" id="fileTypeDropdown" data-bs-toggle="dropdown" aria-expanded="false"><span>O crea un nuevo documento...</span>
+		  </button>
+		  <ul class="dropdown-menu" aria-labelledby="fileTypeDropdown" id="fileTypeMenu">
+		    <!-- Grupo: LibreOffice -->
+		    <li><h6 class="dropdown-header fw-bold fs-5"><span class="text-success">Libre</span><span class="text-dark">Office</span></h6></li>
+		    <li><a class="dropdown-item d-flex align-items-center" href="#" data-value="odt">
+		      <i class="bi bi-file-earmark-text-fill text-primary me-2"></i> Writer (.odt)
+		    </a></li>
+		    <li><a class="dropdown-item d-flex align-items-center" href="#" data-value="ods">
+		      <i class="bi bi-file-spreadsheet-fill text-success me-2"></i> Calc (.ods)
+		    </a></li>
+		    <li><a class="dropdown-item d-flex align-items-center" href="#" data-value="odp">
+		      <i class="bi bi-easel2-fill text-danger me-2"></i> Impress (.odp)
+		    </a></li>
+		  </ul>
+		</div>
+
+    </div>
 </div>
-</div>
-</div>
-<div class="row gx-3 gy-3 mb-3 mfil" id=creaNuevoDocumento>
-<div class="col-auto w-100">
-<div class=dropdown>
-<button class="form-select dropdown-toggle text-start bg-white" type=button id=fileTypeDropdown data-bs-toggle=dropdown aria-expanded=false><span>O crea un nuevo documento...</span>
-</button>
-<ul class=dropdown-menu aria-labelledby=fileTypeDropdown id=fileTypeMenu>
-<li><h6 class="dropdown-header fw-bold fs-5 text-danger">Microsoft Office</h6></li>
-<li><a class="dropdown-item d-flex align-items-center" href=# data-value=docx>
-<i class="bi bi-file-earmark-word-fill text-primary me-2"></i> Word (.docx)
-</a></li>
-<li><a class="dropdown-item d-flex align-items-center" href=# data-value=xlsx>
-<i class="bi bi-file-earmark-excel-fill text-success me-2"></i> Excel (.xlsx)
-</a></li>
-<li><a class="dropdown-item d-flex align-items-center" href=# data-value=pptx>
-<i class="bi bi-file-earmark-ppt-fill text-danger me-2"></i> PowerPoint (.pptx)
-</a></li>
-<li><hr class=dropdown-divider></li>
-<li><h6 class="dropdown-header fw-bold fs-5"><span class=text-success>Libre</span><span class=text-dark>Office</span></h6></li>
-<li><a class="dropdown-item d-flex align-items-center" href=# data-value=odt>
-<i class="bi bi-file-earmark-text-fill text-primary me-2"></i> Writer (.odt)
-</a></li>
-<li><a class="dropdown-item d-flex align-items-center" href=# data-value=ods>
-<i class="bi bi-file-spreadsheet-fill text-success me-2"></i> Calc (.ods)
-</a></li>
-<li><a class="dropdown-item d-flex align-items-center" href=# data-value=odp>
-<i class="bi bi-easel2-fill text-danger me-2"></i> Impress (.odp)
-</a></li>
-</ul>
-</div>
-</div>
-</div>
+
+
+
 <div class="row gx-3 gy-3 mb-1 mfil">
 <div class="col-auto w-100">
 <textarea name=com id=com_documentos placeholder=Descripción maxlength=255 size=255 rows=3 class=form-control title="Descripción del documento" data-bs-toggle=tooltip></textarea>
 </div>
 </div>
 </div>
+
 <div id=msjModDocumento></div>
+
 </div>
 </form>
 </div>
@@ -245,6 +270,8 @@
 </div>
 </div>
 </div>
+
+
 <div class="modal fade" id=formEliminarDocumento tabindex=-1 aria-label="Aria Name 1" data-bs-backdrop=false>
 <div class="modal-dialog modal-ajustada">
 <div class=modal-content>
@@ -286,5 +313,7 @@
 </div>
 </div>
 </div>
+
+
 </body>
 </html>
