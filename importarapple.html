@@ -12,7 +12,7 @@
 </div>
 <div class=col-auto>
 <div class=btn-group role=group>
-<button id=cerVentana_importarapple class="btn-close btn-lg" data-bs-dismiss=modal aria-label=Close title="Cerrar ventana" data-bs-toggle=tooltip onclick='cambioDiv("importarapple","menu",0,0)'></button>
+<button id=cerVentana_importarapple class="btn-close btn-lg" aria-label=Close title="Cerrar ventana" data-bs-toggle=tooltip onclick='cambioDiv("importarapple","menu",0,0)'></button>
 </div>
 </div>
 </div>
@@ -43,7 +43,7 @@
 <input id=appPassword class=form-control placeholder=abcd-efgh-ijkl-mnop>
 </div>
 <div class=text-center>
-<button type=button class="btn btn-success btn-lg" onclick=startAppleContactsImport()>
+<button type=button id=btnLeerContactosApple class="btn btn-success btn-lg" onclick=startAppleContactsImport()>
 <i class="bi bi-cloud-download"></i><span> Leer contactos</span>
 </button>
 </div>
@@ -57,7 +57,7 @@
 <div class="row justify-content-between align-content-center d-none py-2" id=filaApple style=padding-top:10px;padding-bottom:10px>
 <div class=col-auto>
 <div class=btn-group role=group>
-<input type=search id=buscar_importarapple class="form-control form-control-sm" placeholder=Buscar onchange='buscarAhora("tabImportApple","buscar1")' title="Buscar en la tabla" data-bs-toggle=tooltip>
+<input type=search id=buscar_importarapple class="form-control form-control-sm" placeholder=Buscar onchange='buscarAhora("tabImportApple","buscar_importarapple")' title="Buscar en la tabla" data-bs-toggle=tooltip>
 </div>
 </div>
 <div class=col-auto>
@@ -65,7 +65,7 @@
 </div>
 <div class=col-auto>
 <div class=btn-group role=group>
-<button type=button id=cerVentana_importarapple class="btn-close btn-lg" data-bs-dismiss=modal aria-label=Close title="Cerrar ventana" data-bs-toggle=tooltip onclick='cambioDiv("importarapple","menu",0,0)'></button>
+<button type=button id=cerVentana_importarapple class="btn-close btn-lg" aria-label=Close title="Cerrar ventana" data-bs-toggle=tooltip onclick='cambioDiv("importarapple","menu",0,0)'></button>
 </div>
 </div>
 </div>
