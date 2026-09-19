@@ -102,7 +102,7 @@
             <button type="reset" class="btn btn-warning btn-sm" id="cancelar_eventos" value="Cancelar" title="Cancelar cambios" data-bs-toggle="tooltip"><i class="bi bi-x-circle"></i> </button>  
           </div>
           <div class="btn-group ms-2" role="group">
-            <button type="button" class="btn-close btn-close-white btn-lg" data-bs-dismiss="modal" aria-label="Close" onclick="salidaModalEvento = 0;"></button>
+            <button type="button" class="btn-close btn-close-white btn-lg" data-bs-dismiss="modal" aria-label="Cerrar" onclick="salidaModalEvento = 0;"></button>
           </div>
         </div>
       </div>
@@ -318,16 +318,16 @@
               
               
               <div class="btn-group" role="group">
-                <button class="btn btn-sm" id="nuevoParticipante1_eventos" title="Nuevo participante" data-bs-toggle="tooltip" onclick="if (!dEstSuscrip()) {return false;}; salirFormEventoSubmit = true; salidaModalEvento = 1; salirModalEvento = true; if (localStorage.getItem('codContactoNlistadoEventos') == '') { cambioDiv('eventos', 'contactos', 1, 0); }">
+                <button class="btn btn-sm" id="nuevoParticipante1_eventos" title="Nuevo participante" aria-label="Nuevo participante" data-bs-toggle="tooltip" onclick="if (!dEstSuscrip()) {return false;}; salirFormEventoSubmit = true; salidaModalEvento = 1; salirModalEvento = true; if (localStorage.getItem('codContactoNlistadoEventos') == '') { cambioDiv('eventos', 'contactos', 1, 0); }">
                     <i class="bi bi-person-plus-fill" style="font-size: 1.4rem; color: currentColor;"></i>
                 </button>
-                <button class="btn btn-sm" id="eliminarParticipante1_eventos" title="Eliminar participante" data-bs-toggle="tooltip" onclick="if (!dEstSuscrip()) {return false;}; salirModalEvento = true; eliReg('tabParticipantes', 'success2', 'ccn', msjModEvento)">
+                <button class="btn btn-sm" id="eliminarParticipante1_eventos" title="Eliminar participante" aria-label="Eliminar participante" data-bs-toggle="tooltip" onclick="if (!dEstSuscrip()) {return false;}; salirModalEvento = true; eliReg('tabParticipantes', 'success2', 'ccn', msjModEvento)">
                     <i class="bi bi-person-dash-fill" style="font-size: 1.4rem; color: currentColor;"></i>
                 </button>
               </div>
 
               <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-sm dropdown-toggle" data-bs-toggle="dropdown" title="Exportar tabla" data-bs-toggle="tooltip"><i class="bi-cloud-download" style="font-size: 1rem; color: currentColor;"></i></button>
+                  <button type="button" class="btn btn-sm dropdown-toggle" data-bs-toggle="dropdown" title="Exportar tabla" aria-label="Exportar tabla"><i class="bi-cloud-download" style="font-size: 1rem; color: currentColor;"></i></button>
 
                     <ul class="dropdown-menu">
                         <li>
@@ -365,7 +365,7 @@
 
                     </ul>
 
-                    <button class="btn btn-sm" title="Mostrar columnas" data-bs-toggle="tooltip" onclick="salirModalEvento = true; salirFormEventoSubmit = true; modalColTab('modalColTabParticipantes', 'colTabParticipantes', 'tabParticipantes');">
+                    <button class="btn btn-sm" title="Mostrar columnas" aria-label="Mostrar columnas" data-bs-toggle="tooltip" onclick="salirModalEvento = true; salirFormEventoSubmit = true; modalColTab('modalColTabParticipantes', 'colTabParticipantes', 'tabParticipantes');">
                       <i class="bi bi-layout-three-columns" style="font-size: 1.4rem; color: currentColor;"></i>
                     </button>
 
