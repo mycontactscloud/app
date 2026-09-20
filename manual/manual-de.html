@@ -1,0 +1,894 @@
+<div class="manual-document" data-manual-title="Benutzerhandbuch - My Contacts Cloud CRM">
+<header class="manual-topbar text-white py-4">
+    <div class="container-fluid" style="max-width:1400px">
+      <div class="d-flex align-items-center gap-3">
+        <img src="https://cdn.jsdelivr.net/gh/mycontactscloud/app/im/icon192.png" width="48" height="48" alt="My Contacts Cloud">
+        <div>
+          <div class="kicker text-warning">Benutzerhandbuch</div>
+          <h1 class="manual-title mb-1">My Contacts Cloud CRM</h1>
+          <p class="manual-subtitle mb-0">Praxisnaher und ausführlicher Leitfaden zur Verwaltung von Kontakten, Vertriebsaktivitäten, Interaktionen, Erinnerungen, Dokumenten, E-Mails, Importen, Kalendern, Einstellungen, Plänen und Konten.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="manual-layout">
+    <nav class="manual-nav" aria-label="Inhaltsverzeichnis des Handbuchs">
+      <strong class="d-block mb-2">Inhalt</strong>
+      <a href="#enfoque">1. Mit dem CRM arbeiten</a>
+      <a href="#acceso">2. Anmeldung und Konto</a>
+      <a href="#menu">3. Hauptmenü</a>
+      <a href="#tablas">4. Tabellen, Filter und Berichte</a>
+      <a href="#contactos">5. Kontaktansicht</a>
+      <a href="#config-contactos">6. Kontakte einrichten</a>
+      <a href="#interacciones">7. Interaktionen und Nachverfolgung</a>
+      <a href="#recordatorios">8. Erinnerungen</a>
+      <a href="#documentos">9. Dokumentenverwaltung</a>
+      <a href="#correo">10. E-Mail</a>
+      <a href="#eventos">11. Kalender, Termine und Aufgaben</a>
+      <a href="#config-eventos">12. Termine einrichten</a>
+      <a href="#importaciones">13. Importe</a>
+      <a href="#organizacion">14. Gruppen und Labels</a>
+      <a href="#planes">15. Pläne und Abonnement</a>
+      <a href="#operativas">16. Empfohlene Arbeitsabläufe</a>
+      <a href="#incidencias">17. Häufige Probleme</a>
+      <a href="#equipo">18. Team und Mitglieder</a>
+      <a href="#seguridad">19. Sicherheit und Daten</a>
+      <a href="#bajas">20. Deinstallation, Kündigung und Löschung</a>
+      <a href="#faq">21. Häufig gestellte Fragen</a>
+    </nav>
+
+    <main class="manual-content">
+      <section id="enfoque">
+        <div class="kicker">Tägliche Nutzung</div>
+        <h2>1. Mit dem CRM arbeiten</h2>
+        <p>In My Contacts Cloud CRM steht jeder Kontakt im Mittelpunkt: Anrufe, E-Mails, Dokumente, Besprechungen, Erinnerungen und die Dokumentation von Vertriebsaktivitäten beginnen in der Kontaktansicht. Die Anwendung ist mehr als ein Adressbuch. Sie zeigt, wer der Kontakt ist, was besprochen wurde, welche Dokumente zugeordnet sind und welche Aufgabe als Nächstes ansteht.</p>
+        <div class="lead-block">
+          <strong>Empfohlener Ablauf:</strong> Kontakt einordnen, jede Interaktion dokumentieren, bei Bedarf die nächste Aufgabe festlegen, eine Erinnerung mit Datum anlegen, relevante Dokumente zuordnen und für jeden festen Termin einen Kalendereintrag oder eine Besprechung erstellen.
+        </div>
+        <p>In der Praxis ist das CRM am nützlichsten, wenn jede Aktivität nachvollziehbar bleibt. Wenn Sie mit einem Kunden die Zusendung eines Angebots vereinbaren, erfassen Sie den Anruf als Interaktion, legen Sie „Angebot senden“ als ausstehende Aufgabe fest, erstellen Sie eine Erinnerung und speichern Sie das Angebot bei den Dokumenten des Kontakts. So bleiben Verlauf und Kalender miteinander verknüpft.</p>
+      </section>
+
+      <section id="acceso">
+        <div class="kicker">Zugriff auf die Anwendung</div>
+        <h2>2. Anmeldung und Konto</h2>
+        <h3>Anmelden</h3>
+        <ol class="step-list">
+          <li>Öffnen Sie die Anmeldeseite von My Contacts Cloud CRM.</li>
+          <li>Wählen Sie, ob Sie sich mit Google, Microsoft oder Apple anmelden möchten. Konten, die mit E-Mail-Adresse und Passwort erstellt wurden, können sich auch mit diesen Zugangsdaten anmelden.</li>
+          <li>Schließen Sie die Autorisierung im Fenster des gewählten Anbieters ab.</li>
+          <li>Wenn Sie zur Anwendung zurückkehren, wird der Hauptbildschirm geöffnet.</li>
+        </ol>
+        <p>Der für die Anmeldung verwendete Anbieter schränkt die anderen Integrationen nicht ein. Sie können sich bei Google anmelden, Microsoft-Kontakte importieren und E-Mails mit Outlook senden, wenn Sie Microsoft zu diesem Zeitpunkt autorisieren.</p>
+        <h3>Registrierung und Passwort</h3>
+        <p>Bei Konten mit einer E-Mail-Adresse und einem Passwort muss das Passwort aus mindestens acht Zeichen, einem Großbuchstaben, einem Kleinbuchstaben, einer Zahl und einem unterstützten Symbol bestehen. Wenn Sie das Passwort zurücksetzen, prüfen Sie auch die Ordner „Werbung“ und „Spam“, insbesondere bei Gmail.</p>
+      </section>
+
+      <section id="menu">
+        <div class="kicker">Navigation</div>
+        <h2>3. Hauptmenü</h2>
+        <p>Das Hauptmenü bündelt die wichtigsten Funktionen der Anwendung. Es zeigt außerdem den Status der Testphase, die verbleibenden Tage, den aktiven Plan und die Konto-ID an. Geben Sie diese ID bei jeder Supportanfrage an.</p>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Option</th>
+                <th>Verwendung</th>
+                <th>Praxisbeispiel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Kontakte</td>
+                <td>Zentrales Verzeichnis für Personen und Unternehmen.</td>
+                <td>Suchen Sie nach einem Kunden, öffnen Sie den Kontakt, überprüfen Sie die Interaktionen und senden Sie ihm eine E-Mail.</td>
+              </tr>
+              <tr>
+                <td>Erinnerungen</td>
+                <td>Ausstehende Aktionen mit Datum.</td>
+                <td>Prüfen Sie die heute anstehenden Anrufe und erfassen Sie jedes Ergebnis als neue Interaktion.</td>
+              </tr>
+              <tr>
+                <td>Tag, Woche, Monat, Terminübersicht</td>
+                <td>Kalenderansichten.</td>
+                <td>Erstellen Sie eine Besprechung, fügen Sie Teilnehmer hinzu und hängen Sie Dokumente an.</td>
+              </tr>
+              <tr>
+                <td>Importieren</td>
+                <td>Importieren Sie Kontakte aus Google, Microsoft, Apple Mac/iOS oder Excel.</td>
+                <td>Importieren Sie Outlook-Kontakte und verwerfen Sie Duplikate per Telefon oder E-Mail.</td>
+              </tr>
+              <tr>
+                <td>Werkzeuge</td>
+                <td>Konfigurieren Sie Gruppen, Labels, Kontaktfelder, Kalender, Sprache und Passwort.</td>
+                <td>Erstellen Sie das Label „Verlängerung 2026“ und filtern Sie die Kontakte danach.</td>
+              </tr>
+              <tr>
+                <td>PRO-Pläne und Abonnement</td>
+                <td>Prüfen Sie Pläne, erhöhen Sie Limits oder verwalten Sie Ihr Abonnement.</td>
+                <td>Wechseln Sie zu einem höheren Plan, wenn das Limit für Kontakte oder Dokumente erreicht ist.</td>
+              </tr>
+              <tr>
+                <td>Handbuch</td>
+                <td>Öffnen Sie diese Bedienungsanleitung.</td>
+                <td>Erfahren Sie, wie Sie Kontakte filtern oder eine Vertriebsaktivität dokumentieren.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="tablas">
+        <div class="kicker">Listen, Filter und Ausgaben</div>
+        <h2>4. Tabellen, Filter und Berichte</h2>
+        <p>Die Fenster „Kontakte“, „Interaktionen“, „Dokumente“ und „Teilnehmer“ verwenden dieselben Tabellenfunktionen. Wenn Sie diese Funktionen beherrschen, können Sie CRM-Daten als hilfreiche Arbeitslisten aufbereiten, drucken und exportieren.</p>
+        <h3>Häufige Tabellenaktionen</h3>
+        <ul class="plain-list">
+          <li><strong>Neu:</strong> einen Datensatz erstellen.</li>
+          <li><strong>Bearbeiten:</strong> den ausgewählten Datensatz bearbeiten.</li>
+          <li><strong>Löschen:</strong> löscht den ausgewählten Datensatz, normalerweise nach Bestätigung.</li>
+          <li><strong>Anzeigen:</strong> den Datensatz schreibgeschützt öffnen.</li>
+          <li><strong>Suche:</strong> Filtern Sie die Tabelle, indem Sie Text in das Suchfeld eingeben.</li>
+          <li><strong>Spalten anzeigen:</strong> Hier können Sie auswählen, welche Spalten vor dem Drucken oder Exportieren angezeigt werden.</li>
+          <li><strong>Karte/Tabelle:</strong> zwischen Tabellen- und Kartenansicht wechseln.</li>
+          <li><strong>Drucken:</strong> generiert eine gedruckte Ansicht mit sichtbaren Spalten.</li>
+          <li><strong>Exportieren:</strong> generiert je nach Tabelle Dateien in PDF, Excel, ODS, CSV, TXT, JSON, XML, HTML oder SQL.</li>
+        </ul>
+        <h3>Kontakte nach Gruppen und Labels filtern</h3>
+        <p>Die Kontakttabelle enthält einen eigenen Filter für Gruppen und Labels. Dies ist eine der nützlichsten Funktionen, um mit bestimmten Segmenten zu arbeiten.</p>
+        <ol class="step-list">
+          <li>Öffnen Sie <strong>Kontakte</strong>.</li>
+          <li>Klicken Sie auf das Filtersymbol.</li>
+          <li>Wählen Sie einen oder mehrere Werte in Gruppe 1, Gruppe 2 oder Gruppe 3 aus.</li>
+          <li>Wählen Sie Labels aus, wenn Sie auch nach ihnen filtern möchten.</li>
+          <li>Klicken Sie auf <strong>Filtern</strong>.</li>
+          <li>Wenn Sie zur vollständigen Liste zurückkehren möchten, öffnen Sie den Filter erneut und klicken Sie auf <strong>Filter entfernen</strong>.</li>
+        </ol>
+        <div class="tip-block">
+          <strong>So werden Filter kombiniert:</strong> Die Gruppen werden als kumulative Bedingungen angewendet. Wenn Sie einen Wert in Gruppe 1 und einen anderen in Gruppe 2 auswählen, muss der Kontakt beide Kriterien erfüllen. Labels sind flexibler: Ein Kontakt muss lediglich eines der ausgewählten Labels besitzen.
+        </div>
+        <h3>Suchen, filtern, exportieren und drucken</h3>
+        <p>Um einen Bericht zu erstellen, wenden Sie zunächst die passenden Filter an, grenzen die Ergebnisse über die Suche weiter ein, lassen nur die benötigten Spalten sichtbar und drucken oder exportieren anschließend die Tabelle.</p>
+        <div class="example-block">
+          <strong>Beispiel 1: PDF-Liste der Kunden in einem Bereich.</strong><br>
+          Filtern Sie nach Gruppe 1 = Kunden, geben Sie „Valencia“ in das Suchfeld ein, lassen Sie Name, Firma, Telefonnummer 1, E-Mail und Labels sichtbar und exportieren Sie im Querformat als PDF.
+        </div>
+        <div class="example-block">
+          <strong>Beispiel 2: Excel-Datei für eine Vertriebskampagne.</strong><br>
+          Filtern Sie nach dem Label „Juni-Kampagne“, zeigen Sie Name, Funktion, Firma, Telefon 1 und E-Mail an und exportieren Sie es nach Excel. Die Datei kann als Anrufliste oder zur Vorbereitung der Kampagne verwendet werden.
+        </div>
+        <div class="example-block">
+          <strong>Beispiel 3: schnelles Drucken.</strong><br>
+          Suchen Sie nach „Erneuerung“, blenden Sie die Nebenspalten aus und klicken Sie auf „Drucken“. Dies ist nützlich für ein interne Besprechung, bei dem Sie nur den Namen, das Unternehmen, den Status und den nächsten Schritt besprechen müssen.
+        </div>
+      </section>
+
+      <section id="contactos">
+        <div class="kicker">Zentrale CRM-Daten</div>
+        <h2>5. Kontaktansicht</h2>
+        <p>Die Kontaktansicht ist das Herzstück der Anwendung. Sie bündelt Stammdaten, Einordnung und Kommunikationswege und bietet direkten Zugriff auf zugehörige Interaktionen, Dokumente und Termine.</p>
+        <h3>Hauptfelder</h3>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Feld</th>
+                <th>Wozu dient es?</th>
+                <th>Praxisbeispiel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Code</td>
+                <td>Interner Bezeichner des Kontakts. Wenn das Feld leer bleibt, kann die Anwendung es automatisch ausfüllen.</td>
+                <td>Verwenden Sie den ERP-Code, den Kundencode oder die interne Nummerierung.</td>
+              </tr>
+              <tr>
+                <td>Name der Person</td>
+                <td>Name der Person. Dieses Feld ist erforderlich.</td>
+                <td>„Laura Martínez.“</td>
+              </tr>
+              <tr>
+                <td>Erfasst am</td>
+                <td>Datum, an dem der Kontakt im CRM angelegt wurde.</td>
+                <td>So erfahren Sie, wie lange der Lead bereits registriert ist oder wann der Lead erfasst wurde.</td>
+              </tr>
+              <tr>
+                <td>Adresse, Postleitzahl, Ort, Bundesland/Region, Land</td>
+                <td>Standortdaten. Der Karten-Button öffnet Google Maps mit der Adresse.</td>
+                <td>Bereiten Sie einen Geschäftsbesuch vor oder prüfen Sie den Lieferort.</td>
+              </tr>
+              <tr>
+                <td>Telefon 1 und Telefon 2</td>
+                <td>Wichtigste Telefonnummern. Je nach Gerät können Sie über beide Nummern anrufen oder eine WhatsApp-Nachricht beziehungsweise SMS senden.</td>
+                <td>Telefon 1 für direktes Mobiltelefon und Telefon 2 für Zentrale.</td>
+              </tr>
+              <tr>
+                <td>E-Mail</td>
+                <td>E-Mail-Adresse des Kontakts. Die zugehörige Schaltfläche öffnet den E-Mail-Editor.</td>
+                <td>Senden Sie ein Angebot mit beigefügten Kontaktdokumenten.</td>
+              </tr>
+              <tr>
+                <td>Website</td>
+                <td>Website des Kontakts oder Unternehmens. Der zugehörige Button öffnet die Seite.</td>
+                <td>Konsultieren Sie den Katalog, den Support oder den Kundenbereich.</td>
+              </tr>
+              <tr>
+                <td>Steuernummer / USt-IdNr.</td>
+                <td>Steuerliche oder administrative Kennung.</td>
+                <td>Speichern Sie die Steuernummer des Unternehmens oder die steuerliche Kennung eines Lieferanten.</td>
+              </tr>
+              <tr>
+                <td>Funktion und Abteilung</td>
+                <td>Diese Felder ordnen die Person innerhalb der Organisation ein.</td>
+                <td>„Einkaufsleiter“, „Verwaltung“, „Technische Leitung“.</td>
+              </tr>
+              <tr>
+                <td>Rolle</td>
+                <td>Funktionale Klassifizierung: Kunde, Lieferant, Verkäufer, Mitarbeiter, Gläubiger, Schuldner, Niederlassung, Lager, Spedition, Bank, öffentliche Verwaltung oder Sonstiges.</td>
+                <td>Unterscheiden Sie Lieferanten von Kunden, ohne separate Datenbanken zu erstellen.</td>
+              </tr>
+              <tr>
+                <td>Jahrestag</td>
+                <td>Wichtiges Datum des Kontakts.</td>
+                <td>Geburtstag, Vertragsdatum, Kundenjubiläum.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Unternehmensdaten</h3>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Feld</th>
+                <th>Verwendung</th>
+                <th>Beispiel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Firmenname</td>
+                <td>Firma oder Organisation, zu der der Kontakt gehört.</td>
+                <td>„Talleres Mediterráneo SL“.</td>
+              </tr>
+              <tr>
+                <td>Branche</td>
+                <td>Wirtschaftstätigkeit oder Geschäftsgebiet.</td>
+                <td>„Bau“, „Gesundheitswesen“, „Software“, „Vertrieb“.</td>
+              </tr>
+              <tr>
+                <td>DUNS</td>
+                <td>Firmen-DUNS-Nummer bei der Arbeit mit internationaler Unternehmensidentifikation.</td>
+                <td>Nützlich in B2B-Beziehungen oder mit großen Kunden.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Gruppen und Labels im Kontakt</h3>
+        <p>In der Kontaktansicht können Sie bis zu drei konfigurierbare Gruppen und höchstens drei Labels zuweisen. Gruppen eignen sich für beständige Kategorien, Labels für flexiblere oder vorübergehende Merkmale.</p>
+        <div class="example-block">
+          <strong>Segmentierungsbeispiel:</strong> Gruppe 1 = Art des Kontakts mit den Werten Kunde, Lieferant und Mitarbeiter. Gruppe 2 = Zone, mit den Werten Nord, Mitte, Ost und Süd. Labels = „VIP“, „Erneuerung 2026“ oder „Ausstehender Vorschlag“.
+        </div>
+
+        <h3>Unterhaltung starten</h3>
+        <p>Im Bereich „Unterhaltung“ werden Benutzernamen für LinkedIn, Telegram, Instagram, Facebook Messenger und X gespeichert. Ist ein Benutzername vorhanden, öffnet die zugehörige Schaltfläche den entsprechenden Kanal.</p>
+        <p>Für X wird die numerische Benutzer-ID und nicht nur der sichtbare Benutzername gespeichert. Die Kontaktansicht enthält deshalb einen Hilfelink zum Ermitteln dieser ID.</p>
+
+        <h3>Referenzen und Termine</h3>
+        <p>Die vier Referenzen sind konfigurierbare Felder. Sie passen die Kontaktansicht an Ihre Tätigkeit an: Vertrag, Police, Registrierung, Projekt, Aktenzeichen, Auftrag, Kostenstelle oder externer Code. Mit dem Start- und Enddatum können Sie die Gültigkeit bzw. den Zeitraum der Beziehung markieren.</p>
+        <div class="example-block">
+          <strong>Beispiel in einer Beratung:</strong> Referenz 1 = Akte, Referenz 2 = Vertrag, Beginn = Datum der Registrierung als Kunde und Ende = voraussichtliches Verlängerungsdatum.
+        </div>
+
+        <h3>Präferenzen und Notizen</h3>
+        <p>Es gibt sechs konfigurierbare Präferenzbereiche und einen Block für allgemeine Notizen. Die Präferenzbereiche verfügen über einen Rich-Text-Editor, sodass sie Listen, Fettdruck, Links oder strukturierte Informationen enthalten können.</p>
+        <p>Es empfiehlt sich, Präferenzen für stabile Informationen zu verwenden, die dazu beitragen, den Kontakt besser zu bedienen: Vertragsprodukte, besondere Bedürfnisse, Liefermethode, bevorzugter Kanal, Zahlungsbedingungen, Kontaktzeiten, Marketingpräferenzen oder Supportanweisungen.</p>
+        <div class="tip-block">
+          <strong>Hauptunterschied:</strong> Präferenzen beschreiben den Kontakt und wie mit ihm gearbeitet werden soll. Interaktionen beschreiben, was an einem bestimmten Datum passiert ist.
+        </div>
+
+        <h3>Verknüpfte Funktionen in Kontakte</h3>
+        <ul class="plain-list">
+          <li><strong>Interaktionen:</strong> Öffnet den Kontaktverlauf und ermöglicht die Aufzeichnung von Anrufen, E-Mails, Besprechungen und kommerziellen Aktionen.</li>
+          <li><strong>Dokumentenmanagement:</strong> öffnet mit dem Kontakt verknüpfte Dokumente.</li>
+          <li><strong>Termine:</strong> Termine anzeigen, an denen der Kontakt teilnimmt, oder einen verknüpften Kalendereintrag erstellen.</li>
+        </ul>
+      </section>
+
+      <section id="config-contactos">
+        <div class="kicker">CRM-Anpassung</div>
+        <h2>6. Kontakte einrichten</h2>
+        <p>Mit der Kontaktkonfiguration passen Sie die Kontaktansicht an verschiedene Branchen an, ohne die Anwendung selbst zu ändern. Öffnen Sie <strong>Werkzeuge</strong> und anschließend <strong>Kontakte einrichten</strong>.</p>
+        <h3>Konfigurierbare Referenzen</h3>
+        <p>Mit ihnen können Sie den Namen der Felder „Referenz 1“ bis „Referenz 4“ ändern. Dabei handelt es sich um kurze Felder, die in der Regel Kennungen, Codes, Vertragsnummern oder administrative Zuordnungsdaten enthalten.</p>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Branche</th>
+                <th>Referenz 1</th>
+                <th>Referenz 2</th>
+                <th>Referenz 3</th>
+                <th>Referenz 4</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Professionelle Dienstleistungen</td>
+                <td>Akte</td>
+                <td>Vertrag</td>
+                <td>Projekt</td>
+                <td>Kostenstelle</td>
+              </tr>
+              <tr>
+                <td>Versicherung</td>
+                <td>Police</td>
+                <td>Versicherungszweig</td>
+                <td>Vermittler</td>
+                <td>Unternehmen</td>
+              </tr>
+              <tr>
+                <td>Automobil</td>
+                <td>Kennzeichen</td>
+                <td>Fahrgestellnummer</td>
+                <td>Modell</td>
+                <td>Mietvertrag</td>
+              </tr>
+              <tr>
+                <td>Bau</td>
+                <td>Bauvorhaben</td>
+                <td>Projekt</td>
+                <td>Phase</td>
+                <td>Bauleiter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Bezeichnungen der Präferenzen</h3>
+        <p>Sie können die sechs ausführlichen Informationsbereiche der Kontaktansicht benennen. Am hilfreichsten sind sie, wenn jeder Bereich eine praktische Frage beantwortet.</p>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Feld</th>
+                <th>Frage, die Sie beantworten können</th>
+                <th>Inhaltsbeispiel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Produkte oder Dienstleistungen</td>
+                <td>Was kauft oder nutzt der Kontakt, oder wofür interessiert er sich?</td>
+                <td>„Jährliche Wartung, CRM-Modul, vorrangiger Support.“</td>
+              </tr>
+              <tr>
+                <td>Besondere Bedürfnisse</td>
+                <td>Welche Bedingungen müssen berücksichtigt werden?</td>
+                <td>„Kontakt nur morgens. Erfordert detailliertes Budget.“</td>
+              </tr>
+              <tr>
+                <td>Versand oder Lieferungen</td>
+                <td>Wie soll das Produkt bzw. die Dokumentation geliefert werden?</td>
+                <td>„Lieferung an Zentrallager. 24 Stunden im Voraus benachrichtigen.“</td>
+              </tr>
+              <tr>
+                <td>Marketing und Kommunikation</td>
+                <td>Welche Kommunikation akzeptiert oder bevorzugt der Kontakt?</td>
+                <td>„Versenden Sie vierteljährliche Nachrichten, keine wöchentlichen Kampagnen.“</td>
+              </tr>
+              <tr>
+                <td>Support oder Kundendienst</td>
+                <td>Wie sollen Probleme oder Supportanfragen bearbeitet werden?</td>
+                <td>„Öffnen Sie das Ticket, bevor Sie anrufen. Technischer Ansprechpartner: Marta.“</td>
+              </tr>
+              <tr>
+                <td>Zahlungsmethoden</td>
+                <td>Welche Zahlungsbedingungen sind relevant?</td>
+                <td>„Überweisung innerhalb von 30 Tagen. Bestellung erforderlich.“</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="interacciones">
+        <div class="kicker">Verlauf, Vertrieb und Support</div>
+        <h2>7. Interaktionen und Nachverfolgung</h2>
+        <p>Eine Interaktion ist jedes relevante Ereignis in der Beziehung zu einem Kontakt. Sie dokumentiert, was geschehen ist, ordnet den Kontakt einer Prozessphase zu, hält das Ergebnis fest und kann eine ausstehende Aufgabe mit Erinnerung erzeugen.</p>
+        <h3>Felder der Interaktion</h3>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Feld</th>
+                <th>Wozu dient es?</th>
+                <th>Praxisbeispiel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Datum/Uhrzeit</td>
+                <td>Zeitpunkt, zu dem die Interaktion stattgefunden hat.</td>
+                <td>Datum eines Anrufs, einer Besprechung oder einer gesendeten E-Mail.</td>
+              </tr>
+              <tr>
+                <td>Typ</td>
+                <td>Klassifizieren Sie die Art der Aktion.</td>
+                <td>Telefonanruf, E-Mail, Besprechung, Demo, Angebotsversand, technische Unterstützung.</td>
+              </tr>
+              <tr>
+                <td>Betreff</td>
+                <td>Kurze Zusammenfassung, um die Interaktion schnell zu finden.</td>
+                <td>„Überwachung von ERP-Vorschlägen“, „Vertragsverlängerung“, „Installationsvorfall“.</td>
+              </tr>
+              <tr>
+                <td>Beschreibung</td>
+                <td>Operative Darstellung dessen, was passiert ist.</td>
+                <td>„Der Bedarf wird geprüft. Fordern Sie einen Vorschlag mit zwei Alternativen an.“</td>
+              </tr>
+              <tr>
+                <td>Kundennotizen</td>
+                <td>Vom Kunden geäußerte Beobachtungen oder sensible Informationen für die nächsten Maßnahmen.</td>
+                <td>„Am liebsten startet er im September. Maximales Budget 3.000 Euro.“</td>
+              </tr>
+              <tr>
+                <td>Phase</td>
+                <td>Position innerhalb des Geschäfts- oder Beziehungsprozesses.</td>
+                <td>Erstkontakt, Bedarfsermittlung, Verhandlung, Verkaufsabschluss, Nachbereitung nach dem Verkauf.</td>
+              </tr>
+              <tr>
+                <td>Ergebnis</td>
+                <td>Abschluss der Interaktion.</td>
+                <td>Interessiert, keine Antwort, Vorschlag gesendet, Genehmigung ausstehend, erfolgreicher Abschluss.</td>
+              </tr>
+              <tr>
+                <td>Ausstehende Maßnahmen</td>
+                <td>Nächster Schritt.</td>
+                <td>Senden Sie einen Vorschlag, rufen Sie zur Erinnerung an, vereinbaren Sie ein Treffen und fordern Sie Feedback an.</td>
+              </tr>
+              <tr>
+                <td>Erinnerung</td>
+                <td>Datum und Uhrzeit, zu denen an die ausstehende Aktion erinnert werden soll.</td>
+                <td>Denken Sie daran, nächsten Dienstag um 10:00 Uhr anzurufen.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Arten der Interaktion</h3>
+        <p>Der Typ hilft bei der Klassifizierung der Historie. Einige Optionen sind auf den Verkauf ausgerichtet, andere auf den Support oder das interne Management: Telefonanruf, E-Mail, persönliches Treffen, Videoanruf, Textnachricht, Instant Messaging, Präsentation, Demo, Schulung, Angebotsversand, Auftragsbestätigung, Lieferung, Folgebesprechung, Fortschrittsüberprüfung, Umfrage, technische Unterstützung, Lösung von Vorfällen, Erneuerung, Aktualisierung der Bedingungen, Anpassung des Angebots, Abschluss des Verkaufs, Stornierung, Versand von Unterlagen, Einladung zu einer Veranstaltung, Zahlungsbenachrichtigung, interne Besprechung oder andere.</p>
+
+        <h3>Phasen des Vertriebsprozesses</h3>
+        <p>Die Phasen ermöglichen es Ihnen, die Situation einer Opportunity zu lesen, ohne die gesamte Historie öffnen zu müssen. Ein typischer Ablauf kann sein:</p>
+        <ol class="step-list">
+          <li><strong>Erstkontakt:</strong> eine mögliche Chance wird identifiziert.</li>
+          <li><strong>Lead-Qualifikation:</strong> Es wird geprüft, ob der Lead zum Produkt oder zur Dienstleistung passt.</li>
+          <li><strong>Kontakt hergestellt:</strong> Es gab bereits eine erste Kommunikation.</li>
+          <li><strong>Erstgespräch:</strong> Die Anforderungen des Kontakts werden genauer geklärt.</li>
+          <li><strong>Bedarfsermittlung:</strong> Das zu lösende Problem wird dokumentiert.</li>
+          <li><strong>Produkt-/Dienstleistungspräsentation:</strong> Die vorgeschlagene Lösung wird vorgestellt.</li>
+          <li><strong>Angebot gesendet:</strong> Das Angebot oder Vertriebsdokument wird versendet.</li>
+          <li><strong>Verhandlung:</strong> Bedingungen werden besprochen.</li>
+          <li><strong>Vereinbarte Bedingungen:</strong> Es besteht eine Vereinbarung, deren Formalisierung noch aussteht.</li>
+          <li><strong>Abschluss ausstehend:</strong> Unterschrift, Autorisierung oder Zahlung fehlen.</li>
+          <li><strong>Verkauf abgeschlossen:</strong> Die Verkaufschance wurde gewonnen.</li>
+          <li><strong>Umsetzung:</strong> Die Lösung wird geliefert oder in Betrieb genommen.</li>
+          <li><strong>Nachbetreuung:</strong> Zufriedenheit und Nutzung werden überprüft.</li>
+          <li><strong>Verlängerung/Folgekauf:</strong> Kontinuität ist vorbereitet.</li>
+          <li><strong>Verpasste Gelegenheit oder inaktiver Interessent:</strong> Es ist dokumentiert, dass es keine Fortschritte macht.</li>
+        </ol>
+
+        <h3>Beispiele für Vertriebsabläufe</h3>
+        <div class="example-block">
+          <strong>Nachverfolgung des Vorschlags.</strong><br>
+          Typ = Eingereichter Vorschlag. Betreff = „Vorschlag für die jährliche Wartung“. Phase = Einreichung des Vorschlags. Ergebnis = Angebot gesendet. Ausstehende Aktion = Nachfassanruf. Erinnerung = innerhalb von 3 Tagen.
+        </div>
+        <div class="example-block">
+          <strong>Anruf ohne Antwort.</strong><br>
+          Typ = Telefonanruf. Betreff = „Versuch, die Verlängerung zu kontaktieren“. Ergebnis = Keine Antwort. Ausstehende Aktion = Nachfassanruf. Erinnerung = als erstes morgen früh.
+        </div>
+        <div class="example-block">
+          <strong>Interessierter Kunde nach Demo.</strong><br>
+          Typ = Demo oder Produkttest. Phase = Produkt-/Dienstleistungspräsentation. Ergebnis = Interessiert. Ausstehende Aktion = Angebot senden. Ungefähres Budget, Einwände und gewünschter Starttermin werden in Kundennotizen festgehalten.
+        </div>
+        <div class="example-block">
+          <strong>Technische Unterstützung.</strong><br>
+          Typ = Technische Hilfe oder Lösung eines Vorfalls. Betreff = „Fehler beim Öffnen des Dokuments.“ Ergebnis = Erfolgreiche oder ausstehende Kundenaktion. Ausstehende Aktion = Feedback anfordern, wenn Sie die Lösung bestätigen möchten.
+        </div>
+      </section>
+
+      <section id="recordatorios">
+        <div class="kicker">Nächste Aktion</div>
+        <h2>8. Erinnerungen</h2>
+        <p>Erinnerungen entstehen aus Interaktionen, wenn eine ausstehende Aufgabe und ein Erinnerungsdatum eingetragen werden. Verwenden Sie den Bereich „Erinnerungen“, um nach Fälligkeit und Priorität statt aus der allgemeinen Kontaktliste zu arbeiten.</p>
+        <ol class="step-list">
+          <li>Öffnen Sie zu Tagesbeginn <strong>Erinnerungen</strong>.</li>
+          <li>Prüfen Sie, welche Aufgaben heute fällig oder bereits überfällig sind.</li>
+          <li>Öffnen Sie den Kontakt oder verwenden Sie die Kommunikationsdetails.</li>
+          <li>Wenn Sie die Aktion abschließen, erfassen Sie eine neue Interaktion oder aktualisieren Sie den Verlauf.</li>
+        </ol>
+        <div class="tip-block">
+          <strong>Tipp:</strong> Ein CRM verliert an Wert, wenn ausstehende Aktionen im Gedächtnis des Benutzers bleiben. Wenn später etwas erledigt werden muss, sollte es eine Erinnerung geben.
+        </div>
+      </section>
+
+      <section id="documentos">
+        <div class="kicker">Dokumentenverwaltung</div>
+        <h2>9. Dokumentenverwaltung</h2>
+        <p>In der Dokumentenverwaltung speichern Sie Dokumente, die dem Konto, einem Kontakt oder einem Termin zugeordnet sind. Der E-Mail-Editor kann die hier gespeicherten Dokumente direkt anhängen.</p>
+        <h3>Felder und Schaltflächen für Dokumente</h3>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Element</th>
+                <th>Verwendung</th>
+                <th>Beispiel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Datum</td>
+                <td>Dokumentdatum.</td>
+                <td>Datum des Vertrags, Budgets oder Berichts.</td>
+              </tr>
+              <tr>
+                <td>Dateiname</td>
+                <td>Dateiname. Wenn Sie in der Liste auf den Namen klicken, wird das Dokument heruntergeladen.</td>
+                <td>„Client_Proposal_2026.odt“.</td>
+              </tr>
+              <tr>
+                <td>Anzeigen</td>
+                <td>Öffnet eine Vorschau, wenn der Dokumenttyp dies zulässt.</td>
+                <td>Sehen Sie sich ein PDF oder Bild an, ohne es zu bearbeiten.</td>
+              </tr>
+              <tr>
+                <td>Bearbeiten</td>
+                <td>Öffnet kompatible Dokumente zur Bearbeitung. LibreOffice-Dokumente werden mit Collabora Online bearbeitet.</td>
+                <td>Ändern Sie einen .odt-Vorschlag über den Browser.</td>
+              </tr>
+              <tr>
+                <td>Beschreibung</td>
+                <td>Kurzer Kommentar zum Inhalt oder Zweck des Dokuments.</td>
+                <td>„Version wurde am 05.06.2026 an den Kunden gesendet.“</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Vorhandenes Dokument hochladen</h3>
+        <ol class="step-list">
+          <li>Öffnen Sie die <strong>Dokumentenverwaltung</strong> aus dem entsprechenden Kontakt, Termin oder Kontext.</li>
+          <li>Klicken Sie auf <strong>Neues Dokument</strong>.</li>
+          <li>Drücken Sie <strong>Durchsuchen</strong> und wählen Sie die Gerätedatei aus.</li>
+          <li>Überprüfen Sie den Dateinamen, das Datum und die Beschreibung.</li>
+          <li>Speichern.</li>
+        </ol>
+        <h3>Erstellen Sie ein neues Dokument</h3>
+        <p>Die direkte Dokumentenerstellung wurde auf LibreOffice-Formate vereinfacht:</p>
+        <ul class="plain-list">
+          <li><strong>Writer (.odt):</strong> Texte, Verträge, Vorschläge, Berichte.</li>
+          <li><strong>Calc (.ods):</strong> Tabellenkalkulationen, Vergleiche, detaillierte Budgets.</li>
+          <li><strong>Impress (.odp):</strong> Präsentationen.</li>
+        </ul>
+        <p>Wenn Sie LibreOffice-Dokumente erstellen oder bearbeiten, wird Collabora Online mithilfe von WOPI in einem separaten Fenster geöffnet.</p>
+        <h3>Herunterladen, ansehen und bearbeiten</h3>
+        <ul class="plain-list">
+          <li><strong>Herunterladen:</strong> Klicken Sie auf den Dateinamen in der Tabelle.</li>
+          <li><strong>Siehe:</strong> Verwenden Sie das Bildschirmsymbol, um eine Vorschau zu öffnen.</li>
+          <li><strong>Bearbeiten:</strong> Verwenden Sie das Stiftsymbol oder die Schaltfläche „Bearbeiten“ auf der Registerkarte „Dokument“, wenn die Formatierung dies zulässt.</li>
+        </ul>
+        <div class="example-block">
+          <strong>Praxisbeispiel:</strong> Erstellen Sie aus einem Kontakt „Angebot.odt“, bearbeiten Sie die Datei in Collabora Online, speichern Sie die Änderungen, kehren Sie zum CRM zurück und senden Sie die Datei über den E-Mail-Editor als Dokumentanhang.
+        </div>
+      </section>
+
+      <section id="correo">
+        <div class="kicker">Kommunikation mit Anhängen</div>
+        <h2>10. E-Mail</h2>
+        <p>Mit dem E-Mail-Editor senden Sie HTML-Nachrichten und hängen Dateien aus der Dokumentenverwaltung an. Es ist robuster als ein Link <code>mailto:</code>, da es nicht vom im Browser konfigurierten E-Mail-Client abhängt und Ihnen die Verwendung von in My Contacts Cloud gespeicherten Anhängen ermöglicht.</p>
+        <h3>Felder des E-Mail-Editors</h3>
+        <ul class="plain-list">
+          <li><strong>Von:</strong> Absender. Dies hängt vom Konto oder Anbieter ab, der zum Senden verwendet wird.</li>
+          <li><strong>An:</strong> Hauptempfänger.</li>
+          <li><strong>CC und BCC:</strong> Sie erscheinen als Links neben dem Empfänger und zeigen die Felder erst an, wenn darauf geklickt wird.</li>
+          <li><strong>Betreff:</strong> E-Mail-Betreff.</li>
+          <li><strong>Nachricht:</strong> HTML-Body mit Rich-Editor.</li>
+          <li><strong>Angehängte Dokumente:</strong> Dokumentauswahl des aktuellen Kontakts oder Kontexts.</li>
+          <li><strong>Verwalten:</strong> Öffnet die Dokumentenverwaltung, um Dokumente hinzuzufügen, zu ändern oder zu löschen und anschließend die Auswahl zu aktualisieren.</li>
+          <li><strong>Senden mit:</strong> Sendeanbieter: Gmail, Outlook oder My Contacts Cloud.</li>
+        </ul>
+        <h3>Mit Gmail oder Outlook senden</h3>
+        <p>Die Erlaubnis wird zum Zeitpunkt der Einreichung eingeholt. Dies ermöglicht Ihnen, sich primär bei einem Anbieter einzuloggen und bei einem anderen Anbieter zu versenden. Sie können sich beispielsweise mit Google anmelden und über Outlook senden.</p>
+        <h3>Mit My Contacts Cloud senden</h3>
+        <p>Die Option „My Contacts Cloud“ verwendet das anwendungseigene Relay. Dies ist der vorgesehene Weg für Fälle, in denen der Versand nicht über Gmail oder Microsoft Outlook erfolgt.</p>
+        <div class="example-block">
+          <strong>Beispiel mit Dokumenten:</strong> Öffnen Sie den Kontakt, klicken Sie auf die Mail-Schaltfläche neben der E-Mail, verfassen Sie die Nachricht, wählen Sie einen Vorschlag aus den Anhängen aus, wählen Sie Gmail oder Outlook und senden Sie ihn. Nach Abschluss wird die Sendebestätigung angezeigt.
+        </div>
+      </section>
+
+      <section id="eventos">
+        <div class="kicker">Planer</div>
+        <h2>11. Kalender, Termine und Aufgaben</h2>
+        <p>Der Kalender bietet eine Tages-, Wochen- und Monatsansicht sowie eine Terminübersicht. Verwenden Sie ihn für Besprechungen, Aufgaben, Termine, Fristen sowie interne oder kundenbezogene Aktivitäten.</p>
+        <h3>Arbeiten im Kalender</h3>
+        <ul class="plain-list">
+          <li><strong>Termin erstellen:</strong> Verwenden Sie die Schaltfläche + oder klicken Sie auf ein Kalenderdatum/eine Kalenderuhrzeit.</li>
+          <li><strong>Monatsansicht:</strong> Mit einem Klick auf die Tagesnummer gelangen Sie zur Tagesansicht.</li>
+          <li><strong>Termin verschieben:</strong> Ziehen Sie den Termin auf ein anderes Datum oder eine andere Uhrzeit.</li>
+          <li><strong>Dauer ändern:</strong> Ziehen Sie den unteren Rand des Termins, wenn die Ansicht dies zulässt.</li>
+          <li><strong>Kalenderdruck:</strong> Beim Drucken werden Bildschirmsteuerungen ausgeblendet, um eine sauberere Ausgabe zu ermöglichen.</li>
+        </ul>
+        <h3>Felder des Termins</h3>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Feld</th>
+                <th>Verwendung</th>
+                <th>Praxisbeispiel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ganztägig</td>
+                <td>Markieren Sie Termine ohne eine bestimmte Uhrzeit.</td>
+                <td>Messe, Ablauf, Monatsabschluss.</td>
+              </tr>
+              <tr>
+                <td>Anfang und Ende</td>
+                <td>Datum und Uhrzeit des Termins.</td>
+                <td>Treffen am 10.06.2026 von 10:00 bis 11:00 Uhr.</td>
+              </tr>
+              <tr>
+                <td>Farbe</td>
+                <td>Visuelle Einordnung im Kalender.</td>
+                <td>Blau für Geschäftstreffen, Grün für interne Aufgaben, Rot für Vorfälle.</td>
+              </tr>
+              <tr>
+                <td>Titel</td>
+                <td>Im Kalender angezeigter Name.</td>
+                <td>„My Contacts Cloud-Demo mit dem Kunden“.</td>
+              </tr>
+              <tr>
+                <td>Beschreibung</td>
+                <td>Termindetails mit Rich-Text-Editor.</td>
+                <td>Tagesordnung, Ziele, zu besprechende Punkte.</td>
+              </tr>
+              <tr>
+                <td>Ort</td>
+                <td>Physischer Standort. Die Kartenschaltfläche öffnet Google Maps.</td>
+                <td>„Av. Aragón 10, Valencia“.</td>
+              </tr>
+              <tr>
+                <td>Website</td>
+                <td>Link zum Termin.</td>
+                <td>Registrierungsseite, Online-Dokumentation, Projektblatt.</td>
+              </tr>
+              <tr>
+                <td>App für Online-Besprechungen</td>
+                <td>Wählen Sie „Keine App“, „Google Meet“, „Microsoft Teams“ oder „Zoom“.</td>
+                <td>Bereiten Sie einen Videoanruf mit Besprechungslink oder ID vor.</td>
+              </tr>
+              <tr>
+                <td>Besprechungs-ID und Zugangscode</td>
+                <td>Daten, die für die Teilnahme an einem Online-Besprechung erforderlich sind.</td>
+                <td>Zoom-ID und Zugangspasswort.</td>
+              </tr>
+              <tr>
+                <td>Dateien anhängen</td>
+                <td>Öffnen Sie mit dem Termin verknüpfte Dokumente.</td>
+                <td>Fügen Sie eine Tagesordnung, ein Budget oder eine Präsentation bei.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Teilnehmer</h3>
+        <p>Die Terminansicht enthält eine Teilnehmertabelle. Sie können Teilnehmer aus Kontakten hinzufügen, löschen, suchen, die Karten-/Tabellenansicht ändern, Spalten anzeigen und nach PDF, Excel, ODS, CSV, TXT, JSON, XML, HTML oder SQL exportieren.</p>
+        <div class="example-block">
+          <strong>Beispiel für ein Geschäftstreffen:</strong> Erstellen Sie einen einstündigen Termin, fügen Sie den Einkaufsleiter und den Techniker des Kunden als Teilnehmer hinzu, wählen Sie Microsoft Teams aus, speichern Sie die Besprechungs-ID, hängen Sie den Vorschlag an und zeichnen Sie dann eine Interaktion mit dem Ergebnis auf.
+        </div>
+        <div class="example-block">
+          <strong>Beispiel einer internen Aufgabe:</strong> Erstellen Sie einen Termin ohne Teilnehmer, grüne Farbe, Titel „Vertragsdokumentation prüfen“, hängen Sie das Dokument an und legen Sie Start/Ende für die Reservierung der Arbeitszeit fest.
+        </div>
+      </section>
+
+      <section id="config-eventos">
+        <div class="kicker">Planereinstellungen</div>
+        <h2>12. Termine einrichten</h2>
+        <p>In den Kalendereinstellungen legen Sie fest, wie der Kalender angezeigt und verwendet wird.</p>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Feld</th>
+                <th>Was kontrolliert</th>
+                <th>Praxisbeispiel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Wochenenden</td>
+                <td>Samstag und Sonntag im Kalender ein- oder ausblenden.</td>
+                <td>Aktivieren Sie diese Option bei Terminen am Wochenende; deaktivieren Sie sie für einen Arbeitsplan von Montag bis Freitag.</td>
+              </tr>
+              <tr>
+                <td>Startzeit</td>
+                <td>Erste im Kalender angezeigte Uhrzeit.</td>
+                <td>08, wenn der Tag um 8:00 Uhr beginnt.</td>
+              </tr>
+              <tr>
+                <td>Endzeit</td>
+                <td>Letzte im Kalender angezeigte Uhrzeit.</td>
+                <td>20, wenn Sie bis 20:00 Uhr arbeiten.</td>
+              </tr>
+              <tr>
+                <td>Zeitintervall</td>
+                <td>Länge der Kalenderintervalle: 10, 15, 20 oder 30 Minuten, eine Stunde oder zwei Stunden.</td>
+                <td>15 Minuten für eine eng getaktete Vertriebsplanung; 30 Minuten für die allgemeine Planung.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="importaciones">
+        <div class="kicker">Massendateneingabe</div>
+        <h2>13. Importe</h2>
+        <p>Durch Importe können Sie Kontakte von Google, Microsoft, Apple Mac/iOS und Excel hinzufügen. Vor dem Hinzufügen eines Kontakts sucht die Anwendung anhand von <code>phone1</code>, <code>phone2</code> oder <code>Email</code> nach einem bestehenden Datensatz. Am Ende werden importierte Kontakte und nicht hinzugefügte Duplikate gemeldet.</p>
+        <h3>Google und Microsoft</h3>
+        <ol class="step-list">
+          <li>Öffnen Sie <strong>Importieren</strong>.</li>
+          <li>Wählen Sie Google Kontakte oder Microsoft Kontakte.</li>
+          <li>Autorisieren Sie den Zugriff auf Kontakte im sekundären Fenster.</li>
+          <li>Sehen Sie sich die Tabelle der erhaltenen Kontakte an.</li>
+          <li>Wählen Sie die Datensätze aus, die Sie importieren möchten.</li>
+          <li>Bestätigen und überprüfen Sie die endgültige Zusammenfassung.</li>
+        </ol>
+        <h3>Apple Mac/iOS</h3>
+        <p>Die Option <strong>Apple-Kontakte (Mac/iOS)</strong> ist für native Apps vorgesehen, die das Gerät um Erlaubnis zum Lesen des Adressbuchs bitten können.</p>
+        <h3>Excel</h3>
+        <p>Der Import aus Excel ermöglicht die Zuordnung von Spalten. Sie können angeben, ob die erste Zeile Überschriften enthält, und dann die Spaltenbuchstaben mit Code, Name, Adresse, Postleitzahl, Stadt, Provinz, Land, Telefon 1, Telefon 2, E-Mail, Web, Firma, NIF, Funktion, Abteilung und Notizen verknüpfen.</p>
+        <div class="example-block">
+          <strong>Beispiel:</strong> Wenn sich der Name in Spalte B, das Telefon in E und die E-Mail in F befindet, wählen Sie B für Name, E für Telefon 1 und F für E-Mail aus. Nicht verfügbare Felder können ohne Zuweisung belassen werden.
+        </div>
+      </section>
+
+      <section id="organizacion">
+        <div class="kicker">Segmentierung</div>
+        <h2>14. Gruppen und Labels</h2>
+        <h3>Kontaktgruppen</h3>
+        <p>Gruppen sind konfigurierbare Listen mit Elementen. Die Kontaktansicht enthält drei Gruppen, und jede kann ihren eigenen Namen und ihre eigenen Elemente haben. Sie sind ideal für stabile Klassifizierungen.</p>
+        <div class="example-block">
+          <strong>Beispiel:</strong> Gruppe 1 = Typ, mit Kunde, Lieferant und Mitarbeiter. Gruppe 2 = Zone, mit Norden, Mitte, Levante und Süden. Gruppe 3 = Priorität, mit Hoch, Mittel und Niedrig.
+        </div>
+        <h3>Labels</h3>
+        <p>Labels sind flexible visuelle Markierungen. Jeder Kontakt kann bis zu drei Labels haben. Sie sind sehr nützlich für Kampagnen, temporäre Zustände oder Funktionen, die sich im Laufe der Zeit ändern.</p>
+        <div class="example-block">
+          <strong>Beispiel:</strong> „VIP“, „Ausstehender Vorschlag“, „Erneuerung 2026“, „Newsletter“, „Offene Unterstützung“.
+        </div>
+        <p>Gruppen und Labels werden in den Filtern der Kontakttabelle verwendet. Richten Sie sie deshalb nach den Listen aus, die Sie später suchen, exportieren oder drucken möchten.</p>
+      </section>
+
+      <section id="planes">
+        <div class="kicker">Konto und Limits</div>
+        <h2>15. Pläne und Abonnement</h2>
+        <p>Im Menü werden der aktive Plan und ggf. die verbleibenden Tage des Testzeitraums angezeigt. PRO-Pläne erhöhen die Limits und erweitern den Funktionsumfang. Abonnements werden über Paddle abgeschlossen und verwaltet.</p>
+        <ol class="step-list">
+          <li>Öffnen Sie <strong>PRO-Pläne</strong>, um die verfügbaren Optionen zu überprüfen.</li>
+          <li>Öffnen Sie <strong>Abonnement</strong>, um ein bestehendes Abonnement zu verwalten.</li>
+          <li>Verwenden Sie die Konto-ID, wenn Sie ein Problem oder eine Anfrage melden müssen.</li>
+        </ol>
+        <p>Der Katalog zeigt die in Paddle verfügbaren Pläne. Besteht bereits ein Abonnement, können Sie stattdessen das Verwaltungsportal öffnen. Nur der Kontoinhaber kann das Abonnement abschließen, ändern oder verwalten. Mitglieder interagieren nicht mit dem Zahlungsanbieter.</p>
+        <h3>Verlängerung des Plans kündigen</h3>
+        <p>Nur der Kontoinhaber kann die Verlängerung unter <strong>Abonnement</strong> in den Paddle-Einstellungen kündigen. Eine geplante Kündigung verhindert weitere Verlängerungen und Belastungen; der Zugang bleibt bis zum Ablauf des Vertragszeitraums erhalten. Konto, Daten und Mitglieder werden dadurch nicht gelöscht, und es wird auch keine spätere Löschung eingeleitet.</p>
+        <div class="tip-block">
+          <strong>Verwechseln Sie die Aktionen nicht:</strong> Das Kündigen der Verlängerung des Plans, die Deinstallation der App und das Löschen des Kontos haben unterschiedliche Auswirkungen. Lesen Sie <a href="#bajas">Abschnitt 20</a>, bevor Sie eine dieser Aktionen ausführen.
+        </div>
+      </section>
+
+      <section id="operativas">
+        <div class="kicker">Anwendungsfälle</div>
+        <h2>16. Empfohlene Arbeitsabläufe</h2>
+        <h3>Eine Vertriebschance nachverfolgen</h3>
+        <ol class="step-list">
+          <li>Erstellen oder importieren Sie den Kontakt.</li>
+          <li>Weisen Sie je nach Fall die Rolle „Kunde“ oder „Interessent“ sowie die passenden Gruppen und Labels zu.</li>
+          <li>Registrieren Sie eine erste Interaktion mit der Phase „Erstkontakt“ oder „Lead Qualification“.</li>
+          <li>Wenn Sie eine Besprechung vereinbaren, erstellen Sie einen Termin und fügen Sie den Kontakt als Teilnehmer hinzu.</li>
+          <li>Zeichnen Sie nach der Besprechung eine neue Interaktion mit Bedürfnissen und ausstehenden Maßnahmen auf.</li>
+          <li>Erstellen Sie das Angebot oder laden Sie es in den Kontaktdokumenten hoch.</li>
+          <li>Senden Sie die E-Mail über den E-Mail-Editor und hängen Sie das Angebot an.</li>
+          <li>Planen Sie eine Erinnerung für die Nachverfolgung.</li>
+        </ol>
+        <h3>Eine segmentierte Kampagne vorbereiten</h3>
+        <ol class="step-list">
+          <li>Erstellen Sie ein Kampagnen-Label, zum Beispiel „Juni-Kampagne“.</li>
+          <li>Weisen Sie das Label den entsprechenden Kontakten zu.</li>
+          <li>Filtern Sie Kontakte nach diesem Label.</li>
+          <li>Nutzen Sie die Suche zur Eingrenzung nach Bereich, Unternehmen oder Branche.</li>
+          <li>Zeigen Sie nur die erforderlichen Spalten an.</li>
+          <li>Exportieren Sie es zur Überprüfung nach Excel oder drucken Sie ein PDF für interne Besprechungen aus.</li>
+        </ol>
+        <h3>Dokumentenverwaltung für einen Kunden</h3>
+        <ol class="step-list">
+          <li>Öffnen Sie den Kontakt.</li>
+          <li>Öffnen Sie die Dokumentenverwaltung.</li>
+          <li>Laden Sie Verträge, Kostenvoranschläge, unterzeichnete Dokumente oder Berichte hoch.</li>
+          <li>Erstellen Sie LibreOffice-Dokumente, wenn Sie von Grund auf neu schreiben müssen.</li>
+          <li>Laden Sie Dokumente herunter, indem Sie auf den Dateinamen klicken.</li>
+          <li>Hängen Sie Dokumente über den E-Mail-Editor an, wenn Sie dem Kunden schreiben.</li>
+        </ol>
+      </section>
+
+      <section id="incidencias">
+        <div class="kicker">Unterstützung</div>
+        <h2>17. Häufige Probleme</h2>
+        <h3>Nach dem Import fehlt ein Kontakt</h3>
+        <p>Überprüfen Sie die Importzusammenfassung. Möglicherweise wurde per Telefon oder E-Mail festgestellt, dass es sich um ein Duplikat handelt.</p>
+        <h3>Ich kann nicht mit Gmail oder Outlook senden</h3>
+        <p>Überprüfen Sie im sekundären Fenster, ob Sie den Anbieter autorisiert haben. Wenn der Browser Popups blockiert, lassen Sie Popups für die My Contacts Cloud-Domäne zu und senden Sie sie erneut.</p>
+        <h3>In der Anlagenauswahl werden keine Dokumente angezeigt</h3>
+        <p>Öffnen Sie <strong>Verwalten</strong>, prüfen Sie die Dokumente des aktuellen Kontakts oder Kontexts und schließen Sie anschließend die Dokumentenverwaltung, um die Auswahl zu aktualisieren.</p>
+        <h3>Collabora Online lässt sich nicht öffnen oder speichern</h3>
+        <p>Stellen Sie sicher, dass es sich bei dem Dokument um einen kompatiblen LibreOffice-Typ handelt und dass das Editorfenster nicht vom Browser blockiert wurde.</p>
+        <h3>Die Tabelle zeigt nicht die erwarteten Ergebnisse</h3>
+        <p>Prüfen Sie, ob eine Suche, ein Gruppen- oder Label-Filter, ausgeblendete Spalten oder die Kartenansicht aktiv sind. Wählen Sie <strong>Filter entfernen</strong> und leeren Sie das Suchfeld, um zur vollständigen Liste zurückzukehren.</p>
+        <h3>Ich benötige Hilfe</h3>
+        <p>Nutzen Sie die Supportanfrage und geben Sie die Konto-ID, den Browser, das Gerät, die durchgeführten Schritte und eine konkrete Beschreibung des Vorfalls an.</p>
+      </section>
+
+      <section id="equipo">
+        <div class="kicker">Gemeinsames Arbeiten</div><h2>18. Team und Mitglieder</h2>
+        <p>Der Kontoinhaber kann über <strong>Team</strong> Mitglieder einladen und entfernen. Ausstehende Einladungen reservieren ebenfalls einen Platz im Plan, damit das vereinbarte Limit nicht überschritten wird. Jede Einladung läuft nach sieben Tagen ab und kann erneut gesendet oder storniert werden.</p>
+        <ol class="step-list"><li>Der Kontoinhaber öffnet im Menü <strong>Team</strong>.</li><li>Geben Sie den Namen und die E-Mail-Adresse des Mitglieds ein.</li><li>Das Mitglied öffnet den erhaltenen Link und meldet sich mit seiner E-Mail-Adresse oder über einen der verfügbaren Anbieter an.</li><li>Nach Annahme der Einladung arbeiten beide Benutzer mit denselben Kontakten, Terminen und Kontodokumenten.</li></ol>
+        <p>Mitglieder verwenden dieselbe Anmeldeseite wie der Kontoinhaber, können jedoch weder Abrechnung, Pläne noch Mitglieder einsehen oder verwalten. Sie können außerdem weder die Verlängerung kündigen noch den Arbeitsbereich löschen. Beim Entfernen eines Mitglieds werden dessen Sitzungen ungültig und weitere Zugriffe gesperrt, ohne Kontakte, Termine, Interaktionen, Dokumente oder andere gemeinsame Daten zu löschen.</p>
+        <p>Mitglieder können die Anwendung von ihren Geräten deinstallieren; dadurch werden sie jedoch nicht aus dem Team entfernt. My Contacts Cloud bietet Mitgliedern keine Möglichkeit, das Team selbstständig zu verlassen. Sie müssen den Kontoinhaber bitten, sie zu entfernen. Zur Ausübung eines Rechts in Bezug auf personenbezogene Daten kann die in der <a href="politicaprivacidad.html">Datenschutzerklärung</a> angegebene Adresse verwendet werden.</p>
+      </section>
+      <section id="seguridad">
+        <div class="kicker">Klare Informationen</div><h2>19. Sicherheit und Daten</h2>
+        <p>Daten zu Lizenz, Kontoinhaber, Mitgliedern und Einladungen werden in der Kontrolldatenbank von My Contacts Cloud gespeichert. Kontakte, Termine, Interaktionen und Dokumente werden in der dem Konto zugeordneten Datenbank gespeichert. Der Zahlungsanbieter verarbeitet die Zahlungen; die Anwendung bewahrt lediglich die Kennungen und den Status auf, die erforderlich sind, um das Abonnement dem Konto zuzuordnen.</p>
+        <ul><li>Neue Passwörter von Mitgliedern werden mithilfe einer kryptografischen Schlüsselableitungsfunktion und nicht als lesbarer Text gespeichert.</li><li>Einladungslinks werden anhand eines kryptografischen Hashwerts geprüft und haben ein Ablaufdatum.</li><li>Private Paddle-Schlüssel verbleiben auf dem Server und werden niemals in Browserseiten eingebunden.</li><li>Die Signatur von Paddle-Benachrichtigungen wird geprüft, bevor der Status einer Lizenz geändert wird.</li><li>Widerrufbare Apple-Zugangsdaten, die von dieser Version registriert wurden, werden verschlüsselt auf dem Server gespeichert und beim Entfernen des Benutzers oder Löschen des Kontos widerrufen.</li><li>Der Kontoinhaber kann Einladungen stornieren und Mitglieder entfernen. Jede Person kann sich abmelden und ihr Passwort ändern oder wiederherstellen.</li></ul>
+        <h3>Was mit den Daten bei der Kontolöschung geschieht</h3>
+        <p>Die endgültige Bestätigung sperrt den Zugriff und entfernt den Arbeitsbereich, seine Benutzer und deren Sitzungen sowie die zugehörigen operativen Daten aus den aktiven Systemen. Das Konto wird nicht in einem deaktivierten Zustand aufbewahrt und kann nicht erneut geöffnet werden. Sicherungskopien, die noch Daten enthalten, bleiben bis zu ihrer turnusmäßigen Löschung außerhalb des operativen Betriebs und werden weder zur Reaktivierung des Kontos noch zur Wiederherstellung seiner Daten im aktiven Dienst verwendet.</p>
+        <p>Nur unverzichtbare Daten dürfen getrennt vom gelöschten Arbeitsbereich für die Zeiträume aufbewahrt werden, die aufgrund gesetzlicher, steuerlicher, buchhalterischer, sicherheitsbezogener oder betrugspräventiver Pflichten erforderlich sind. Informationen zur Identifizierung der Herkunft gehosteter Daten und des Beginns der Leistungserbringung dürfen bis zu 12 Monate aufbewahrt werden. Buchhaltungsunterlagen und Belege dürfen, sofern gesetzlich vorgeschrieben, bis zu sechs Jahre aufbewahrt werden. Den vollständigen Ablauf finden Sie in <a href="#bajas">Abschnitt 20</a>, die rechtlichen Einzelheiten in der <a href="politicaprivacidad.html">Datenschutzerklärung</a>.</p>
+        <p>Diese Maßnahmen verringern Risiken, stellen jedoch keine absolute Garantie dar. Geben Sie bei der Meldung eines Vorfalls die Konto-ID an und senden Sie keine Passwörter, privaten Schlüssel oder vollständigen Zahlungskartendaten.</p>
+      </section>
+      <section id="bajas">
+        <div class="kicker">Unterschiedliche Vorgänge und ihre Auswirkungen</div><h2>20. Deinstallation, Kündigung und Löschung</h2>
+        <p>Diese Vorgänge sind nicht gleichbedeutend. Wählen Sie den Vorgang, der zum gewünschten Ergebnis führt:</p>
+        <div class="table-wrap"><table class="table table-sm align-middle"><thead><tr><th>Vorgang</th><th>Wer kann ihn ausführen?</th><th>Wo wird er ausgeführt?</th><th>Auswirkung</th></tr></thead><tbody>
+          <tr><td><strong>Anwendung deinstallieren</strong></td><td>Kontoinhaber und Mitglieder</td><td>Standardoptionen von Windows, Android, iOS oder macOS</td><td>Entfernt nur die Anwendung vom Gerät. Die Verlängerung wird nicht gekündigt, das Konto nicht gelöscht und die Daten auf dem Server bleiben erhalten.</td></tr>
+          <tr><td><strong>Verlängerung des Plans kündigen</strong></td><td>Nur der Kontoinhaber</td><td><strong>Abonnement</strong> &gt; Paddle-Einstellungen</td><td>Verhindert künftige Belastungen und Verlängerungen. Der Zugriff bleibt bis zum Ende des Vertragszeitraums bestehen. Konto, Daten und Team werden nicht gelöscht.</td></tr>
+          <tr><td><strong>Mitglied entfernen</strong></td><td>Nur der Kontoinhaber</td><td><strong>Team</strong></td><td>Sperrt den Zugriff dieses Mitglieds. Der Plan wird nicht gekündigt; der Arbeitsbereich und seine gemeinsamen Daten werden nicht gelöscht.</td></tr>
+          <tr><td><strong>Konto und Daten löschen</strong></td><td>Nur der Kontoinhaber</td><td>Menüfuß oder <a href="eliminar-cuenta.html">öffentliche Löschseite</a></td><td>Löscht nach ausdrücklicher Bestätigung den gesamten Arbeitsbereich, seine Benutzer und deren Daten endgültig.</td></tr>
+        </tbody></table></div>
+        <h3>Anwendung deinstallieren</h3><p>Die Deinstallation ist ein lokaler Vorgang auf dem Gerät und übermittelt keine Kündigungs- oder Löschanforderung an My Contacts Cloud. Solange das Konto aktiv ist, kann der Benutzer die Anwendung erneut installieren oder sich mit seinen Zugangsdaten auf einem anderen Gerät anmelden.</p>
+        <h3>Verlängerung des Plans kündigen</h3><p>Der Kontoinhaber muss <strong>Abonnement</strong> öffnen und die Kündigung in Paddle abschließen. Bestätigt Paddle eine geplante Kündigung, bleibt der Dienst bis zum Ablaufdatum verfügbar, verlängert sich jedoch nicht um einen weiteren Zeitraum. Durch die Kündigung werden keine Informationen gelöscht und keine automatische Kontolöschung geplant.</p>
+        <p>Wenn auch das Konto gelöscht werden soll, muss der Kontoinhaber nach Bestätigung der Kündigung zu <strong>Konto und Daten löschen</strong> zurückkehren und eine neue Anfrage starten. Das Abbestellen von Newslettern ist ein davon unabhängiger Vorgang: Es beendet Marketingmitteilungen, kündigt jedoch weder den Plan noch löscht es das Konto.</p>
+        <h3>Konto und Daten endgültig löschen</h3><div class="warning-block"><strong>Unwiderruflicher Vorgang:</strong> Exportieren Sie vor dem Fortfahren alle Informationen, die Sie behalten möchten. Durch die Löschung entfällt der Zugriff auch dann, wenn noch bezahlte Vertragszeit verbleibt; eine Rückerstattung erfolgt nicht automatisch.</div>
+        <ol class="step-list"><li>Der Kontoinhaber wählt im Menüfuß <strong>Konto und Daten löschen</strong>. Der Vorgang kann auch ohne Installation oder Öffnen der Anwendung über die <a href="eliminar-cuenta.html">öffentliche Löschseite</a> gestartet werden.</li><li>Die Anwendung prüft den aktuellen Status des Abonnements. Besteht noch eine aktive Verlängerung, wird der Vorgang angehalten und der Zugriff auf die Abrechnungseinstellungen zur Kündigung bereitgestellt.</li><li>Nach Bestätigung der Kündigung muss der Kontoinhaber erneut beginnen. Durch die Kündigung wird eine frühere Löschanforderung niemals automatisch reaktiviert.</li><li>Wenn keine aktive Verlängerung besteht, wird ein einmal verwendbarer, 24 Stunden gültiger Link an die E-Mail-Adresse des Kontoinhabers gesendet. Beim Öffnen wird nur die Bestätigungsseite angezeigt; es werden keine Daten gelöscht.</li><li>Zur Bestätigung muss der Kontoinhaber <strong>LÖSCHEN</strong> eingeben und <strong>Endgültig löschen</strong> auswählen. Der Server prüft den Verlängerungsstatus erneut, bevor er den Vorgang annimmt.</li><li>Das Konto wird gesperrt, die Löschung sicher verarbeitet und nach Abschluss eine E-Mail versendet.</li></ol>
+        <p>Gelöscht werden der Arbeitsbereich, das Profil des Kontoinhabers, sämtliche Mitglieder und Einladungen, Sitzungen, Kontakte, Termine, Interaktionen, Einstellungen, Dokumente und alle weiteren in My Contacts Cloud gespeicherten operativen Daten. Die Zugriffe werden ebenfalls ungültig und die auf dem Server vorhandenen Apple-Zugangsdaten widerrufen.</p><p>Mitglieder können diesen Vorgang weder über die Benutzeroberfläche noch direkt über die öffentliche Seite starten. Die Antwort der öffentlichen Seite lässt außerdem nicht erkennen, ob eine E-Mail-Adresse zu einem Konto gehört.</p>
+      </section>
+      <section id="faq">
+        <div class="kicker">Kurze Antworten</div><h2>21. Häufig gestellte Fragen</h2>
+        <h3>Verwenden Kontoinhaber und Mitglieder dieselbe Anmeldeseite?</h3><p>Ja. Alle verwenden die reguläre Anmeldeseite und können sich mit einer E-Mail-Adresse oder über Google, Microsoft beziehungsweise Apple anmelden, sofern diese Optionen verfügbar sind.</p>
+        <h3>Wer kann Benutzer und Zahlungen verwalten?</h3><p>Nur der Kontoinhaber. Mitglieder arbeiten mit gemeinsamen Informationen, können jedoch weder das Team noch Pläne oder das Abonnement verwalten.</p>
+        <h3>Was geschieht, wenn sich ein Paddle-Konto im Testzeitraum befindet?</h3><p>Wenn noch kein Abonnement besteht, öffnet <strong>Abonnement</strong> den Paddle-Katalog der Pläne, statt ein nicht vorhandenes Portal aufzurufen.</p>
+        <h3>Belegt eine ausstehende Einladung einen Benutzerplatz?</h3><p>Ja. Sie kann storniert werden, um den Benutzerplatz freizugeben, oder erneut gesendet werden, um einen neuen, sieben Tage gültigen Link zu erzeugen.</p>
+        <h3>Werden beim Entfernen eines Mitglieds Informationen gelöscht?</h3><p>Nein. Die Sitzungen des Mitglieds werden ungültig und sein Zugriff gesperrt; Kontakte, Termine, Interaktionen, Dokumente und alle weiteren gemeinsamen Informationen bleiben jedoch im Konto erhalten.</p>
+        <h3>Werden durch die Deinstallation der Anwendung der Plan gekündigt oder meine Daten gelöscht?</h3><p>Nein. Sie entfernt nur die Anwendung von diesem Gerät. Konto, Team, Verlängerung und Serverdaten bleiben unverändert.</p>
+        <h3>Wird durch die Kündigung der Verlängerung das Konto gelöscht?</h3><p>Nein. Sie verhindert künftige Verlängerungen und Belastungen, während der Zugriff bis zum Ablauf des Vertragszeitraums bestehen bleibt. Das Konto und seine Daten werden nicht gelöscht, und die Kündigung startet den Löschvorgang nicht automatisch.</p>
+        <h3>Wer kann das Konto und seine Daten löschen?</h3><p>Nur der Kontoinhaber. Mitglieder sehen diese Option nicht und können sie nicht über die öffentliche Seite starten. Besteht noch eine aktive Verlängerung, wird die Löschung angehalten, bis der Kontoinhaber sie kündigt und den Vorgang erneut startet.</p>
+        <h3>Kann ich das Konto löschen, ohne die Anwendung zu installieren?</h3><p>Ja. Der Kontoinhaber kann die Anfrage über die <a href="eliminar-cuenta.html">öffentliche Seite Konto und Daten löschen</a> starten. Dabei gelten dieselben Prüfungen und Bestätigungen wie in der Anwendung.</p>
+        <h3>Wird das Konto beim Öffnen des Bestätigungslinks gelöscht?</h3><p>Nein. Der 24 Stunden gültige Link öffnet nur die Bestätigungsseite. Um die Löschung auszuführen, geben Sie <strong>LÖSCHEN</strong> ein und wählen <strong>Endgültig löschen</strong>.</p>
+        <h3>Werden nach der Kontolöschung Informationen aufbewahrt?</h3><p>Operative Daten werden aus den aktiven Systemen entfernt und das Konto kann nicht reaktiviert werden. Sicherungskopien bleiben bis zu ihrer turnusmäßigen Löschung außerhalb des operativen Betriebs. Nur Informationen, die zur Erfüllung gesetzlicher, steuerlicher, buchhalterischer, sicherheitsbezogener oder betrugspräventiver Pflichten erforderlich sind, werden für den jeweils geltenden Zeitraum aufbewahrt.</p>
+        <h3>Wo kann ich die Plannutzung einsehen?</h3><p>Öffnen Sie <strong>Übersicht</strong>, um Benutzer, Kontakte und den genutzten Speicher im Verhältnis zu den Plangrenzen anzuzeigen.</p>
+        <h3>Wie kann ich das Ergebnis eines Imports prüfen?</h3><p>Prüfen Sie die abschließende Zusammenfassung und kehren Sie zur Kontaktliste zurück. Wurde ein Datensatz nicht hinzugefügt, prüfen Sie, ob er anhand der Telefonnummer oder E-Mail-Adresse als Duplikat erkannt wurde.</p>
+      </section>
+
+      <p class="manual-footer">Deutsches Benutzerhandbuch für My Contacts Cloud CRM. Aktualisiert: 18.09.2026.</p>
+    </main>
+</div>
