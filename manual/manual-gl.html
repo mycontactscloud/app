@@ -1,0 +1,945 @@
+<div class="manual-document" data-manual-title="Manual operativo - My Contacts Cloud CRM">
+<header class="manual-topbar text-white py-4">
+    <div class="container-fluid" style="max-width:1400px">
+      <div class="d-flex align-items-center gap-3">
+        <img src="https://cdn.jsdelivr.net/gh/mycontactscloud/app/im/icon192.png" width="48" height="48" alt="My Contacts Cloud">
+        <div>
+          <div class="kicker text-warning">Manual de uso</div>
+          <h1 class="manual-title mb-1">My Contacts Cloud CRM</h1>
+          <p class="manual-subtitle mb-0">Guía práctica e de consulta para traballar con contactos, seguimento comercial, interaccións, recordatorios, documentos, correo electrónico, importacións, axenda, configuración, plans e xestión da conta.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="manual-layout">
+    <nav class="manual-nav" aria-label="Índice do manual">
+      <strong class="d-block mb-2">Contido</strong>
+      <a href="#enfoque">1. Enfoque de traballo</a>
+      <a href="#acceso">2. Acceso e conta</a>
+      <a href="#menu">3. Menú principal</a>
+      <a href="#tablas">4. Táboas, filtros e informes</a>
+      <a href="#contactos">5. Ficha de contacto</a>
+      <a href="#config-contactos">6. Configuración dos contactos</a>
+      <a href="#interacciones">7. Interaccións e seguimento</a>
+      <a href="#recordatorios">8. Recordatorios</a>
+      <a href="#documentos">9. Xestión documental</a>
+      <a href="#correo">10. Correo electrónico</a>
+      <a href="#eventos">11. Axenda, eventos e tarefas</a>
+      <a href="#config-eventos">12. Configurar eventos</a>
+      <a href="#importaciones">13. Importacións</a>
+      <a href="#organizacion">14. Grupos e etiquetas</a>
+      <a href="#planes">15. Plans e subscrición</a>
+      <a href="#operativas">16. Procesos recomendados</a>
+      <a href="#incidencias">17. Problemas habituais</a>
+      <a href="#equipo">18. Equipo e membros</a>
+      <a href="#seguridad">19. Seguridade e datos</a>
+      <a href="#bajas">20. Desinstalación, cancelación e eliminación</a>
+      <a href="#faq">21. Preguntas frecuentes</a>
+    </nav>
+
+    <main class="manual-content">
+      <section id="enfoque">
+        <div class="kicker">uso diario</div>
+        <h2>1. Enfoque de traballo</h2>
+        <p>My Contacts Cloud CRM está deseñado para que o contacto sexa o punto de partida de todo: chamadas, correos electrónicos, documentos, reunións, recordatorios e seguimento comercial. A aplicación non é só unha axenda de enderezos: é unha ferramenta para saber quen é cada contacto, que asuntos se trataron, que documentos ten asociados e cal é a seguinte acción pendente.</p>
+        <div class="lead-block">
+          <strong>Fluxo recomendado:</strong> contacto ben clasificado, interacción rexistrada, acción pendente cando corresponda, recordatorio con data, documentos asociados e evento ou reunión cando exista unha cita concreta.
+        </div>
+        <p>Na práctica, o CRM funciona mellor cando cada acción deixa constancia. Se chamas a un cliente e acordades enviar unha proposta, rexistra a chamada como interacción, marca a acción pendente «Enviar proposta», establece un recordatorio e garda a proposta na xestión documental do contacto. Deste xeito, o historial e a axenda traballan conxuntamente.</p>
+      </section>
+
+      <section id="acceso">
+        <div class="kicker">Acceso á aplicación</div>
+        <h2>2. Acceso e conta</h2>
+        <h3>Iniciar sesión</h3>
+        <ol class="step-list">
+          <li>Abre a páxina de inicio de sesión de My Contacts Cloud CRM.</li>
+          <li>Escolle iniciar sesión con Google, Microsoft ou Apple. Tamén hai acceso con correo electrónico e contrasinal para as contas creadas deste xeito.</li>
+          <li>Autoriza a identificación na xanela do provedor escollido.</li>
+          <li>Ao volver á aplicación, abrirase a pantalla principal.</li>
+        </ol>
+        <p>O provedor utilizado para iniciar sesión non bloquea todas as outras integracións. Podes iniciar sesión con Google, importar contactos de Microsoft e enviar correo electrónico con Outlook se autorizas a Microsoft nese momento.</p>
+        <h3>Rexistro e contrasinal</h3>
+        <p>Para as contas con correo electrónico e contrasinal, o contrasinal debe ter polo menos oito caracteres, unha letra maiúscula, unha letra minúscula, un número e un símbolo admitido. Se solicitas unha recuperación, consulta tamén Promocións ou correo non desexado, especialmente nas contas de Gmail.</p>
+      </section>
+
+      <section id="menu">
+        <div class="kicker">Navegación</div>
+        <h2>3. Menú principal</h2>
+        <p>O menú principal concentra as operacións. Tamén mostra información da conta como o período de proba, os días restantes, o plan activo e o ID da conta. O ID da conta debe proporcionarse ao contactar co servizo de asistencia.</p>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Opción</th>
+                <th>Uso</th>
+                <th>Exemplo práctico</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Contactos</td>
+                <td>Base principal de persoas e empresas.</td>
+                <td>Busca un cliente, abre a súa ficha, revisa as interaccións e envíalle un correo electrónico.</td>
+              </tr>
+              <tr>
+                <td>Recordatorios</td>
+                <td>Accións pendentes con data.</td>
+                <td>Consulta as chamadas pendentes de hoxe e rexistra o resultado como unha nova interacción.</td>
+              </tr>
+              <tr>
+                <td>Día, semana, mes, axenda</td>
+                <td>Vistas da axenda.</td>
+                <td>Crea unha reunión cos participantes e documentos anexos.</td>
+              </tr>
+              <tr>
+                <td>Importar</td>
+                <td>Trae contactos de Google, Microsoft, Apple Mac/iOS ou Excel.</td>
+                <td>Importa contactos de Outlook, eliminando os duplicados por teléfono ou correo electrónico.</td>
+              </tr>
+              <tr>
+                <td>Ferramentas</td>
+                <td>Configura grupos, etiquetas, campos de contacto, eventos, idioma e contrasinal.</td>
+                <td>Crea unha etiqueta "Renovación 2026" e filtra os contactos por ela.</td>
+              </tr>
+              <tr>
+                <td>Plans PRO e subscrición</td>
+                <td>Consulta os plans, amplía os límites ou xestiona a túa subscrición.</td>
+                <td>Actualiza a un plan superior se se alcanza o límite de contacto, documento ou evento.</td>
+              </tr>
+              <tr>
+                <td>Manual</td>
+                <td>Abre esta guía operativa.</td>
+                <td>Aprende a filtrar contactos ou a rexistrar un seguimento comercial.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="tablas">
+        <div class="kicker">Listas, filtros e saídas</div>
+        <h2>4. Táboas, filtros e informes</h2>
+        <p>As ventás Contactos, Interaccións, Documentos e Participantes comparten a lóxica da táboa. Esta parte é importante porque permite converter a información do CRM en listas útiles para traballar, imprimir ou exportar.</p>
+        <h3>Accións habituais nunha táboa</h3>
+        <ul class="plain-list">
+          <li><strong>Novo:</strong> crear un rexistro.</li>
+          <li><strong>Editar:</strong> modificar o rexistro seleccionado.</li>
+          <li><strong>Eliminar:</strong> elimina o rexistro seleccionado, normalmente despois da confirmación.</li>
+          <li><strong>Ver:</strong> abrir a ficha en modo de consulta.</li>
+          <li><strong>Buscar:</strong> filtrar a táboa escribindo texto no cadro de busca.</li>
+          <li><strong>Mostrar columnas:</strong> escoller as columnas que se mostrarán antes de imprimir ou exportar.</li>
+          <li><strong>Tarxeta/Táboa:</strong> alternar entre a vista de táboa e a vista de tarxetas.</li>
+          <li><strong>Imprimir:</strong> xera unha vista impresa coas columnas visibles.</li>
+          <li><strong>Exportar:</strong> xera ficheiros en PDF, Excel, ODS, CSV, TXT, JSON, XML, HTML ou SQL dependendo da táboa.</li>
+        </ul>
+        <h3>Filtrar contactos por grupos e etiquetas</h3>
+        <p>Na táboa Contactos hai unha opción específica para filtrar por grupos e etiquetas. É unha das funcións máis útiles para traballar por segmentos.</p>
+        <ol class="step-list">
+          <li>Abre <strong>Contactos</strong>.</li>
+          <li>Fai clic na icona do filtro.</li>
+          <li>Selecciona un ou máis valores no Grupo 1, Grupo 2 ou Grupo 3.</li>
+          <li>Selecciona etiquetas se tamén queres filtrar por elas.</li>
+          <li>Fai clic en <strong>Filtrar</strong>.</li>
+          <li>Se queres volver á lista completa, abre de novo o filtro e fai clic en <strong>Eliminar o filtro</strong>.</li>
+        </ol>
+        <div class="tip-block">
+          <strong>Como se combinan os filtros:</strong> os grupos aplícanse como condicións acumulativas. Se escolles un valor no Grupo 1 e outro no Grupo 2, o contacto debe cumprir ambos os criterios. As etiquetas funcionan como unha selección flexible: abonda con que o contacto teña unha das etiquetas seleccionadas.
+        </div>
+        <h3>Busca, filtra, exporta e imprime</h3>
+        <p>A operación recomendada para xerar un informe é a seguinte: primeiro filtrar, despois mirar para ver se é necesario refinar, despois deixar visibles só as columnas necesarias e finalmente imprimir ou exportar.</p>
+        <div class="example-block">
+          <strong>Exemplo 1: lista PDF de clientes nunha área.</strong><br>
+          Filtrar por Grupo 1 = Clientes, escribe «Valencia» no buscador, deixa visibles Nome, Empresa, Teléfono 1, Correo electrónico e Etiquetas e exporta a PDF en orientación horizontal.
+        </div>
+        <div class="example-block">
+          <strong>Exemplo 2: Excel para campaña comercial.</strong><br>
+          Filtra pola etiqueta "Campaña de xuño", mostra o nome, o cargo, a empresa, o teléfono 1 e o correo electrónico e exporta a Excel. Este ficheiro pode servir como lista de chamadas ou revisión previa.
+        </div>
+        <div class="example-block">
+          <strong>Exemplo 3: impresión rápida.</strong><br>
+          Busca «Renovación», oculta as columnas secundarias e preme Imprimir. É útil para unha reunión interna na que só necesitas revisar o nome, a empresa, o estado e o seguinte paso.
+        </div>
+      </section>
+
+      <section id="contactos">
+        <div class="kicker">Base CRM</div>
+        <h2>5. Ficha de contacto</h2>
+        <p>A ficha de contacto é o centro da aplicación. Desde ela xestiónanse a información básica, a clasificación, as canles de comunicación e o acceso ás interaccións, aos documentos e aos eventos relacionados.</p>
+        <h3>Principais campos</h3>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Campo</th>
+                <th>Para que serve?</th>
+                <th>Exemplo práctico</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Código</td>
+                <td>Identificador interno do contacto. Se o deixas en branco, a aplicación pode cubrilo automaticamente.</td>
+                <td>Usa o código do ERP, o código de cliente ou a numeración interna.</td>
+              </tr>
+              <tr>
+                <td>Nome da persoa</td>
+                <td>Nome de contacto individual. É obrigatorio.</td>
+                <td>"Laura Martínez".</td>
+              </tr>
+              <tr>
+                <td>Data de alta</td>
+                <td>Data de rexistro de contacto no CRM.</td>
+                <td>Permite saber desde cando está rexistrado ou cando se captou o cliente potencial.</td>
+              </tr>
+              <tr>
+                <td>Enderezo, código postal, poboación, provincia, país</td>
+                <td>Datos de localización. O botón do mapa abre Google Maps co enderezo.</td>
+                <td>Prepara unha visita comercial ou comproba o lugar de entrega.</td>
+              </tr>
+              <tr>
+                <td>Teléfono 1 e Teléfono 2</td>
+                <td>Principais canles telefónicas. Desde cada teléfono podes chamar, enviar WhatsApp ou SMS se o dispositivo o permite.</td>
+                <td>Teléfono 1 para móbil directo e Teléfono 2 para centralita.</td>
+              </tr>
+              <tr>
+                <td>Correo electrónico</td>
+                <td>Enderezo de correo electrónico do contacto. O botón asociado abre o editor de mensaxes.</td>
+                <td>Enviar unha proposta con documentos de contacto adxuntos.</td>
+              </tr>
+              <tr>
+                <td>Enderezo web</td>
+                <td>Contacto ou sitio web da empresa. O botón asociado abre a páxina.</td>
+                <td>Consulta catálogo, soporte ou área de clientes.</td>
+              </tr>
+              <tr>
+                <td>NIF</td>
+                <td>Identificación fiscal ou administrativa.</td>
+                <td>Gardar CIF da empresa ou documento fiscal dun provedor.</td>
+              </tr>
+              <tr>
+                <td>Cargo e departamento</td>
+                <td>Colocan á persoa dentro da organización.</td>
+                <td>“Xestor de Compras”, “Administración”, “Xestión Técnica”.</td>
+              </tr>
+              <tr>
+                <td>Rol</td>
+                <td>Clasificación funcional: Cliente, Provedor, Vendedor, Empregado, Acredor, Debedor, Delegación, Almacén, Axencia de transporte, Banco, Administración pública ou Outro.</td>
+                <td>Distinguir provedores dos clientes sen crear bases de datos separadas.</td>
+              </tr>
+              <tr>
+                <td>Aniversario</td>
+                <td>Data significativa de contacto.</td>
+                <td>Aniversario, data do contrato, aniversario do cliente.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Datos da empresa</h3>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Campo</th>
+                <th>Uso</th>
+                <th>Exemplo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Nome da empresa</td>
+                <td>Empresa ou organización á que pertence o contacto.</td>
+                <td>“Talleres Mediterráneo SL”.</td>
+              </tr>
+              <tr>
+                <td>Sector</td>
+                <td>Actividade económica ou área empresarial.</td>
+                <td>“Construción”, “Asistencia sanitaria”, “Software”, “Distribución”.</td>
+              </tr>
+              <tr>
+                <td>DUNS</td>
+                <td>Número DUNS da empresa cando se traballa coa identificación comercial internacional.</td>
+                <td>Útil en relacións B2B ou con grandes contas.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Grupos e etiquetas na ficha</h3>
+        <p>A pestana permite asignar ata tres grupos configurables e un máximo de tres etiquetas. Os grupos adoitan ser categorías estables; as etiquetas son criterios máis flexibles.</p>
+        <div class="example-block">
+          <strong>Exemplo de segmentación:</strong> Grupo 1 = Tipo de contacto, con valores Cliente, Provedor e Colaborador. Grupo 2 = Zona, con valores Norte, Centro, Leste e Sur. Etiquetas = "VIP", "Renovación 2026" ou "Proposta pendente".
+        </div>
+
+        <h3>Iniciar unha conversa</h3>
+        <p>A sección de conversa garda os identificadores de usuario de LinkedIn, Telegram, Instagram, Facebook Messenger e X. Os botóns asociados abren a canle correspondente cando se indican os datos.</p>
+        <p>En X gárdase o ID de usuario, non só o alias visible. Por iso, a ficha inclúe unha ligazón de axuda para localizar o ID numérico do usuario.</p>
+
+        <h3>Referencias e datas</h3>
+        <p>As catro referencias son campos configurables. Serven para adaptar o ficheiro á actividade do usuario: contrato, póliza, rexistro, proxecto, número de expediente, obra, centro de custo ou código externo. As datas de inicio e finalización permiten marcar a validez ou o período da relación.</p>
+        <div class="example-block">
+          <strong>Exemplo nunha consultoría:</strong> Referencia 1 = Expediente, Referencia 2 = Contrato, Inicio = data de alta como cliente e Fin = data prevista de renovación.
+        </div>
+
+        <h3>Preferencias e notas</h3>
+        <p>Hai seis bloques de preferencias configurables e un bloque de notas xerais. Os bloques de preferencias teñen un editor rico, polo que poden conter listas, negriñas, ligazóns ou información estruturada.</p>
+        <p>É recomendable utilizar as preferencias para gardar información estable que axude a atender mellor o contacto: produtos contratados, necesidades especiais, método de entrega, canle preferida, condicións de pagamento, horario de contacto, preferencias de mercadotecnia ou instrucións de soporte.</p>
+        <div class="tip-block">
+          <strong>Diferenza clave:</strong> As preferencias describen como é o contacto ou como se debe tratar. As interaccións describen o que pasou nunha data específica.
+        </div>
+
+        <h3>Funcións relacionadas dispoñibles desde Contactos</h3>
+        <ul class="plain-list">
+          <li><strong>Interaccións:</strong> abre o historial do contacto e permite rexistrar chamadas, correos electrónicos, reunións e accións comerciais.</li>
+          <li><strong>Xestión documental:</strong> abre os documentos asociados ao contacto.</li>
+          <li><strong>Eventos:</strong> abre os eventos nos que participa o contacto ou crea unha cita vinculada.</li>
+        </ul>
+      </section>
+
+      <section id="config-contactos">
+        <div class="kicker">Personalización CRM</div>
+        <h2>6. Configuración dos contactos</h2>
+        <p>A configuración dos contactos permite adaptar a ficha a distintos sectores sen modificar o programa. Atópase en <strong>Ferramentas</strong> &gt; <strong>Configurar contactos</strong>.</p>
+        <h3>Referencias configurables</h3>
+        <p>Permiten cambiar o nome dos campos Referencia 1 a Referencia 4. Son campos curtos que adoitan conter identificadores, códigos, números de contrato ou datos de localización administrativa.</p>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Sector</th>
+                <th>Referencia 1</th>
+                <th>Referencia 2</th>
+                <th>Referencia 3</th>
+                <th>Referencia 4</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Servizos profesionais</td>
+                <td>Expediente</td>
+                <td>Contrato</td>
+                <td>Proxecto</td>
+                <td>Centro de custo</td>
+              </tr>
+              <tr>
+                <td>Seguros</td>
+                <td>Póliza</td>
+                <td>Ramo</td>
+                <td>Mediador</td>
+                <td>Compañía</td>
+              </tr>
+              <tr>
+                <td>Automoción</td>
+                <td>Matrícula</td>
+                <td>Bastidor</td>
+                <td>Modelo</td>
+                <td>Contrato de aluguer</td>
+              </tr>
+              <tr>
+                <td>Construción</td>
+                <td>Obra</td>
+                <td>Promoción</td>
+                <td>Fase</td>
+                <td>Encargado de obra</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Títulos das preferencias</h3>
+        <p>Permiten poñerlle nome aos seis bloques de información extensa da ficha. Funcionan mellor cando cada bloque responde a unha pregunta de traballo.</p>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Campo</th>
+                <th>Pregunta que podes responder</th>
+                <th>Exemplo de contido</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Produtos ou servizos</td>
+                <td>Que compras, usas ou che interesa?</td>
+                <td>"Mantemento anual, módulo CRM, soporte prioritario".</td>
+              </tr>
+              <tr>
+                <td>Necesidades especiais</td>
+                <td>Que condicións hai que ter en conta?</td>
+                <td>«Contactar só pola mañá. Require un orzamento detallado».</td>
+              </tr>
+              <tr>
+                <td>Envíos ou entregas</td>
+                <td>Como se debe entregar o produto ou a documentación?</td>
+                <td>"Entrega a almacén central. Avisar con 24 horas de antelación."</td>
+              </tr>
+              <tr>
+                <td>Marketing e comunicacións</td>
+                <td>Que tipo de comunicación acepta ou prefire?</td>
+                <td>«Enviar novidades trimestrais, non campañas semanais».</td>
+              </tr>
+              <tr>
+                <td>Soporte ou atención ao cliente</td>
+                <td>Como xestionar incidencias ou apoio?</td>
+                <td>«Abrir unha incidencia antes de chamar. Contacto técnico: Marta».</td>
+              </tr>
+              <tr>
+                <td>Métodos de pago</td>
+                <td>Que condicións económicas son relevantes?</td>
+                <td>"Transferencia nun prazo de 30 días. Requírese orde de compra."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="interacciones">
+        <div class="kicker">Historia, vendas e soporte</div>
+        <h2>7. Interaccións e seguimento</h2>
+        <p>Unha interacción é calquera feito relevante na relación cun contacto. Non só rexistra «o que pasou»: tamén sitúa o contacto nunha etapa, deixa constancia dun resultado e pode xerar unha acción pendente cun recordatorio.</p>
+        <h3>Campos da ficha de interacción</h3>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Campo</th>
+                <th>Para que serve?</th>
+                <th>Exemplo práctico</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Data/hora</td>
+                <td>Momento no que se produciu a interacción.</td>
+                <td>Data dunha chamada, reunión ou correo electrónico.</td>
+              </tr>
+              <tr>
+                <td>Tipo</td>
+                <td>Clasifica a natureza da acción.</td>
+                <td>Chamada telefónica, correo electrónico, reunión, demostración, proposta enviada, asistencia técnica.</td>
+              </tr>
+              <tr>
+                <td>Asunto</td>
+                <td>Breve resumo para localizar rapidamente a interacción.</td>
+                <td>“Seguimento da proposta de ERP”, “Renovación do contrato”, “Incidente de instalación”.</td>
+              </tr>
+              <tr>
+                <td>Descrición</td>
+                <td>Relato operativo do acontecido.</td>
+                <td>"Revísanse as necesidades. Solicitar unha proposta con dúas alternativas".</td>
+              </tr>
+              <tr>
+                <td>Notas do cliente</td>
+                <td>Observacións expresadas polo cliente ou información sensible para próximas accións.</td>
+                <td>"Prefire comezar en setembro. Orzamento máximo 3.000 euros".</td>
+              </tr>
+              <tr>
+                <td>Etapa</td>
+                <td>Posición dentro do proceso comercial ou da relación.</td>
+                <td>Cliente potencial inicial, identificación de necesidades, negociación, peche da venda, seguimento posvenda.</td>
+              </tr>
+              <tr>
+                <td>Resultado</td>
+                <td>Conclusión da interacción.</td>
+                <td>Interesado, sen resposta, proposta enviada, aprobación pendente, peche satisfactorio.</td>
+              </tr>
+              <tr>
+                <td>Acción pendente</td>
+                <td>Próximo paso a dar.</td>
+                <td>Enviar proposta, facer unha chamada de seguimento, programar unha reunión, solicitar comentarios.</td>
+              </tr>
+              <tr>
+                <td>Recordatorio</td>
+                <td>Data e hora en que a acción pendente debe aparecer como traballo por realizar.</td>
+                <td>Recordar chamar o vindeiro martes ás 10:00.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Tipos de interacción</h3>
+        <p>O tipo axuda a clasificar o historial. Algunhas opcións están orientadas á venda; outras, ao soporte ou á xestión interna: chamada telefónica, correo electrónico, reunión presencial, videochamada, mensaxe de texto, mensaxería instantánea, presentación, demostración, formación, proposta enviada, confirmación do pedido, entrega, reunión de seguimento, revisión do progreso, enquisa, asistencia técnica, resolución de incidencias, renovación, actualización de condicións, axuste da proposta, peche da venda, cancelación ou notificación interna.</p>
+
+        <h3>Etapas do seguimento comercial</h3>
+        <p>As etapas permiten ler a situación dunha oportunidade sen abrir toda a historia. Un fluxo típico pode ser:</p>
+        <ol class="step-list">
+          <li><strong>Cliente potencial inicial:</strong> identifícase unha posible oportunidade.</li>
+          <li><strong>Cualificación do cliente potencial:</strong> compróbase se encaixa co produto ou servizo.</li>
+          <li><strong>Contacto realizado:</strong> Xa houbo unha primeira comunicación.</li>
+          <li><strong>Reunión inicial:</strong> afóndase nas necesidades.</li>
+          <li><strong>Identificación de necesidades:</strong> documéntase o problema que se quere resolver.</li>
+          <li><strong>Presentación do produto/servizo:</strong> móstrase a solución.</li>
+          <li><strong>Presentación da proposta:</strong> se envía orzamento ou documento comercial.</li>
+          <li><strong>Negociación:</strong> debátense as condicións.</li>
+          <li><strong>Condicións acordadas:</strong> hai un acordo pendente de formalización.</li>
+          <li><strong>Peche pendente de aprobación:</strong> falta a sinatura, autorización ou pagamento.</li>
+          <li><strong>Peche da venda:</strong> oportunidade gañada.</li>
+          <li><strong>Implementación:</strong> realízase a entrega ou a posta en funcionamento.</li>
+          <li><strong>Seguimento posvenda:</strong> verifícase a satisfacción ou o uso.</li>
+          <li><strong>Renovación/recompra:</strong> a continuidade está preparada.</li>
+          <li><strong>Oportunidade perdida ou cliente potencial inactivo:</strong> déixase constancia de que non continúa.</li>
+        </ol>
+
+        <h3>Exemplos de procesos comerciais</h3>
+        <div class="example-block">
+          <strong>Seguimento da proposta.</strong><br>
+          Tipo = Proposta enviada. Asunto = "Proposta de mantemento anual". Etapa = Presentación da proposta. Resultado = Proposta enviada. Acción pendente = Chamar como recordatorio. Recordatorio = dentro de 3 días.
+        </div>
+        <div class="example-block">
+          <strong>Chamada sen resposta.</strong><br>
+          Tipo = Chamada telefónica. Asunto = «Intento de contacto para a renovación». Resultado = Sen resposta. Acción pendente = Chamada de seguimento. Recordatorio = mañá á primeira hora.
+        </div>
+        <div class="example-block">
+          <strong>Cliente interesado despois da demostración.</strong><br>
+          Tipo = Demo ou proba de produto. Etapa = Presentación do produto/servizo. Resultado = Interesado. Acción pendente = Enviar proposta. O orzamento aproximado, as obxeccións e a data de inicio desexada rexístranse nas notas do cliente.
+        </div>
+        <div class="example-block">
+          <strong>Soporte técnico.</strong><br>
+          Tipo = Asistencia técnica ou Resolución de incidencias. Asunto = «Erro ao abrir o documento». Resultado = Resolto ou acción pendente do cliente. Acción pendente = Solicitar comentarios se cómpre confirmar a resolución.
+        </div>
+      </section>
+
+      <section id="recordatorios">
+        <div class="kicker">Próxima acción</div>
+        <h2>8. Recordatorios</h2>
+        <p>Os recordatorios nacen das interaccións cando se informa dunha acción pendente e dunha data de recordatorio. A pantalla Recordatorios úsase para traballar por prioridade temporal, non por lista xeral de contactos.</p>
+        <ol class="step-list">
+          <li>Abre <strong>Recordatorios</strong> ao comezo do día.</li>
+          <li>Consulta cales están previstos para hoxe ou xa están vencidos.</li>
+          <li>Abre o contacto ou usa os detalles da comunicación.</li>
+          <li>Cando completes a acción, grava unha nova interacción ou actualiza o historial.</li>
+        </ol>
+        <div class="tip-block">
+          <strong>Consello:</strong> Un CRM perde valor cando as accións pendentes permanecen na memoria do usuario. Se hai que facer algo máis tarde, debería ter un recordatorio.
+        </div>
+      </section>
+
+      <section id="documentos">
+        <div class="kicker">Xestión documental</div>
+        <h2>9. Xestión documental</h2>
+        <p>A xestión documental permite gardar documentos asociados á conta, a un contacto ou a un evento. É especialmente importante porque o editor de mensaxes pode anexar documentos gardados nela.</p>
+        <h3>Campos e botóns da ficha de documento</h3>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Elemento</th>
+                <th>Uso</th>
+                <th>Exemplo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Data</td>
+                <td>Data do documento.</td>
+                <td>Data do contrato, orzamento ou memoria.</td>
+              </tr>
+              <tr>
+                <td>Nome do ficheiro</td>
+                <td>Nome do ficheiro. Na lista, premendo no nome descarga o documento.</td>
+                <td>"Proposta_cliente_2026.odt".</td>
+              </tr>
+              <tr>
+                <td>Ver</td>
+                <td>Abre unha vista previa cando o tipo de documento o permita.</td>
+                <td>Consulta un PDF ou imaxe sen editalo.</td>
+              </tr>
+              <tr>
+                <td>Editar</td>
+                <td>Abre a edición dos documentos compatibles. Os documentos de LibreOffice edítanse con Collabora Online.</td>
+                <td>Modificar unha proposta .odt desde o navegador.</td>
+              </tr>
+              <tr>
+                <td>Descrición</td>
+                <td>Breve comentario sobre o contido ou finalidade do documento.</td>
+                <td>"Versión enviada ao cliente o 06/05/2026."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Cargar un documento existente</h3>
+        <ol class="step-list">
+          <li>Abre <strong>Xestión documental</strong> desde o contacto, o evento ou o contexto correspondente.</li>
+          <li>Fai clic en <strong>Novo documento</strong>.</li>
+          <li>Preme <strong>Examinar</strong> e selecciona o ficheiro do dispositivo.</li>
+          <li>Comproba o nome do ficheiro, a data e a descrición.</li>
+          <li>Garda os cambios.</li>
+        </ol>
+        <h3>Crear un documento</h3>
+        <p>A creación directa de documentos simplificouse aos formatos de LibreOffice:</p>
+        <ul class="plain-list">
+          <li><strong>Writer (.odt):</strong> textos, contratos, propostas e informes.</li>
+          <li><strong>Calc (.ods):</strong> follas de cálculo, comparacións, orzamentos detallados.</li>
+          <li><strong>Impress (.odp):</strong> presentacións.</li>
+        </ul>
+        <p>Cando creas ou editas documentos de LibreOffice, Collabora Online ábrese nunha ventá separada mediante WOPI.</p>
+        <h3>Descargar, ver e editar</h3>
+        <ul class="plain-list">
+          <li><strong>Descargar:</strong> fai clic no nome do ficheiro na táboa.</li>
+          <li><strong>Ver:</strong> usa a icona da pantalla para abrir unha vista previa.</li>
+          <li><strong>Editar:</strong> usa a icona do lapis ou o botón de edición da ficha do documento cando o formato o permita.</li>
+        </ul>
+        <div class="example-block">
+          <strong>Exemplo práctico:</strong> desde un contacto, crea «Proposta.odt», edítao en Collabora Online, gárdao, volve ao CRM e envíao como documento adxunto desde o editor de mensaxes.
+        </div>
+      </section>
+
+      <section id="correo">
+        <div class="kicker">Comunicación con anexos</div>
+        <h2>10. Correo electrónico</h2>
+        <p>O editor de mensaxes permite enviar mensaxes HTML e anexar documentos da xestión documental. É máis completo ca unha ligazón <code>mailto:</code>, porque non depende do cliente de correo configurado no navegador e permite utilizar ficheiros adxuntos gardados en My Contacts Cloud.</p>
+        <h3>Campos do editor de mensaxes</h3>
+        <ul class="plain-list">
+          <li><strong>De:</strong> remitente. Depende da conta ou provedor utilizado para enviar.</li>
+          <li><strong>Para:</strong> destinatario principal.</li>
+          <li><strong>CC e CCO:</strong> aparecen como ligazóns xunto ao destinatario e só mostran os campos ao facer clic.</li>
+          <li><strong>Asunto:</strong> asunto do correo electrónico.</li>
+          <li><strong>Mensaxe:</strong> corpo HTML con editor rico.</li>
+          <li><strong>Documentos adxuntos:</strong> selector de documentos do contacto ou contexto actual.</li>
+          <li><strong>Xestionar:</strong> abre a xestión documental para engadir, modificar ou eliminar documentos e, a continuación, actualizar o selector.</li>
+          <li><strong>Enviar con:</strong> provedor de envío: Gmail, Outlook ou My Contacts Cloud.</li>
+        </ul>
+        <h3>Enviar con Gmail ou Outlook</h3>
+        <p>O permiso solicítase no momento do envío. Isto permite iniciar sesión cun provedor e enviar con outro. Por exemplo, podes acceder con Google e enviar con Outlook.</p>
+        <h3>Enviar con My Contacts Cloud</h3>
+        <p>A opción My Contacts Cloud usa o propio relé da aplicación. Esta é a ruta prevista para os casos nos que non se envía a través de Gmail ou Microsoft Outlook.</p>
+        <div class="example-block">
+          <strong>Exemplo con documentos:</strong> abre o contacto, preme o botón situado a carón do enderezo de correo electrónico, redacta a mensaxe, selecciona unha proposta entre os documentos adxuntos, escolle Gmail ou Outlook e envíaa. Ao rematar, aparece a mensaxe de confirmación do envío.
+        </div>
+      </section>
+
+      <section id="eventos">
+        <div class="kicker">Axenda</div>
+        <h2>11. Axenda, eventos e tarefas</h2>
+        <p>A axenda permite traballar nas vistas de día, semana, mes ou axenda. Utilízase para reunións, tarefas, citas, prazos e actividades internas ou con clientes.</p>
+        <h3>Xestión da planificación</h3>
+        <ul class="plain-list">
+          <li><strong>Crear evento:</strong> usa o botón + ou preme nunha data e hora do calendario.</li>
+          <li><strong>Vista mensual:</strong> ao facer clic no número do día, ábrese a vista diaria.</li>
+          <li><strong>Mover evento:</strong> arrastra e solta o evento noutra data ou hora.</li>
+          <li><strong>Cambiar a duración:</strong> arrastra o bordo do evento cando a vista o permita.</li>
+          <li><strong>Impresión do calendario:</strong> Na impresión, os controis da pantalla están ocultos para unha saída máis limpa.</li>
+        </ul>
+        <h3>Campos da ficha de evento</h3>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Campo</th>
+                <th>Uso</th>
+                <th>Exemplo práctico</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Todo o día</td>
+                <td>Marca eventos sen unha hora específica.</td>
+                <td>Feira, vencemento ou peche mensual.</td>
+              </tr>
+              <tr>
+                <td>Inicio e fin</td>
+                <td>Datas e horarios do evento.</td>
+                <td>Reunión o 06/10/2026 de 10:00 a 11:00 h.</td>
+              </tr>
+              <tr>
+                <td>Color</td>
+                <td>Clasificación visual no calendario.</td>
+                <td>Azul para reunións de empresa, verde para tarefas internas, vermello para incidencias.</td>
+              </tr>
+              <tr>
+                <td>Título</td>
+                <td>Nome visible no calendario.</td>
+                <td>"Demo My Contacts Cloud co cliente".</td>
+              </tr>
+              <tr>
+                <td>Descrición</td>
+                <td>Detalle do evento cun editor rico.</td>
+                <td>Orde do día, obxectivos e puntos que se van tratar.</td>
+              </tr>
+              <tr>
+                <td>Lugar</td>
+                <td>Localización física. O botón do mapa abre Google Maps.</td>
+                <td>“Av. Aragón 10, Valencia”.</td>
+              </tr>
+              <tr>
+                <td>Enderezo web</td>
+                <td>Ligazón relacionada co evento.</td>
+                <td>Páxina de rexistro, documentación en liña, ficha do proxecto.</td>
+              </tr>
+              <tr>
+                <td>Aplicación de reunión en liña</td>
+                <td>Selecciona Sen aplicación, Google Meet, Microsoft Teams ou Zoom.</td>
+                <td>Prepara unha videochamada con ligazón ou ID de reunión.</td>
+              </tr>
+              <tr>
+                <td>ID da reunión e código de acceso</td>
+                <td>Datos necesarios para unirse a unha reunión en liña.</td>
+                <td>ID de Zoom e código de acceso.</td>
+              </tr>
+              <tr>
+                <td>Documentos adxuntos</td>
+                <td>Abrir documentos asociados ao evento.</td>
+                <td>Adxunta axenda, orzamento ou presentación.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Participantes</h3>
+        <p>A ficha do evento inclúe unha táboa de participantes. Podes engadir participantes desde os contactos, eliminalos, buscar, cambiar entre a vista de tarxetas e a de táboa, mostrar columnas e exportar a PDF, Excel, ODS, CSV, TXT, JSON, XML, HTML ou SQL.</p>
+        <div class="example-block">
+          <strong>Exemplo dunha reunión de negocios:</strong> Crea un evento dunha hora, engade o xestor de compras e o técnico do cliente como participantes, selecciona Microsoft Teams, garda o ID da reunión, adxunta a proposta e, a continuación, grava unha interacción co resultado.
+        </div>
+        <div class="example-block">
+          <strong>Exemplo de tarefa interna:</strong> Crea un evento sen participantes, cor verde, título "Revisar a documentación do contrato", adxunta o documento e establece o inicio/fin para reservar o tempo de traballo.
+        </div>
+      </section>
+
+      <section id="config-eventos">
+        <div class="kicker">Configuración da axenda</div>
+        <h2>12. Configurar eventos</h2>
+        <p>A configuración do evento axusta como se ve e se usa o teu calendario.</p>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead>
+              <tr>
+                <th>Campo</th>
+                <th>Que controla</th>
+                <th>Exemplo práctico</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fins de semana</td>
+                <td>Mostrar ou ocultar o sábado e o domingo no calendario.</td>
+                <td>Actívao se se realizan eventos durante a fin de semana; desactívao para un horario laboral de luns a venres.</td>
+              </tr>
+              <tr>
+                <td>Hora de inicio</td>
+                <td>Primeira hora visible na axenda.</td>
+                <td>08 se o día comeza ás 8:00.</td>
+              </tr>
+              <tr>
+                <td>Hora final</td>
+                <td>Última hora visible na axenda.</td>
+                <td>20 se traballas ata as 20:00 h.</td>
+              </tr>
+              <tr>
+                <td>Intervalo de tempo</td>
+                <td>Duración dos intervalos da axenda: 10, 15, 20 ou 30 minutos, 1 hora ou 2 horas.</td>
+                <td>15 minutos para unha intensa axenda comercial; 30 minutos para a planificación xeral.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="importaciones">
+        <div class="kicker">Entrada masiva de datos</div>
+        <h2>13. Importacións</h2>
+        <p>As importacións permiten engadir contactos de Google, Microsoft, Apple (Mac/iOS) e Excel. Antes de engadir un novo contacto, a aplicación comproba se xa existe mediante o <code>Teléfono 1</code>, o <code>Teléfono 2</code> ou o <code>Correo electrónico</code>. Ao rematar, informa dos contactos importados e dos duplicados que non se engadiron.</p>
+        <h3>Google e Microsoft</h3>
+        <ol class="step-list">
+          <li>Abre <strong>Importar</strong>.</li>
+          <li>Escolle Contactos de Google ou Contactos de Microsoft.</li>
+          <li>Autoriza o acceso aos contactos na xanela secundaria.</li>
+          <li>Revisa a táboa de contactos obtidos.</li>
+          <li>Selecciona os rexistros que queres importar.</li>
+          <li>Confirma a importación e revisa o resumo final.</li>
+        </ol>
+        <h3>Apple Mac/iOS</h3>
+        <p>A opción <strong>Contactos de Apple (Mac/iOS)</strong> está deseñada para as aplicacións nativas, nas que se lle pode solicitar permiso ao dispositivo para ler a axenda de contactos.</p>
+        <h3>Excel</h3>
+        <p>A importación desde Excel permite asignar columnas. Podes indicar se a primeira fila contén títulos e, a continuación, relacionar letras de columna con Código, Nome, Enderezo, Código postal, Poboación, Provincia, País, Teléfono 1, Teléfono 2, Correo electrónico, Enderezo web, Empresa, NIF, Cargo, Departamento e Notas.</p>
+        <div class="example-block">
+          <strong>Exemplo:</strong> se o nome está na columna B, o teléfono na E e o correo electrónico na F, selecciona B para Nome, E para Teléfono 1 e F para Correo electrónico. Os campos non dispoñibles pódense deixar sen asignar.
+        </div>
+      </section>
+
+      <section id="organizacion">
+        <div class="kicker">Segmentación</div>
+        <h2>14. Grupos e etiquetas</h2>
+        <h3>Grupos de contactos</h3>
+        <p>Os grupos son listas configurables con elementos. A ficha de contacto dispón de tres grupos, e cada un pode ter o seu propio nome e os seus elementos. Son ideais para clasificacións estables.</p>
+        <div class="example-block">
+          <strong>Exemplo:</strong> Grupo 1 = Tipo, con Cliente, Provedor e Colaborador. Grupo 2 = Zona, con Norte, Centro, Leste e Sur. Grupo 3 = Prioridade, con Alta, Media e Baixa.
+        </div>
+        <h3>Etiquetas</h3>
+        <p>As etiquetas son marcas visuais e flexibles. Cada contacto pode ter ata tres etiquetas. Son moi útiles para campañas, estados temporais ou funcións que cambian co tempo.</p>
+        <div class="example-block">
+          <strong>Exemplo:</strong> “VIP”, “Proposta pendente”, “Renovación 2026”, “Boletín informativo”, “Soporte aberto”.
+        </div>
+        <p>Os grupos e as etiquetas alimentan o filtro da táboa de Contactos, polo que é unha boa idea deseñalos pensando en como se buscarán e imprimirán as listas máis tarde.</p>
+      </section>
+
+      <section id="planes">
+        <div class="kicker">Conta e límites</div>
+        <h2>15. Plans e subscrición</h2>
+        <p>O menú mostra o plan activo e, se corresponde, os días que quedan do período de proba. Os plans PRO amplían os límites e as funcionalidades. As subscricións dispoñibles contrátanse e xestiónanse a través de Paddle.</p>
+        <ol class="step-list">
+          <li>Abre <strong>Plans PRO</strong> para revisar as opcións dispoñibles.</li>
+          <li>Abre <strong>Subscrición</strong> para xestionar unha subscrición existente.</li>
+          <li>Usa o ID da conta se precisas comunicar un problema ou facer unha consulta.</li>
+        </ol>
+        <p>Ao abrir o catálogo, móstranse os plans dispoñibles en Paddle. Se xa existe unha subscrición, pódese abrir o portal de xestión. Só o propietario da conta pode contratar, modificar ou xestionar a subscrición. Os membros non teñen relación co provedor de pagamentos.</p>
+        <h3>Cancelar a renovación do plan</h3>
+        <p>Só o propietario da conta pode cancelar a renovación desde <strong>Subscrición</strong>, na configuración de Paddle. Unha cancelación programada evita novas renovacións e cargos e preserva o acceso ata o vencemento do período contratado. Non elimina a conta, os datos ou os membros e non inicia unha eliminación posterior.</p>
+        <div class="tip-block">
+          <strong>Non confundas as accións:</strong> cancelar a renovación do plan, desinstalar a aplicación e eliminar a conta teñen efectos diferentes. Consulta a <a href="#bajas">sección 20</a> antes de realizar calquera delas.
+        </div>
+      </section>
+
+      <section id="operativas">
+        <div class="kicker">Casos de uso</div>
+        <h2>16. Procesos recomendados</h2>
+        <h3>Seguimento dunha oportunidade comercial</h3>
+        <ol class="step-list">
+          <li>Crea ou importa o contacto.</li>
+          <li>Clasifícao co rol de Cliente ou Prospecto segundo os teus criterios, grupos e etiquetas.</li>
+          <li>Rexistra unha primeira interacción coa etapa Cliente potencial inicial ou Cualificación do cliente potencial.</li>
+          <li>Se organizas unha reunión, crea un evento e engade o contacto como participante.</li>
+          <li>Despois da reunión, rexistra unha nova interacción coas necesidades e a acción pendente.</li>
+          <li>Crea ou carga a proposta nos documentos de contacto.</li>
+          <li>Envía o correo electrónico desde o editor de mensaxes e adxunta a proposta.</li>
+          <li>Programa un recordatorio para o seguimento.</li>
+        </ol>
+        <h3>Preparar unha campaña segmentada</h3>
+        <ol class="step-list">
+          <li>Define unha etiqueta de campaña, por exemplo "Campaña de xuño".</li>
+          <li>Asigna a etiqueta aos contactos correspondentes.</li>
+          <li>Filtra os contactos por esa etiqueta.</li>
+          <li>Usa a busca para restrinxir por zona, empresa ou sector.</li>
+          <li>Mostra só as columnas necesarias.</li>
+          <li>Exporta a Excel para revisar ou imprime un PDF para a reunión interna.</li>
+        </ol>
+        <h3>Xestión documental dun cliente</h3>
+        <ol class="step-list">
+          <li>Abre a ficha do contacto.</li>
+          <li>Entra en Xestión documental.</li>
+          <li>Carga contratos, orzamentos, documentos asinados ou informes.</li>
+          <li>Crea documentos de LibreOffice cando necesites escribir desde cero.</li>
+          <li>Descarga os documentos facendo clic no nome do ficheiro.</li>
+          <li>Adxunta documentos desde o editor de mensaxes cando escribas ao cliente.</li>
+        </ol>
+      </section>
+
+      <section id="incidencias">
+        <div class="kicker">Apoio</div>
+        <h2>17. Problemas habituais</h2>
+        <h3>Un contacto non aparece despois da importación</h3>
+        <p>Revisa o resumo da importación. É posible que se detectase como un duplicado por teléfono ou correo electrónico.</p>
+        <h3>Non podo enviar con Gmail ou Outlook</h3>
+        <p>Comproba que autorizaches o provedor na xanela secundaria. Se o navegador bloquea as ventás emerxentes, permíteas para o dominio de My Contacts Cloud e volve realizar o envío.</p>
+        <h3>Non aparecen documentos no selector de ficheiros adxuntos</h3>
+        <p>Abre <strong>Xestionar</strong>, revisa os documentos do contacto ou do contexto actual e pecha a xestión documental para actualizar o selector.</p>
+        <h3>Collabora Online non abre ou non garda os cambios</h3>
+        <p>Comproba que o documento ten un formato de LibreOffice compatible e que o navegador non bloqueou a xanela do editor.</p>
+        <h3>A táboa non mostra os resultados esperados</h3>
+        <p>Comproba se hai unha busca activa, un filtro por grupos ou etiquetas, columnas ocultas ou a vista de tarxetas. Usa <strong>Eliminar o filtro</strong> e borra o cadro de busca para volver á lista completa.</p>
+        <h3>Necesito axuda</h3>
+        <p>Usa a opción <strong>Consultas</strong> e indica o ID da conta, o navegador, o dispositivo, os pasos seguidos e unha descrición concreta do sucedido.</p>
+      </section>
+
+      <section id="equipo">
+        <div class="kicker">Traballo compartido</div>
+        <h2>18. Equipo e membros</h2>
+        <p>O propietario da conta pode convidar e retirar membros desde <strong>Equipo</strong>. As invitacións pendentes tamén ocupan unha praza do plan para evitar superar o límite contratado. Cada invitación caduca aos sete días e pódese reenviar ou cancelar.</p>
+        <ol class="step-list">
+          <li>O propietario da conta abre <strong>Equipo</strong> desde o menú.</li>
+          <li>Introduce o nome e o enderezo de correo electrónico do membro.</li>
+          <li>O membro abre a ligazón recibida e inicia sesión co correo electrónico ou mediante un dos provedores dispoñibles.</li>
+          <li>Unha vez aceptada a invitación, ambos traballan cos mesmos contactos, eventos e documentos da conta.</li>
+        </ol>
+        <p>O membro utiliza a mesma pantalla de acceso ca o propietario da conta, pero non pode ver nin xestionar a facturación, os plans ou os membros. Tampouco pode cancelar a renovación nin eliminar o espazo de traballo. Ao retirar un membro, as súas sesións quedan invalidadas e impídense os accesos posteriores, sen eliminar os contactos, eventos, interaccións, documentos nin ningún outro dato compartido.</p>
+        <p>Un membro pode desinstalar a aplicación dos seus dispositivos, pero esta acción non o retira do equipo. My Contacts Cloud non ofrece unha opción para que un membro abandone o equipo pola súa conta: debe solicitar ao propietario da conta que o retire. Se necesita exercer un dereito sobre os seus datos persoais, pode utilizar o enderezo indicado na <a href="politicaprivacidad.html">Política de privacidade</a>.</p>
+      </section>
+
+      <section id="seguridad">
+        <div class="kicker">Información clara</div>
+        <h2>19. Seguridade e datos</h2>
+        <p>Os datos da licenza, do propietario da conta, dos membros e das invitacións gárdanse na base de datos de control de My Contacts Cloud. Os contactos, eventos, interaccións e documentos gárdanse na base de datos asignada á conta. O provedor de pagamentos procesa os cobros; a aplicación só conserva os identificadores e o estado necesarios para relacionar a subscrición coa conta.</p>
+        <ul>
+          <li>Os contrasinais novos dos membros almacénanse mediante unha función criptográfica de derivación, e non como texto lexible.</li>
+          <li>As ligazóns de invitación valídanse mediante un resumo criptográfico e teñen data de caducidade.</li>
+          <li>As claves privadas de Paddle permanecen no servidor e non se inclúen nas páxinas do navegador.</li>
+          <li>A sinatura das notificacións de Paddle verifícase antes de modificar o estado dunha licenza.</li>
+          <li>As credenciais revogables de Apple rexistradas por esta versión gárdanse cifradas no servidor e revóganse ao retirar o usuario ou eliminar a conta.</li>
+          <li>O propietario da conta pode cancelar invitacións e retirar membros. Cada persoa pode pechar a sesión e cambiar ou recuperar o seu contrasinal.</li>
+        </ul>
+        <h3>Que ocorre cos datos ao eliminar a conta</h3>
+        <p>A confirmación definitiva bloquea o acceso e elimina dos sistemas activos o espazo de traballo, os seus usuarios e sesións, así como os datos operativos asociados. A conta non se conserva desactivada nin se pode volver abrir. As copias de seguridade que aínda conteñan datos quedan fóra do uso operativo ata a súa rotación e non se utilizan para reactivar a conta nin para restaurar os seus datos no servizo activo.</p>
+        <p>Só se poden conservar, separados do espazo de traballo eliminado, os datos imprescindibles durante os prazos esixidos por obrigas legais, fiscais, contables, de seguridade ou de prevención da fraude. A información necesaria para identificar a orixe dos datos aloxados e o inicio da prestación pódese conservar ata 12 meses, e a documentación contable e os seus xustificantes, ata seis anos cando o esixa a lei. Consulta o proceso completo na <a href="#bajas">sección 20</a> e os detalles xurídicos na <a href="politicaprivacidad.html">Política de privacidade</a>.</p>
+        <p>Estas medidas reducen os riscos, pero non constitúen unha garantía absoluta. Cando comuniques unha incidencia, indica o ID da conta e non envíes contrasinais, claves privadas nin datos completos de tarxetas.</p>
+      </section>
+
+      <section id="bajas">
+        <div class="kicker">Accións diferentes e os seus efectos</div>
+        <h2>20. Desinstalación, cancelación e eliminación</h2>
+        <p>Estas operacións non son equivalentes. Escolle a que produza o resultado que buscas:</p>
+        <div class="table-wrap">
+          <table class="table table-sm align-middle">
+            <thead><tr><th>Acción</th><th>Quen a pode realizar</th><th>Onde se realiza</th><th>Efecto</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Desinstalar a aplicación</strong></td><td>Propietario da conta e membros</td><td>Opcións habituais de Windows, Android, iOS ou macOS</td><td>Só elimina a aplicación do dispositivo. Non cancela a renovación, non elimina a conta e non borra os datos do servidor.</td></tr>
+              <tr><td><strong>Cancelar a renovación do plan</strong></td><td>Só o propietario da conta</td><td><strong>Subscrición</strong> &gt; configuración de Paddle</td><td>Evita cobros e renovacións futuros. Mantén o acceso ata o final do período contratado e non elimina a conta, os datos nin o equipo.</td></tr>
+              <tr><td><strong>Retirar un membro</strong></td><td>Só o propietario da conta</td><td><strong>Equipo</strong></td><td>Impide o acceso dese membro. Non cancela o plan nin elimina o espazo de traballo ou os datos compartidos.</td></tr>
+              <tr><td><strong>Eliminar a conta e os datos</strong></td><td>Só o propietario da conta</td><td>Pé do menú ou <a href="eliminar-cuenta.html">páxina pública de eliminación</a></td><td>Elimina de maneira irreversible todo o espazo de traballo, os usuarios e os datos tras unha confirmación expresa.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Desinstalar a aplicación</h3>
+        <p>A desinstalación é unha operación local do dispositivo e non comunica ningunha baixa a My Contacts Cloud. Se a conta continúa activa, o usuario pode volver instalar a aplicación ou acceder desde outro dispositivo coas súas credenciais.</p>
+
+        <h3>Cancelar a renovación ou dar de baixa o plan</h3>
+        <p>O propietario da conta debe abrir <strong>Subscrición</strong> e completar a cancelación en Paddle. Cando Paddle confirma unha cancelación programada, o servizo continúa dispoñible ata a data de vencemento, pero xa non se xera un período novo. A cancelación non borra información nin programa unha eliminación automática.</p>
+        <p>Se tamén se quere eliminar a conta, despois de confirmar a cancelación hai que volver expresamente a <strong>Eliminar a conta e os datos</strong> e iniciar unha solicitude nova. Deixar de recibir boletíns informativos é outra operación independente: interrompe as comunicacións comerciais, pero non cancela o plan nin elimina a conta.</p>
+
+        <h3>Eliminar definitivamente a conta e os datos</h3>
+        <div class="warning-block"><strong>Acción irreversible:</strong> antes de continuar, exporta a información que queiras conservar. A eliminación fai perder o acceso aínda que quede tempo contratado e non xera automaticamente ningún reembolso.</div>
+        <ol class="step-list">
+          <li>O propietario da conta selecciona <strong>Eliminar a conta e os datos</strong> no pé do menú. Tamén pode comezar, sen instalar nin abrir a aplicación, desde a <a href="eliminar-cuenta.html">páxina pública de eliminación</a>.</li>
+          <li>A aplicación consulta o estado real da subscrición. Se aínda hai unha renovación activa, detén o proceso e facilita o acceso á configuración de facturación para cancelala.</li>
+          <li>Unha vez confirmada a cancelación, o propietario da conta debe volver comezar. A cancelación nunca reactiva automaticamente unha solicitude de eliminación anterior.</li>
+          <li>Cando non hai ningunha renovación activa, envíase ao enderezo de correo electrónico do propietario da conta unha ligazón dun só uso válida durante 24 horas. Ao abrila só se mostra a páxina de confirmación e non se elimina nada.</li>
+          <li>Para confirmar, o propietario da conta debe escribir <strong>ELIMINAR</strong> e premer <strong>Eliminar definitivamente</strong>. O servidor volve comprobar a renovación antes de aceptar a operación.</li>
+          <li>A conta bloquéase, a eliminación procésase de maneira segura e envíase un correo electrónico cando finaliza.</li>
+        </ol>
+        <p>Elimínanse o espazo de traballo, o perfil do propietario da conta, todos os membros e as invitacións, as sesións, os contactos, os eventos, as interaccións, as configuracións, os documentos e o resto dos datos operativos gardados en My Contacts Cloud. Tamén se invalidan os accesos e se revogan as credenciais de Apple dispoñibles no servidor.</p>
+        <p>Os membros non poden iniciar este proceso nin desde a interface nin utilizando directamente a páxina pública. A resposta da páxina pública tampouco revela se un enderezo de correo electrónico pertence a unha conta.</p>
+      </section>
+
+      <section id="faq">
+        <div class="kicker">Respostas breves</div>
+        <h2>21. Preguntas frecuentes</h2>
+        <h3>O propietario da conta e os membros utilizan a mesma pantalla de acceso?</h3>
+        <p>Si. Todos utilizan a pantalla habitual e poden acceder co correo electrónico ou mediante Google, Microsoft ou Apple cando estas opcións estean dispoñibles.</p>
+        <h3>Quen pode xestionar os usuarios e os pagamentos?</h3>
+        <p>Só o propietario da conta. Os membros traballan coa información compartida, pero non poden xestionar o equipo, os plans nin a subscrición.</p>
+        <h3>Que ocorre se unha conta de Paddle está en período de proba?</h3>
+        <p>Se aínda non existe ningunha subscrición, <strong>Subscrición</strong> abre o catálogo de plans de Paddle en lugar de tentar abrir un portal inexistente.</p>
+        <h3>Unha invitación pendente ocupa unha praza?</h3>
+        <p>Si. Pódese cancelar para liberar a praza ou reenviar para xerar unha ligazón nova válida durante sete días.</p>
+        <h3>Retirar un membro elimina información?</h3>
+        <p>Non. As súas sesións quedan invalidadas e impídese o seu acceso, pero os contactos, eventos, interaccións, documentos e o resto da información compartida continúan na conta.</p>
+        <h3>Desinstalar a aplicación cancela o plan ou elimina os meus datos?</h3>
+        <p>Non. Só elimina a aplicación dese dispositivo. A conta, o equipo, a renovación e os datos do servidor non cambian.</p>
+        <h3>Cancelar a renovación elimina a conta?</h3>
+        <p>Non. Evita renovacións e cobros futuros e mantén o acceso ata o vencemento do período contratado. A conta e os seus datos non se eliminan, e a cancelación tampouco inicia automaticamente o proceso de eliminación.</p>
+        <h3>Quen pode eliminar a conta e os seus datos?</h3>
+        <p>Só o propietario da conta. Os membros non ven esta opción e non poden iniciala desde a páxina pública. Se aínda hai unha renovación activa, a eliminación detense ata que o propietario da conta a cancele e volva comezar o proceso.</p>
+        <h3>Podo eliminar a conta sen ter instalada a aplicación?</h3>
+        <p>Si. O propietario da conta pode iniciar a solicitude desde a <a href="eliminar-cuenta.html">páxina pública Eliminar a conta e os datos</a>. Aplícanse as mesmas comprobacións e confirmacións ca dentro da aplicación.</p>
+        <h3>Abrir a ligazón de confirmación elimina a conta?</h3>
+        <p>Non. A ligazón, válida durante 24 horas, só abre a páxina de confirmación. Para executar a eliminación hai que escribir <strong>ELIMINAR</strong> e premer <strong>Eliminar definitivamente</strong>.</p>
+        <h3>Consérvase información despois de eliminar a conta?</h3>
+        <p>Os datos operativos elimínanse dos sistemas activos e a conta non se pode reactivar. As copias de seguridade quedan fóra do uso operativo ata a súa rotación. Só se conserva, durante o prazo aplicable, a información necesaria para cumprir obrigas legais, fiscais, contables, de seguridade ou de prevención da fraude.</p>
+        <h3>Onde podo consultar o uso do plan?</h3>
+        <p>En <strong>Resumo</strong> podes consultar os usuarios, os contactos e o espazo de almacenamento utilizado respecto dos límites do plan.</p>
+        <h3>Como podo comprobar o resultado dunha importación?</h3>
+        <p>Revisa o resumo final e volve á lista de contactos. Se non se engadiu algún rexistro, comproba se foi identificado como duplicado polo número de teléfono ou o enderezo de correo electrónico.</p>
+      </section>
+
+      <p class="manual-footer">Manual en galego de My Contacts Cloud CRM. Actualizado: 18/09/2026.</p>
+    </main>
+</div>
